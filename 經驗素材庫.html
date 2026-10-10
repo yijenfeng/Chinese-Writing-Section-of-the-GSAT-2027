@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>經驗素材庫｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="經驗素材庫">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第三部・素材準備・5</span>
+    <h1>經驗素材庫</h1>
+    <p class="sub">12 個準備問題與素材卡格式。考前把真實經驗整理好，考場上只需要「挑一個、換個角度說」。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>考場上最耗時的不是寫，而是「想不到要寫什麼」。這 12 個真實經驗，足以覆蓋幾乎所有情意題，以及知性題小題二要求的「生活事例」。建議每週寫 4 張，三週完成。</p><div class="progress-card"><div class="progress-top"><span>素材卡完成度</span><span class="mono"><b id="p-cards">0</b> / 12</span></div><div class="progress"><div class="progress-bar" id="cards-bar"></div></div><p class="tool-note">點開每一題的「填寫素材卡」，內容會自動儲存在這台裝置。填滿 5 欄以上算完成。</p><div class="toolbar"><button type="button" class="btn" data-action="cards-txt">下載素材卡文字檔</button><button type="button" class="btn ghost" data-action="export">匯出備份</button><button type="button" class="btn ghost" data-action="import">匯入備份</button></div></div>
+    <ul class="toc"><li><a href="#people"><b>1</b>人與人</a></li><li><a href="#self"><b>2</b>自我成長</a></li><li><a href="#senses"><b>3</b>感官與物</a></li><li><a href="#society"><b>4</b>社會觀察</a></li><li><a href="#card"><b>5</b>素材卡怎麼寫</a></li></ul>
+  </section>
+  <section class="part prose" id="people">
+    <div class="part-kicker"><b>人與人</b></div>
+    <h2>家人、朋友與誤會</h2>
+    <div class="step"><span class="step-tag">素材 #1</span><div class="mcard" data-n="1" data-title="與家人最難忘的一次衝突"><p class="quote">與家人最難忘的一次衝突</p><p><b>追問：</b>對方當時在怕什麼？事後誰先開口？現在還有沒有沒說開的部分？</p><p class="note">可套用的關鍵詞：隔閡、縫隙、理解、溫暖、換位思考</p><details class="mform"><summary>填寫素材卡 #1<span class="badge" id="card-badge-1">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c1-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c1-scene" rows="2" data-global data-save="card:1:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c1-line" rows="2" data-global data-save="card:1:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-me">當時的我<span class="saved">已儲存</span></label><textarea id="c1-me" rows="2" data-global data-save="card:1:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c1-other" rows="2" data-global data-save="card:1:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-turn">轉折<span class="saved">已儲存</span></label><textarea id="c1-turn" rows="2" data-global data-save="card:1:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c1-now" rows="2" data-global data-save="card:1:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c1-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c1-keys" rows="2" data-global data-save="card:1:keys" placeholder="建議：隔閡、縫隙、理解、溫暖、換位思考"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #2</span><div class="mcard" data-n="2" data-title="一次誤會了某人，後來才明白對方的苦衷"><p class="quote">一次誤會了某人，後來才明白對方的苦衷</p><p><b>追問：</b>你是從哪個細節發現自己錯了？</p><p class="note">可套用的關鍵詞：標籤、偏見、臉、隔閡</p><details class="mform"><summary>填寫素材卡 #2<span class="badge" id="card-badge-2">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c2-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c2-scene" rows="2" data-global data-save="card:2:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c2-line" rows="2" data-global data-save="card:2:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-me">當時的我<span class="saved">已儲存</span></label><textarea id="c2-me" rows="2" data-global data-save="card:2:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c2-other" rows="2" data-global data-save="card:2:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-turn">轉折<span class="saved">已儲存</span></label><textarea id="c2-turn" rows="2" data-global data-save="card:2:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c2-now" rows="2" data-global data-save="card:2:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c2-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c2-keys" rows="2" data-global data-save="card:2:keys" placeholder="建議：標籤、偏見、臉、隔閡"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #3</span><div class="mcard" data-n="3" data-title="一位長輩教會你的一件小事（做菜、整理、說話方式）"><p class="quote">一位長輩教會你的一件小事（做菜、整理、說話方式）</p><p><b>追問：</b>你現在會不會不自覺地做同樣的動作？</p><p class="note">可套用的關鍵詞：傳承、記憶、氣味、樂齡、物件</p><details class="mform"><summary>填寫素材卡 #3<span class="badge" id="card-badge-3">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c3-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c3-scene" rows="2" data-global data-save="card:3:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c3-line" rows="2" data-global data-save="card:3:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-me">當時的我<span class="saved">已儲存</span></label><textarea id="c3-me" rows="2" data-global data-save="card:3:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c3-other" rows="2" data-global data-save="card:3:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-turn">轉折<span class="saved">已儲存</span></label><textarea id="c3-turn" rows="2" data-global data-save="card:3:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c3-now" rows="2" data-global data-save="card:3:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c3-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c3-keys" rows="2" data-global data-save="card:3:keys" placeholder="建議：傳承、記憶、氣味、樂齡、物件"></textarea></div></div></details></div></div>
+
+  </section>
+  <section class="part prose" id="self">
+    <div class="part-kicker"><b>自我成長</b></div>
+    <h2>失敗、不一樣、停下來</h2>
+    <div class="step"><span class="step-tag">素材 #4</span><div class="mcard" data-n="4" data-title="一次重大的失敗或挫折"><p class="quote">一次重大的失敗或挫折</p><p><b>追問：</b>失敗後第一個晚上你做了什麼？什麼人或事讓你重新開始？</p><p class="note">可套用的關鍵詞：縫隙、裂痕、轉彎、低谷、成長</p><details class="mform"><summary>填寫素材卡 #4<span class="badge" id="card-badge-4">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c4-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c4-scene" rows="2" data-global data-save="card:4:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c4-line" rows="2" data-global data-save="card:4:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-me">當時的我<span class="saved">已儲存</span></label><textarea id="c4-me" rows="2" data-global data-save="card:4:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c4-other" rows="2" data-global data-save="card:4:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-turn">轉折<span class="saved">已儲存</span></label><textarea id="c4-turn" rows="2" data-global data-save="card:4:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c4-now" rows="2" data-global data-save="card:4:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c4-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c4-keys" rows="2" data-global data-save="card:4:keys" placeholder="建議：縫隙、裂痕、轉彎、低谷、成長"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #5</span><div class="mcard" data-n="5" data-title="你和別人「不一樣」的地方，曾因此被誤解或被看見"><p class="quote">你和別人「不一樣」的地方，曾因此被誤解或被看見</p><p><b>追問：</b>你曾經想改掉它嗎？現在怎麼看它？</p><p class="note">可套用的關鍵詞：獨特、52 赫茲、標籤、孤獨、自我認同</p><details class="mform"><summary>填寫素材卡 #5<span class="badge" id="card-badge-5">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c5-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c5-scene" rows="2" data-global data-save="card:5:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c5-line" rows="2" data-global data-save="card:5:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-me">當時的我<span class="saved">已儲存</span></label><textarea id="c5-me" rows="2" data-global data-save="card:5:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c5-other" rows="2" data-global data-save="card:5:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-turn">轉折<span class="saved">已儲存</span></label><textarea id="c5-turn" rows="2" data-global data-save="card:5:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c5-now" rows="2" data-global data-save="card:5:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c5-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c5-keys" rows="2" data-global data-save="card:5:keys" placeholder="建議：獨特、52 赫茲、標籤、孤獨、自我認同"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #6</span><div class="mcard" data-n="6" data-title="一次選擇逃避而後悔；一次選擇承擔"><p class="quote">一次選擇逃避而後悔；一次選擇承擔</p><p><b>追問：</b>兩次的差別在哪？是什麼讓你「看見了」對方？</p><p class="note">可套用的關鍵詞：臉、責任、決策、勇氣</p><details class="mform"><summary>填寫素材卡 #6<span class="badge" id="card-badge-6">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c6-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c6-scene" rows="2" data-global data-save="card:6:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c6-line" rows="2" data-global data-save="card:6:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-me">當時的我<span class="saved">已儲存</span></label><textarea id="c6-me" rows="2" data-global data-save="card:6:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c6-other" rows="2" data-global data-save="card:6:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-turn">轉折<span class="saved">已儲存</span></label><textarea id="c6-turn" rows="2" data-global data-save="card:6:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c6-now" rows="2" data-global data-save="card:6:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c6-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c6-keys" rows="2" data-global data-save="card:6:keys" placeholder="建議：臉、責任、決策、勇氣"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #7</span><div class="mcard" data-n="7" data-title="一段被迫停下來的時間（受傷、生病、搬家、假期）"><p class="quote">一段被迫停下來的時間（受傷、生病、搬家、假期）</p><p><b>追問：</b>停下來時你看見了什麼平常沒發現的？</p><p class="note">可套用的關鍵詞：縫隙、留白、靜夜、慢</p><details class="mform"><summary>填寫素材卡 #7<span class="badge" id="card-badge-7">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c7-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c7-scene" rows="2" data-global data-save="card:7:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c7-line" rows="2" data-global data-save="card:7:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-me">當時的我<span class="saved">已儲存</span></label><textarea id="c7-me" rows="2" data-global data-save="card:7:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c7-other" rows="2" data-global data-save="card:7:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-turn">轉折<span class="saved">已儲存</span></label><textarea id="c7-turn" rows="2" data-global data-save="card:7:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c7-now" rows="2" data-global data-save="card:7:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c7-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c7-keys" rows="2" data-global data-save="card:7:keys" placeholder="建議：縫隙、留白、靜夜、慢"></textarea></div></div></details></div></div>
+
+  </section>
+  <section class="part prose" id="senses">
+    <div class="part-kicker"><b>感官與物</b></div>
+    <h2>氣味、物件、地方</h2>
+    <div class="step"><span class="step-tag">素材 #8</span><div class="mcard" data-n="8" data-title="一個讓你想起某人的氣味、聲音或食物"><p class="quote">一個讓你想起某人的氣味、聲音或食物</p><p><b>追問：</b>寫出它的五感細節；現在遇到它時你的感受</p><p class="note">可套用的關鍵詞：氣味、季節、冰箱、記憶</p><details class="mform"><summary>填寫素材卡 #8<span class="badge" id="card-badge-8">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c8-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c8-scene" rows="2" data-global data-save="card:8:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c8-line" rows="2" data-global data-save="card:8:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-me">當時的我<span class="saved">已儲存</span></label><textarea id="c8-me" rows="2" data-global data-save="card:8:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c8-other" rows="2" data-global data-save="card:8:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-turn">轉折<span class="saved">已儲存</span></label><textarea id="c8-turn" rows="2" data-global data-save="card:8:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c8-now" rows="2" data-global data-save="card:8:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c8-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c8-keys" rows="2" data-global data-save="card:8:keys" placeholder="建議：氣味、季節、冰箱、記憶"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #9</span><div class="mcard" data-n="9" data-title="一個對你有特別意義的物件"><p class="quote">一個對你有特別意義的物件</p><p><b>追問：</b>它的來歷、它有沒有損壞、你會不會讓別人碰</p><p class="note">可套用的關鍵詞：睹物思情、冰箱、課本、保存</p><details class="mform"><summary>填寫素材卡 #9<span class="badge" id="card-badge-9">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c9-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c9-scene" rows="2" data-global data-save="card:9:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c9-line" rows="2" data-global data-save="card:9:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-me">當時的我<span class="saved">已儲存</span></label><textarea id="c9-me" rows="2" data-global data-save="card:9:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c9-other" rows="2" data-global data-save="card:9:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-turn">轉折<span class="saved">已儲存</span></label><textarea id="c9-turn" rows="2" data-global data-save="card:9:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c9-now" rows="2" data-global data-save="card:9:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c9-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c9-keys" rows="2" data-global data-save="card:9:keys" placeholder="建議：睹物思情、冰箱、課本、保存"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #10</span><div class="mcard" data-n="10" data-title="一個你常去的地方，以及它的變化"><p class="quote">一個你常去的地方，以及它的變化</p><p><b>追問：</b>哪一天你發現它不一樣了？</p><p class="note">可套用的關鍵詞：時間、城市、成長、季節</p><details class="mform"><summary>填寫素材卡 #10<span class="badge" id="card-badge-10">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c10-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c10-scene" rows="2" data-global data-save="card:10:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c10-line" rows="2" data-global data-save="card:10:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-me">當時的我<span class="saved">已儲存</span></label><textarea id="c10-me" rows="2" data-global data-save="card:10:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c10-other" rows="2" data-global data-save="card:10:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-turn">轉折<span class="saved">已儲存</span></label><textarea id="c10-turn" rows="2" data-global data-save="card:10:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c10-now" rows="2" data-global data-save="card:10:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c10-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c10-keys" rows="2" data-global data-save="card:10:keys" placeholder="建議：時間、城市、成長、季節"></textarea></div></div></details></div></div>
+
+  </section>
+  <section class="part prose" id="society">
+    <div class="part-kicker"><b>社會觀察</b></div>
+    <h2>標籤與網路</h2>
+    <div class="step"><span class="step-tag">素材 #11</span><div class="mcard" data-n="11" data-title="一次被貼標籤，或你貼別人標籤的經驗"><p class="quote">一次被貼標籤，或你貼別人標籤的經驗</p><p><b>追問：</b>這個標籤何時幫了你、何時困住了你？</p><p class="note">可套用的關鍵詞：標籤、刻板印象、獨特</p><details class="mform"><summary>填寫素材卡 #11<span class="badge" id="card-badge-11">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c11-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c11-scene" rows="2" data-global data-save="card:11:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c11-line" rows="2" data-global data-save="card:11:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-me">當時的我<span class="saved">已儲存</span></label><textarea id="c11-me" rows="2" data-global data-save="card:11:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c11-other" rows="2" data-global data-save="card:11:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-turn">轉折<span class="saved">已儲存</span></label><textarea id="c11-turn" rows="2" data-global data-save="card:11:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c11-now" rows="2" data-global data-save="card:11:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c11-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c11-keys" rows="2" data-global data-save="card:11:keys" placeholder="建議：標籤、刻板印象、獨特"></textarea></div></div></details></div></div>
+    <div class="step"><span class="step-tag">素材 #12</span><div class="mcard" data-n="12" data-title="一個在網路或街頭看見、讓你想很久的人或事"><p class="quote">一個在網路或街頭看見、讓你想很久的人或事</p><p><b>追問：</b>你當時做了什麼？如果重來會不會不同？</p><p class="note">可套用的關鍵詞：擬社會互動、偶像、臉、社群媒體</p><details class="mform"><summary>填寫素材卡 #12<span class="badge" id="card-badge-12">已填 0/7</span></summary><div class="mgrid"><div class="mfield save-wrap"><label class="field-label" for="c12-scene">場景（五感）<span class="saved">已儲存</span></label><textarea id="c12-scene" rows="2" data-global data-save="card:12:scene" placeholder="時間、地點、看到／聽到／聞到什麼"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-line">關鍵一句話<span class="saved">已儲存</span></label><textarea id="c12-line" rows="2" data-global data-save="card:12:line" placeholder="誰說了什麼，照原話記"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-me">當時的我<span class="saved">已儲存</span></label><textarea id="c12-me" rows="2" data-global data-save="card:12:me" placeholder="當時我覺得……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-other">對方可能的想法<span class="saved">已儲存</span></label><textarea id="c12-other" rows="2" data-global data-save="card:12:other" placeholder="他其實在……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-turn">轉折<span class="saved">已儲存</span></label><textarea id="c12-turn" rows="2" data-global data-save="card:12:turn" placeholder="一個動作、一張紙條、一次道歉"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-now">現在的我怎麼看<span class="saved">已儲存</span></label><textarea id="c12-now" rows="2" data-global data-save="card:12:now" placeholder="現在回頭看……"></textarea></div><div class="mfield save-wrap"><label class="field-label" for="c12-keys">可用關鍵詞<span class="saved">已儲存</span></label><textarea id="c12-keys" rows="2" data-global data-save="card:12:keys" placeholder="建議：擬社會互動、偶像、臉、社群媒體"></textarea></div></div></details></div></div>
+
+  </section>
+  <section class="part prose" id="card">
+    <div class="part-kicker"><b>素材卡怎麼寫</b></div>
+    <h2>每張約 200 字，細節比文筆重要</h2>
+    <div class="step"><span class="step-tag">格式</span><p>重點不在文筆，而在把「細節」與「想法」都記下來。</p><div class="calc">【素材 #1】<span class="blank"></span><span class="blank"></span><span class="blank"></span><span class="blank"></span><span class="blank"></span><span class="blank"></span>
+場景（五感）：時間、地點、看到／聽到／聞到什麼
+關鍵一句話：誰說了什麼，照原話記
+當時的我：覺得……
+對方可能的想法：他其實在……
+轉折：一個動作、一張紙條、一次道歉
+現在的我怎麼看：……
+可用關鍵詞：<span class="blank"></span> / <span class="blank"></span> / <span class="blank"></span></div></div>
+    <div class="step"><span class="step-tag">三個原則</span><ul><li><b>要真的發生過</b>：虛構的故事在細節處會露餡，而「具體」正是 A+ 的條件。</li><li><b>小事就好</b>：一碗湯、一句話比生離死別更好用，因為它可以被重新詮釋成很多主題。</li><li><b>每張卡寫至少三個關鍵詞</b>：考場上看到題目，用關鍵詞反查卡片，30 秒內就能選定素材。</li></ul></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：關鍵詞反查</h2>
+    <p class="lede-line">假設 12 張素材卡都寫好了。看到下列題目，你會先抽哪一張？</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">反查</span></div>
+        <p>〈那一扇關上的門〉</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>關鍵詞：隔閡。優先抽 <b>#1 家人衝突</b> 或 <b>#2 誤會</b>；門可以是真的房門，也可以是心裡的門。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">反查</span></div>
+        <p>知性題：「同溫層」讓人只聽見相同的聲音，請說明其影響並舉例。</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>關鍵詞：社群媒體、偏見。抽 <b>#12 網路觀察</b>，搭配 <b>#11 標籤</b> 的經驗補充「只聽見相同聲音」如何形成刻板印象。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">反查</span></div>
+        <p>〈慢下來的時候〉</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>關鍵詞：留白、縫隙。抽 <b>#7 被迫停下來的時間</b>；若想寫得更有層次，可結合 <b>#4 失敗</b>。</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：一個素材，寫成很多題</h2><p>素材準備好之後，下一個單元示範如何把同一件事改寫成六個不同的歷屆題目。</p><p><a href="素材套用示範.html">素材套用示範 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第三部 素材準備</span><span>經驗素材庫</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

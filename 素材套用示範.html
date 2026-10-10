@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>素材套用示範｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="素材套用示範">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第三部・素材準備・6</span>
+    <h1>素材套用示範</h1>
+    <p class="sub">示範把一件小事——選組那晚的爭吵——改寫成六個歷屆題目。套用不是複製貼上，而是重新挑選細節。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>同一件事，只要換「放大的部分」，就能回應不同題目。這一頁用一個示範素材，對應 113、114、115 與 112 的真實考題，讓你看到同一段經驗如何變身。</p>
+    <ul class="toc"><li><a href="#material"><b>1</b>示範素材</a></li><li><a href="#six"><b>2</b>一個例子寫六題</a></li><li><a href="#how"><b>3</b>套用三步驟</a></li><li><a href="#practice"><b>4</b>練習題</a></li></ul>
+  </section>
+  <section class="part prose" id="material">
+    <div class="part-kicker"><b>示範素材</b></div>
+    <h2>一件小事：選組那晚的爭吵</h2>
+    <div class="step"><span class="step-tag">示範素材（假設情境）</span><p class="quote">高二選組時，我想讀設計，媽媽希望我選自然組。那晚吵完後我們三天沒說話。第四天早上，我在書桌上發現她印的大學設計系招生簡章，頁邊用螢光筆畫了線。</p><p class="note">這是示範用的假設情境。請筱葳用自己的真實經驗替換——越真實，細節越好寫。</p></div>
+
+  </section>
+  <section class="part prose" id="six">
+    <div class="part-kicker"><b>一個例子寫六題</b></div>
+    <h2>同一件事，換「放大的部分」就能回應不同題目</h2>
+    <div class="step"><span class="step-tag">113 情意｜縫隙的聯想</span><p><b>放大的部分：</b>三天沒說話的沉默</p><p class="quote">那三天的沉默，是我們之間的縫隙，也是光照進來的地方。</p><p><b>體悟方向：</b>空間讓情緒沉澱，媽媽在縫隙裡去了解我的世界。</p></div>
+    <div class="step"><span class="step-tag">115 情意｜隔在我們之間的種種</span><p><b>放大的部分：</b>媽媽的擔心 vs 我的夢想</p><p class="quote">隔在我們之間的，不是意見，而是彼此都沒說出口的害怕。</p><p><b>體悟方向：</b>換位：她的「反對」其實是「怕我吃苦」；回應：寫出我想對她說的話。</p></div>
+    <div class="step"><span class="step-tag">114 情意｜因為 52 赫茲，我想說的是…</span><p><b>放大的部分：</b>我的「不一樣」不被聽見</p><p class="quote">我的夢想像一個太高的頻率，家人聽不到。</p><p><b>體悟方向：</b>獨特不等於孤獨：簡章上的螢光筆，是「有人試著調頻」。</p></div>
+    <div class="step"><span class="step-tag">112 情意｜花草樹木的氣味記憶</span><p><b>放大的部分：</b>餐桌上那碗冷掉的湯（換成某種氣味）</p><p class="quote">每次聞到媽媽煮的排骨湯，我就想起那晚。</p><p><b>體悟方向：</b>氣味保存了衝突，也保存了和好。</p></div>
+    <div class="step"><span class="step-tag">113 知性｜標籤現象</span><p><b>放大的部分：</b>「讀設計沒前途」的刻板印象</p><p class="quote">標籤是暫時的捷徑，危險在於我們忘記它只是捷徑。</p><p><b>體悟方向：</b>媽媽印簡章這個動作，就是「撕開標籤」的方法。</p></div>
+    <div class="step"><span class="step-tag">115 知性｜臉</span><p><b>放大的部分：</b>我用冷戰逃避，媽媽選擇去了解</p><p class="quote">不說話，是我把媽媽「無臉化」的方式。</p><p><b>體悟方向：</b>反向省思：逃避的是我，承擔的是她。</p></div>
+
+  </section>
+  <section class="part prose" id="how">
+    <div class="part-kicker"><b>套用三步驟</b></div>
+    <h2>考場上 30 秒選定素材</h2>
+    <div class="step"><span class="step-tag">步驟</span><div class="tpl"><div class="tpl-title">套用三步驟</div><ol><li>從題目抽出關鍵詞，在素材卡的「可用關鍵詞」中找到 1–2 張候選。</li><li>問：這件事裡哪一個細節「就是」題目的意象？（縫隙＝沉默、隔閡＝害怕、臉＝被看見）</li><li>寫一句破題句把兩者綁在一起，然後按題型的模板寫。</li></ol></div></div>
+    <div class="step"><span class="step-tag">最常見的錯誤</span><p>素材寫得很好，但全篇只在最後一段提到題目。<b>題目的關鍵詞至少要出現在開頭、轉折、結尾三處。</b></p></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：同一素材，新題目</h2>
+    <p class="lede-line">用上面的示範素材（或你自己的素材卡 #1），為下列新題目寫一句破題句。</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">情 甲</span></div>
+        <p>〈翻譯〉</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「那三天，我和媽媽說的是同一種語言，卻需要一本字典。螢光筆畫的那幾行，是她的翻譯。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">情 乙</span></div>
+        <p>〈螢光筆的顏色〉</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「黃色螢光筆是考試的顏色，直到那天，它變成媽媽的顏色。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">知 A</span></div>
+        <p>有人認為父母應尊重孩子的選擇，有人認為父母應以經驗引導孩子。你傾向哪一方？</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考立論：「我傾向尊重孩子的選擇，但尊重不是放手，而是像媽媽那樣，先去了解孩子選的路。」讓步可寫父母經驗的價值。</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：排進練習計畫</h2><p>最後一個單元把以上內容排成到考前的練習計畫，並附每篇練習後的自我檢查表。</p><p><a href="練習計畫.html">練習計畫 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第三部 素材準備</span><span>素材套用示範</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

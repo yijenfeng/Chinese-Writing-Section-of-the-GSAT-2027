@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>看題判斷題型｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="看題判斷題型">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第一部・認識考試・2</span>
+    <h1>看題判斷題型</h1>
+    <p class="sub">三步驟審題流程與八種題型判斷表，拿到題目 3 分鐘內決定要用哪一套寫法。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>寫得好的前提是寫得對。很多 B 級文章不是文筆不好，而是漏了題目的某個任務，或把情意題寫成了記敘流水帳。這個單元訓練「先判斷，再下筆」。</p>
+    <ul class="toc"><li><a href="#three-steps"><b>1</b>三步驟審題</a></li><li><a href="#table"><b>2</b>題型判斷表</a></li><li><a href="#mixed"><b>3</b>混合題</a></li><li><a href="#practice"><b>4</b>題型判斷測驗</a></li></ul>
+  </section>
+  <section class="part prose" id="three-steps">
+    <div class="part-kicker"><b>三步驟審題</b></div>
+    <h2>拿到題目先不要動筆，花 3 分鐘做完三步</h2>
+    <div class="step"><span class="step-tag">第 1 步：圈任務動詞</span><p>題幹最後的「請……」句裡，圈出<b>說明、分析、比較、表明立場、舉例、省思、描寫、回應</b>等動詞。每個動詞都是一個評分項目，少一個就降一級。</p></div>
+    <div class="step"><span class="step-tag">第 2 步：找對立或核心詞</span><p>知性題找文本裡的兩方（正／負、逃避／承擔、福爾摩斯／華生）。情意題找題目的意象（縫隙、冰箱），並問自己：<b>「它在人身上是什麼？」</b></p></div>
+    <div class="step"><span class="step-tag">第 3 步：對照判斷表歸型</span><p>用下一節的判斷表找到題型，再翻到「知性題寫法」或「情意題寫法」的對應模板。</p></div>
+
+  </section>
+  <section class="part prose" id="table">
+    <div class="part-kicker"><b>題型判斷表</b></div>
+    <h2>八種題型，各有一眼認出的訊號</h2>
+    <div class="step"><span class="step-tag">判斷表</span><div class="table-wrap"><table><thead><tr><th>題型</th><th>題目訊號</th><th>歷屆例題</th><th>一句話寫法</th></tr></thead><tbody><tr><td class="k">知 A　立場二擇一</td><td>「你支持…」「贊成或反對」「傾向哪一方」</td><td>經驗機器、福爾摩斯與華生、被遺忘權</td><td>選邊站，但承認對方的合理處</td></tr><tr><td class="k">知 B　現象分析</td><td>「正面與負面」「利弊」「影響」</td><td>標籤、擬社會互動、網路與記憶</td><td>兩面都說，再提出怎麼讓正面大於負面</td></tr><tr><td class="k">知 C　概念應用</td><td>題幹先定義一個術語或理論，再要你舉生活見聞</td><td>「臉」（115）</td><td>用題目的概念當放大鏡，重新解釋你的經驗</td></tr><tr><td class="k">知 D　圖表判讀</td><td>出現圖、表、實驗數據</td><td>樂齡出遊、107 記憶實驗</td><td>先說數據顯示什麼，再說為什麼、怎麼辦</td></tr><tr><td class="k">情 甲　意象轉化</td><td>題目是一個物、自然現象或圖，而不是一件事</td><td>新冰箱、縫隙、52 赫茲鯨魚</td><td>先定義「它在我身上是什麼」，再用一件事證明</td></tr><tr><td class="k">情 乙　感官與場景記憶</td><td>氣味、季節、夜晚、某個動作</td><td>氣味記憶、季節的感思、靜夜情懷、當我打開課本</td><td>五感寫場景，用場景打開記憶，再拉回現在</td></tr><tr><td class="k">情 丙　關係事件</td><td>指向人與人：溫暖、隔閡、理解</td><td>溫暖的心、隔在我們之間的種種</td><td>寫一個變化：誤解 → 理解，或遠 → 近</td></tr><tr><td class="k">情 丁　文本對讀</td><td>先給作家文章，小題問文中人物情感</td><td>金盒子、靜夜情懷</td><td>小題精準引文本；作文學作家的手法寫自己</td></tr></tbody></table></div></div>
+
+  </section>
+  <section class="part prose" id="mixed">
+    <div class="part-kicker"><b>混合題</b></div>
+    <h2>一題同時像兩型時，看任務動詞</h2>
+    <div class="step"><span class="step-tag">判法</span><p>115 情意題同時有意象（幾米的圖）與關係（隔閡）。題幹要求「陳述原因、換位思考、傳達回應」，這些都是關係事件的任務，所以<b>主模板用情 丙</b>，意象只在開頭與結尾當引子。</p><p class="note">口訣：意象決定開頭，任務動詞決定結構。</p></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：判斷題型</h2>
+    <p class="lede-line">以下是模擬題目。點選你認為的題型，馬上看到解析；作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
+    <div class="qlist">
+      <div class="qcard quiz" data-answer="知 B">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">判斷題型</span></div>
+        <p>近年「躺平」一詞在年輕人之間流行。請說明此現象可能帶來的正面與負面意義，並提出你的看法。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>訊號是「正面與負面」。正、負各一段，各配一個例子，最後找出兩者的分界點。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 甲">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag">判斷題型</span></div>
+        <p>請以〈如果時間可以收藏〉為題，寫一篇文章。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>題目是一個抽象物。先定義「對我而言，可以收藏的時間是……」，再用一件事證明。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 D">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">判斷題型</span></div>
+        <p>下圖為近十年高中生每日使用手機時數的變化。請說明圖表呈現的趨勢，並提出你認為合宜的使用建議。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>有圖表、要你說明趨勢與建議。先引用最大、最小或變化最明顯的數字，再解釋原因、提出具體建議。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 C">
+        <div class="qhead"><span class="qnum">4</span><span class="qtag">判斷題型</span></div>
+        <p>文章提出「斷捨離」的概念：捨棄不需要的物品以整理內心。請結合生活經驗，說明你如何理解並運用這個概念。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>題幹先定義概念，再要你舉例。用概念重新解釋自己的經驗，最好包含一次「捨不得丟」的反向例子。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 丙">
+        <div class="qhead"><span class="qnum">5</span><span class="qtag">判斷題型</span></div>
+        <p>請以〈那一頓沒吃完的晚餐〉為題，寫你與某人之間的一段經歷與體會。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>重點在「與某人之間」的變化，主模板用關係事件，晚餐場景只當開頭。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 A">
+        <div class="qhead"><span class="qnum">6</span><span class="qtag">判斷題型</span></div>
+        <p>有人主張高中應取消段考排名，也有人認為排名能激勵學習。你支持哪一方？請說明理由。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>「支持哪一方」就是立場二擇一。記得用「誠然……然而……」先承認對方的合理處。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 乙">
+        <div class="qhead"><span class="qnum">7</span><span class="qtag">判斷題型</span></div>
+        <p>請以〈下雨天的味道〉為題，寫一段由氣味喚起的記憶與感受。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>氣味＋記憶，與 112〈花草樹木的氣味記憶〉同型。關鍵在今昔對照，讓氣味和記憶綁得夠緊。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 丁">
+        <div class="qhead"><span class="qnum">8</span><span class="qtag">判斷題型</span></div>
+        <p>閱讀一段作家描寫父親背影的文字後：小題一分析作者為何流淚；小題二以「背影」為題寫自己的經驗。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>先給作家文本、小題問人物情感，就是文本對讀。作文要借作家的手法（以一個畫面承載情感），而不只是寫父親。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：知性題四型的寫法與模板</h2><p>判斷出題型後，下一個單元給你知性題四型的基本寫法、進階技巧與填空模板。</p><p><a href="知性題寫法.html">知性題寫法 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第一部 認識考試</span><span>看題判斷題型</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

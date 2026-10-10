@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>情意題寫法｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="情意題寫法">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第二部・寫法與模板・4</span>
+    <h1>情意題寫法</h1>
+    <p class="sub">情意題通用的五段式，以及意象轉化、感官記憶、關係事件、文本對讀四型的寫法與填空模板。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>情意題的高分公式是「具體的畫面＋一個轉折＋說得出口的體悟」。113 閱卷召集人指出，高分關鍵在「扣題」與「情感雋永」。</p>
+    <ul class="toc"><li><a href="#five"><b>1</b>通用五段式</a></li><li><a href="#qa"><b>2</b>情 甲 意象轉化</a></li><li><a href="#qb"><b>3</b>情 乙 感官記憶</a></li><li><a href="#qc"><b>4</b>情 丙 關係事件</a></li><li><a href="#qd"><b>5</b>情 丁 文本對讀</a></li></ul>
+  </section>
+  <section class="part prose" id="five">
+    <div class="part-kicker"><b>通用結構</b></div>
+    <h2>五段式：場景、轉折、體悟</h2>
+    <div class="step"><span class="step-tag">基本五段式</span><ol><li><b>破題</b>：用一個畫面或一句自己對題目的定義開場（「對我而言，縫隙是……」）。</li><li><b>場景</b>：經驗的開頭，用五感寫一個「放慢的鏡頭」。</li><li><b>轉折</b>：事情的轉機——一句話、一個動作、一個突然懂了的瞬間。</li><li><b>體悟</b>：這件事改變了我什麼想法？點明與題目的關係。</li><li><b>收束</b>：回到開頭的畫面或意象，但意義已經不同。</li></ol></div>
+    <div class="step"><span class="step-tag">進階通則</span><ul><li><b>細節勝過形容詞</b>：「媽媽很生氣」不如「媽媽把碗放下的聲音比平常重」。</li><li><b>留一個小物件當線索</b>：一張便條、一碗湯，讓它在開頭、轉折、結尾各出現一次。</li><li><b>體悟要小而誠實</b>：「我學會了感恩」太大；「我開始在吃飯時先問她今天累不累」才可信。</li><li><b>留一點未解</b>：承認「我還在學」，反而是評分原則說的「情感雋永」。</li><li><b>名言佳句量力而為</b>：一篇至多一句，而且要自己解釋它和故事的關係。</li></ul></div>
+
+  </section>
+  <section class="part prose" id="qa">
+    <div class="part-kicker"><b>情 甲　意象轉化</b></div>
+    <h2>先定義「它在我身上是什麼」</h2>
+    <div class="step"><span class="step-tag">歷屆例題</span><p class="quote">113 學測〈縫隙的聯想〉：森林需要縫隙，讓陽光照進來；人生是否也需要縫隙？／110〈如果我有一座新冰箱〉／114〈因為 52 赫茲，我想說的是…〉</p></div>
+    <div class="step"><span class="step-tag">基本（保住 B+）</span><p>先寫意象的特性（縫隙讓陰影下的樹接到陽光），再對應到人生。</p></div>
+    <div class="step"><span class="step-tag">進階（衝 A / A+）</span><p><b>翻轉意象</b>：不只寫「縫隙是喘口氣」，而寫「我曾經害怕縫隙，後來才懂它是光進來的地方」——意象本身也有兩面。</p></div>
+    <div class="step"><span class="step-tag">答題模板</span><div class="tpl"><div class="tpl-title">情 甲　意象轉化 模板<span class="tpl-hint">空格可直接填寫，自動儲存</span></div><ol><li><b>定義意象</b>：「<span class="blank"></span>之於<span class="blank"></span>，是<span class="blank"></span>；之於我，則是<span class="blank"></span>。」<span class="pct">10%</span></li><li><b>意象的特性</b>：「<span class="blank"></span>的特性是<span class="blank"></span>，它讓<span class="blank"></span>得以<span class="blank"></span>。」<span class="pct">15%</span></li><li><b>經驗場景</b>：素材卡的場景與關鍵一句話，用五感寫。<span class="pct">35%</span></li><li><b>翻轉</b>：「我原本以為<span class="blank"></span>是<span class="blank"></span>，直到<span class="blank"></span>，才明白它其實是<span class="blank"></span>。」<span class="pct">20%</span></li><li><b>呼應收尾</b>：「如今再看<span class="blank"></span>，我看見的是<span class="blank"></span>。」<span class="pct">20%</span></li></ol></div></div>
+
+  </section>
+  <section class="part prose" id="qb">
+    <div class="part-kicker"><b>情 乙　感官與場景記憶</b></div>
+    <h2>氣味和記憶綁得越緊，分數越高</h2>
+    <div class="step"><span class="step-tag">歷屆例題</span><p class="quote">112 學測〈花草樹木的氣味記憶〉：寫一種熟悉的花草樹木氣味，及其召喚的記憶與感受。／107〈季節的感思〉／111〈當我打開課本〉</p></div>
+    <div class="step"><span class="step-tag">基本（保住 B+）</span><p>寫清楚氣味或場景，並說明它召喚的是哪個人、哪段時光。</p></div>
+    <div class="step"><span class="step-tag">進階（衝 A / A+）</span><p><b>時間疊加</b>：同一個氣味在「當年」與「現在」意義不同。今昔對照讓文章有深度，也讓「記憶」不只是回憶。</p></div>
+    <div class="step"><span class="step-tag">答題模板</span><div class="tpl"><div class="tpl-title">情 乙　感官與場景記憶 模板<span class="tpl-hint">空格可直接填寫，自動儲存</span></div><ol><li><b>感官特寫</b>：「那是一種<span class="blank"></span>的氣味／聲音，像<span class="blank"></span>。」<span class="pct">20%</span></li><li><b>記憶展開</b>：「每當<span class="blank"></span>，我就回到<span class="blank"></span>那年<span class="blank"></span>的時候。」寫人、事、一句話。<span class="pct">35%</span></li><li><b>今昔對照</b>：「當時的我只覺得<span class="blank"></span>；現在才知道<span class="blank"></span>。」<span class="pct">25%</span></li><li><b>意義收束</b>：「<span class="blank"></span>保存的不只是<span class="blank"></span>，還有<span class="blank"></span>。」<span class="pct">20%</span></li></ol></div></div>
+
+  </section>
+  <section class="part prose" id="qc">
+    <div class="part-kicker"><b>情 丙　關係事件</b></div>
+    <h2>寫一個變化，並站到對方那邊想一次</h2>
+    <div class="step"><span class="step-tag">歷屆例題</span><p class="quote">115 學測〈隔在我們之間的種種〉：陳述你與某個對象產生隔閡的原因，試著換位思考，並傳達你的回應。／108〈溫暖的心〉</p></div>
+    <div class="step"><span class="step-tag">基本（保住 B+）</span><p>完整寫出事件的起因、過程、結果。</p></div>
+    <div class="step"><span class="step-tag">進階（衝 A / A+）</span><p><b>換位思考</b>：寫出對方當時可能在想什麼，甚至承認自己的不足；結尾給一個「未完成」的回應，比大團圓更動人。</p></div>
+    <div class="step"><span class="step-tag">答題模板</span><div class="tpl"><div class="tpl-title">情 丙　關係事件 模板<span class="tpl-hint">空格可直接填寫，自動儲存</span></div><ol><li><b>點出關係</b>：「我和<span class="blank"></span>之間，曾經隔著<span class="blank"></span>。」<span class="pct">10%</span></li><li><b>衝突／誤會</b>：起因與高潮，用對話與動作寫。<span class="pct">30%</span></li><li><b>換位思考</b>：「後來我才想到，<span class="blank"></span>當時其實是在<span class="blank"></span>。」<span class="pct">25%</span></li><li><b>轉折與回應</b>：「那天<span class="blank"></span>（一個動作、一張紙條），我終於<span class="blank"></span>。」題目要求「回應」時，直接寫出想對對方說的話。<span class="pct">20%</span></li><li><b>未完的體悟</b>：「我們之間仍然有<span class="blank"></span>，但我學會了<span class="blank"></span>。」<span class="pct">15%</span></li></ol></div></div>
+
+  </section>
+  <section class="part prose" id="qd">
+    <div class="part-kicker"><b>情 丁　文本對讀</b></div>
+    <h2>學作家的手法，不只學題材</h2>
+    <div class="step"><span class="step-tag">歷屆例題</span><p class="quote">參考試卷：琦君〈金盒子〉。小題分析「他哭了，我也哭了」兩人哭的原因；作文以一件有意義的物件為題，寫睹物思情。／109〈靜夜情懷〉</p></div>
+    <div class="step"><span class="step-tag">基本（保住 B+）</span><p>小題用文本證據分析人物情感；作文寫自己類似的經驗。</p></div>
+    <div class="step"><span class="step-tag">進階（衝 A / A+）</span><p><b>借手法</b>：先辨認作者的寫法（睹物思情：物的來歷 → 人的故事 → 物的改變），再依同樣順序寫自己的素材。</p></div>
+    <div class="step"><span class="step-tag">答題模板</span><div class="tpl"><div class="tpl-title">情 丁　文本對讀 模板<span class="tpl-hint">空格可直接填寫，自動儲存</span></div><ol><li><b>小題分析</b>：「文中<span class="blank"></span>是因為<span class="blank"></span>；而<span class="blank"></span>則是因為<span class="blank"></span>。兩者的差別在於<span class="blank"></span>。」<span class="pct">小題</span></li><li><b>作文借手法</b>：物的來歷 → 物承載的人與事 → 物的改變或失去 → 我的領悟。<span class="pct">作文</span></li><li><b>結尾連回文本</b>（一句即可）：「如同<span class="blank"></span>的<span class="blank"></span>，我的<span class="blank"></span>也<span class="blank"></span>。」<span class="pct">收尾</span></li></ol></div></div>
+
+  </section>
+  <section class="toolbox prose" id="toolbox">
+    <h2>收進工具箱：情意題</h2>
+    <p class="lede-line">四型共用五段式，差別在「場景從哪裡來」與「轉折怎麼發生」。</p>
+    <div class="table-wrap"><table><thead><tr><th>題型</th><th>場景從哪裡來</th><th>進階一招</th></tr></thead><tbody><tr><td class="k">情 甲　意象轉化</td><td>從意象聯想到的一件事</td><td>翻轉意象的意義</td></tr><tr><td class="k">情 乙　感官與場景</td><td>一個氣味、聲音或地方</td><td>今昔對照，時間疊加</td></tr><tr><td class="k">情 丙　關係事件</td><td>與某人的一次衝突或誤會</td><td>換位思考＋未完成的回應</td></tr><tr><td class="k">情 丁　文本對讀</td><td>與作家文本相似的經驗</td><td>借作家的結構手法</td></tr></tbody></table></div>
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：寫破題句</h2>
+    <p class="lede-line">情意題的第一句決定閱卷老師的第一印象。每題寫一句破題句，再對照參考。</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">情 甲</span></div>
+        <p>〈窗〉</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「窗是牆上唯一允許外面進來的地方；在我們家，那扇窗是爸爸。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">情 乙</span></div>
+        <p>〈雨天的聲音〉</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「雨打在鐵皮屋頂上的聲音，是外婆家的午睡鈴。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">情 丙</span></div>
+        <p>〈我們之間的那張紙條〉</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「那三天，我和媽媽之間只隔著一扇門，卻像隔著整個高二。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">4</span><span class="qtag alt">情 甲</span></div>
+        <p>〈影子〉</p>
+        <div class="save-wrap"><label class="field-label" for="q4">我的答案<span class="saved">已儲存</span></label><textarea id="q4" data-save="q4" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>參考：「影子總是跟著我，只有在最亮的時候，它才離我最近。」接著可寫在最順利時想起的那個人。</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：準備你自己的素材</h2><p>模板是骨架，素材是血肉。下一個單元列出 12 個準備問題，讓你考前就把經驗整理好。</p><p><a href="經驗素材庫.html">經驗素材庫 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第二部 寫法與模板</span><span>情意題寫法</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

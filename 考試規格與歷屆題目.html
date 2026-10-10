@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>考試規格與歷屆題目｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="考試規格與歷屆題目">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第一部・認識考試・1</span>
+    <h1>考試規格與歷屆題目</h1>
+    <p class="sub">整理 107 到 115 學年度學測國寫題目與大考中心參考試卷，看懂題目怎麼出、分數怎麼給。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>國寫考的不是「會不會寫作文」，而是「90 分鐘內能不能讀懂題目、拿出對的素材、寫出有層次的內容」。先把考試規格與歷屆題目看清楚，後面的題型、模板與素材才有方向。</p>
+    <ul class="toc"><li><a href="#spec"><b>1</b>考試規格</a></li><li><a href="#history"><b>2</b>歷屆題目</a></li><li><a href="#trend"><b>3</b>命題趨勢</a></li><li><a href="#sources"><b>4</b>資料來源</a></li></ul>
+  </section>
+  <section class="part prose" id="spec">
+    <div class="part-kicker"><b>考試規格</b></div>
+    <h2>90 分鐘，兩大題，各 25 分</h2>
+    <div class="step"><span class="step-tag">規格</span><div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td class="k">時間</td><td>90 分鐘，兩大題</td></tr><tr><td class="k">第一大題：知性</td><td>25 分。第 1 小題約 4 分（閱讀理解、短答），第 2 小題約 21 分（論述）</td></tr><tr><td class="k">第二大題：情意</td><td>25 分。一篇命題或引導寫作</td></tr><tr><td class="k">等級</td><td>A+、A、B+、B、C+、C 六級</td></tr><tr><td class="k">扣分</td><td>字數不符、錯別字、標點；寫錯作答區扣 1 分</td></tr></tbody></table></div><p class="note">116 學年度學測的國寫題型與計分沒有改變；新增的是考場的電子防弊檢查，記得不要帶任何電子產品進場。</p></div>
+    <div class="step"><span class="step-tag">時間分配</span><div class="calc">知性　40 分鐘：審題 8・小題一 5・小題二 27
+情意　45 分鐘：審題與列綱 8・寫作 37
+檢查　 5 分鐘：作答區、錯別字、標點</div><p>先寫哪一題都可以，但一定要寫在該題的作答區（第一題正面、第二題背面）。</p></div>
+
+  </section>
+  <section class="part prose" id="history">
+    <div class="part-kicker"><b>歷屆題目</b></div>
+    <h2>近五年題型高度穩定</h2>
+    <div class="step"><span class="step-tag">總覽</span><p>知性題都是「讀一段文本 → 小題一摘要 → 小題二結合自身例子論述」；情意題都是「一個意象或情境 → 寫自己的經驗與體悟」。最後一欄是本站的題型代號，見「看題判斷題型」。</p><div class="table-wrap"><table><thead><tr><th>學年度</th><th>知性題（第一大題）</th><th>情意題（第二大題）</th><th>題型</th></tr></thead><tbody><tr><td class="k">115</td><td>「臉」：由《就算牠沒有臉》與《愛的迫降》情節出發。小題一說明女主角拒吃小豬卻能吃魚的理由；小題二舉出逃避或積極承擔的事例，談看法與省思</td><td>〈隔在我們之間的種種〉（幾米圖文）：陳述與對象產生隔閡的原因、換位思考、傳達回應</td><td>知 C＋決策／情 丙</td></tr><tr><td class="k">114</td><td>「擬社會互動」：理解概念，分析其正負面影響</td><td>〈因為 52 赫茲，我想說的是…〉：以孤獨的鯨魚喻人，寫自己的獨特性</td><td>知 B／情 甲</td></tr><tr><td class="k">113</td><td>「標籤現象」：小題一說明標籤的正負作用；小題二以貼標籤或被貼標籤的實例談看法</td><td>〈縫隙的聯想〉：由森林需要縫隙，聯想人生是否也需要縫隙</td><td>知 B／情 甲</td></tr><tr><td class="k">112</td><td>福爾摩斯與華生的對話：指出華生的兩個錯誤；比較兩人生活態度並說明自己傾向哪邊</td><td>〈花草樹木的氣味記憶〉</td><td>知 A／情 乙</td></tr><tr><td class="k">111</td><td>「樂齡出遊」：圖表判讀，探究長者出遊的意義與照顧需求</td><td>〈當我打開課本〉</td><td>知 D／情 乙</td></tr><tr><td class="k">110</td><td>「經驗機器」：支持或反對</td><td>〈如果我有一座新冰箱〉</td><td>知 A／情 甲</td></tr><tr><td class="k">109</td><td>—</td><td>〈靜夜情懷〉（古典詩文對讀）</td><td>情 丁＋乙</td></tr><tr><td class="k">108</td><td>—</td><td>〈溫暖的心〉</td><td>情 丙</td></tr><tr><td class="k">107</td><td>網路資訊與記憶：判讀實驗圖，論網路對記憶、思考、創造力的利弊</td><td>〈季節的感思〉</td><td>知 D＋B／情 乙</td></tr><tr><td class="k">參考試卷</td><td>「被遺忘權」：60 字內說明概念；400 字內表明贊成或反對並說理</td><td>琦君〈金盒子〉：分析「他哭了，我也哭了」；以一件有意義的物件為題寫睹物思情</td><td>知 A／情 丁</td></tr></tbody></table></div><p class="note">「—」表示本站未查證的題目，可到大考中心網站下載補齊。參考試卷以 111 學年度考試說明所附題例為準；116 學年度參考試卷已於 2026 年 9 月公告，建議下載實作。</p></div>
+
+  </section>
+  <section class="part prose" id="trend">
+    <div class="part-kicker"><b>命題趨勢</b></div>
+    <h2>從歷屆題目看出五件事</h2>
+    <div class="step"><span class="step-tag">趨勢 1</span><p><b>知性題一定要舉自己的例子。</b>113、115 的評分原則都寫明：未能舉例或舉例不當，只能拿 C+。所以經驗素材庫對知性題一樣重要。</p></div>
+    <div class="step"><span class="step-tag">趨勢 2</span><p><b>知性題從「二擇一」轉向「概念應用」。</b>114 擬社會互動、115「臉」都先給一個陌生概念，要你先讀懂，再用它解釋生活。</p></div>
+    <div class="step"><span class="step-tag">趨勢 3</span><p><b>情意題多是「意象轉化」。</b>冰箱、縫隙、鯨魚、「隔在中間的種種」——表面是一個物或一張圖，實際要你找出背後的人生議題。</p></div>
+    <div class="step"><span class="step-tag">趨勢 4</span><p><b>情意題越來越要「想」，不只是「感」。</b>113 被評為偏說明、重思辨；115 明寫要「換位思考」。只有故事、沒有體悟，最多 B+。</p></div>
+    <div class="step"><span class="step-tag">趨勢 5</span><p><b>題幹的列舉任務就是評分項目。</b>115 情意題的三個要求（原因、換位思考、回應）逐字出現在 A+ 的評分原則裡。</p></div>
+
+  </section>
+  <section class="part prose" id="sources">
+    <div class="part-kicker"><b>資料來源</b></div>
+    <h2>本站引用的題目與評分資料</h2>
+    <div class="step"><span class="step-tag">來源</span><ul class="sources">
+<li><a href="https://www.unews.com.tw/News/Info/3811">大學問：111 學測國寫怎麼考（參考試卷：被遺忘權、金盒子）</a></li>
+<li><a href="https://www.unews.com.tw/News/Info/10780">大學問：115 學測國寫評分原則</a></li>
+<li><a href="https://www.unews.com.tw/News/Info/11486">大學問：116 學測各科參考試卷</a></li>
+<li><a href="https://news.ltn.com.tw/news/life/paper/1627370">自由時報：113 學測國寫標籤與縫隙</a></li>
+<li><a href="https://www.1111.com.tw/news/jobns/154937">1111 新聞：113 國寫評分標準</a></li>
+<li><a href="https://www.gvm.com.tw/article/98755">遠見：112 學測作文福爾摩斯與氣味記憶</a></li>
+<li><a href="https://www.1111.com.tw/news/jobns/159382">1111 新聞：114 國寫擬社會互動與 52 赫茲</a></li>
+<li><a href="https://news.pts.org.tw/article/791187">公視新聞：115 國寫「臉」與幾米圖文</a></li>
+<li><a href="https://www.thenewslens.com/article/161750">關鍵評論網：107–110 情意題回顧</a></li>
+<li><a href="https://www.thenewslens.com/article/146675">關鍵評論網：110 知性題經驗機器</a></li>
+<li><a href="https://www.unews.com.tw/News/Info/1445">大學問：107 學測國寫評分原則</a></li>
+<li><a href="https://www.gvm.com.tw/article/132537">遠見：116 學測時程與新制</a></li>
+</ul></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：讀懂評分原則</h2>
+    <p class="lede-line">評分原則就是閱卷老師的檢查表。先猜，再打開答案。</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">評分原則</span></div>
+        <p>115 知性題小題二，如果整篇只有論述、沒有舉出任何事例，最高可能落在哪一級？</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p><b>C+（5–7 分）。</b>評分原則寫明「未能舉例，或舉例不當」屬於 C+。論述再好，沒有例子就被卡住。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">評分原則</span></div>
+        <p>115 情意題要拿 A+，評分原則要求做到哪三件事？</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>一、具體陳述與對象產生隔閡的原因；二、換位思考、嘗試溝通；三、傳達自己的回應。再加上結構嚴謹、文辭暢達。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">考試規格</span></div>
+        <p>知性題小題一通常幾分？寫作時最該注意什麼？</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p>約 4 分。只用文本資訊回答、題目問幾點就寫幾點、守住字數。寫得漂亮不加分，漏掉關鍵詞會扣分。</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：拿到題目，先判斷類型</h2><p>歷屆題目可以歸成 8 種題型。下一個單元教你用 3 分鐘判斷眼前的題目屬於哪一型。</p><p><a href="看題判斷題型.html">看題判斷題型 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第一部 認識考試</span><span>考試規格與歷屆題目</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
