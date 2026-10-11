@@ -267,15 +267,30 @@
 
   /* 8. 素材篩選 */
   var chips = document.querySelectorAll(".chip[data-filter]");
+  var curFilter = "all";
+  function applyFilter() {
+    var shown = 0;
+    document.querySelectorAll(".mat-card").forEach(function (m) {
+      var ok;
+      if (curFilter === "all") ok = true;
+      else if (curFilter === "kept") { var c = m.querySelector("input.chk"); ok = !!(c && c.checked); }
+      else ok = (" " + m.getAttribute("data-tags") + " ").indexOf(" " + curFilter + " ") >= 0;
+      m.hidden = !ok; if (ok) shown++;
+    });
+    var em = document.getElementById("kept-empty");
+    if (em) em.hidden = !(curFilter === "kept" && shown === 0);
+  }
   chips.forEach(function (c) {
     c.addEventListener("click", function () {
-      var f = c.getAttribute("data-filter");
+      curFilter = c.getAttribute("data-filter");
       chips.forEach(function (x) { x.classList.toggle("on", x === c); x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
-      document.querySelectorAll(".mat-card").forEach(function (m) {
-        m.hidden = !(f === "all" || (" " + m.getAttribute("data-tags") + " ").indexOf(" " + f + " ") >= 0);
-      });
+      applyFilter();
     });
   });
+  document.querySelectorAll(".mat-card input.chk").forEach(function (c) {
+    c.addEventListener("change", function () { if (curFilter === "kept") setTimeout(applyFilter, 250); });
+  });
+
   /* 儲存不可用時提醒 */
   try { localStorage.setItem(P + "_t", "1"); localStorage.removeItem(P + "_t"); }
   catch (e) {

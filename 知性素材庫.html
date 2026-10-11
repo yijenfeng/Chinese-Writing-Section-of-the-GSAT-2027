@@ -91,6 +91,11 @@
   .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
   @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
 
+  .chip.kept{ border-color:var(--b2); color:var(--b2-ink); background:transparent; }
+  .chip.kept{ color:var(--ink); }
+  .chip.kept.on{ background:var(--b2); color:var(--b2-ink); border-color:var(--b2); }
+  .kept-empty{ font-size:0.9rem; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.8rem 1rem; }
+
   .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
   .side.pro{ background:var(--ab); color:var(--ab-ink); }
   .side.con{ background:var(--accent); color:var(--accent-ink); }
@@ -279,7 +284,7 @@
     <div class="hero-rule"></div>
   </header>
   <section class="lede prose">
-    <p>知性題要「論點明確、舉例適切」。自己的生活經驗是必要的例子，名言與事件則能讓論述更有說服力。這一頁整理 38 個素材，每一個都能對應到不同議題、甚至相反的論點。</p>
+    <p>知性題要「論點明確、舉例適切」。自己的生活經驗是必要的例子，名言與事件則能讓論述更有說服力。這一頁整理 58 個素材，每一個都能對應到不同議題、甚至相反的論點。</p>
     <ul class="toc"><li><a href="#how"><b>1</b>怎麼用</a></li><li><a href="#issues"><b>2</b>八個常見議題</a></li><li><a href="#materials"><b>3</b>素材卡</a></li><li><a href="#practice"><b>4</b>練習題</a></li></ul>
   </section>
   <section class="part prose" id="how">
@@ -293,15 +298,16 @@
   <section class="part prose" id="issues">
     <div class="part-kicker"><b>八個常見議題</b></div>
     <h2>知性題反覆出現的議題，以及正反雙方的論點</h2>
-    <div class="step"><span class="step-tag">議題與論點</span><p>近年知性題的題材多半落在這八個議題裡。先熟悉每個議題的正反論點，看到題目時就知道可以往哪個方向寫。最右欄是能用的素材編號，點一下就會跳到素材卡。</p><div class="table-wrap"><table><thead><tr><th>議題</th><th>核心問題與正反論點</th><th>可用素材</th></tr></thead><tbody><tr><td class="k">科技與人性</td><td><b>科技是擴展人的能力，還是削弱人的思考與關係？</b><br><span class="side pro">正</span>科技擴展能力、解放時間，讓更多人得到資源與連結。<br><span class="side con">反</span>科技讓人依賴、削弱思考，並侵蝕隱私與真實的人際關係。<br><span class="exam">相關考題：經驗機器、擬社會互動、網路與記憶</span></td><td><a href="#M1">M1</a>、<a href="#M2">M2</a>、<a href="#M3">M3</a>、<a href="#M11">M11</a>、<a href="#M12">M12</a>、<a href="#M13">M13</a>、<a href="#M14">M14</a>、<a href="#H1">H1</a>、<a href="#H5">H5</a>、<a href="#C1">C1</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#R6">R6</a>、<a href="#R7">R7</a>、<a href="#R8">R8</a></td></tr><tr><td class="k">標籤與偏見</td><td><b>標籤是理解他人的捷徑，還是限制他人的框架？</b><br><span class="side pro">正</span>標籤幫助我們快速理解世界；正向的期待能成就一個人。<br><span class="side con">反</span>標籤把人簡化成一個詞，還可能讓人照著標籤活成那個樣子。<br><span class="exam">相關考題：標籤現象</span></td><td><a href="#M2">M2</a>、<a href="#M11">M11</a>、<a href="#M15">M15</a>、<a href="#H4">H4</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a>、<a href="#C8">C8</a>、<a href="#R1">R1</a>、<a href="#R2">R2</a></td></tr><tr><td class="k">個人與群體</td><td><b>個人自由與公共利益衝突時，該如何取捨？</b><br><span class="side pro">正</span>公共利益與知情權優先，個人自由應有界線。<br><span class="side con">反</span>個人權利不能因為多數的方便而被犧牲。<br><span class="exam">相關考題：被遺忘權、隱私與防疫</span></td><td><a href="#M4">M4</a>、<a href="#M5">M5</a>、<a href="#M7">M7</a>、<a href="#M8">M8</a>、<a href="#M10">M10</a>、<a href="#M12">M12</a>、<a href="#M15">M15</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#C8">C8</a>、<a href="#R8">R8</a></td></tr><tr><td class="k">理性與情感</td><td><b>做決定時，該依靠計算效益，還是同理心？</b><br><span class="side pro">正</span>理性計算能找出最有效的做法，真正幫到最多人。<br><span class="side con">反</span>同理心是道德的起點；只看數字會讓人冷漠。<br><span class="exam">相關考題：福爾摩斯與華生、臉</span></td><td><a href="#M1">M1</a>、<a href="#M6">M6</a>、<a href="#M8">M8</a>、<a href="#M12">M12</a>、<a href="#H2">H2</a>、<a href="#C7">C7</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a>、<a href="#R7">R7</a></td></tr><tr><td class="k">承擔與逃避</td><td><b>看見問題時，個人該承擔多少責任？</b><br><span class="side pro">正</span>每個人都對自己看見的事有責任，沉默也是一種選擇。<br><span class="side con">反</span>責任會在群體中被稀釋；與其責怪個人，不如設計讓承擔更容易的制度。<br><span class="exam">相關考題：臉（逃避或承擔）</span></td><td><a href="#M1">M1</a>、<a href="#M5">M5</a>、<a href="#M7">M7</a>、<a href="#M9">M9</a>、<a href="#M15">M15</a>、<a href="#M16">M16</a>、<a href="#H1">H1</a>、<a href="#H2">H2</a>、<a href="#H6">H6</a>、<a href="#C7">C7</a>、<a href="#C8">C8</a>、<a href="#R3">R3</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a></td></tr><tr><td class="k">失敗與逆境</td><td><b>挫折、停頓與「無用」的時間，有沒有價值？</b><br><span class="side pro">正</span>挫折與停頓帶來轉機，空白讓人重新出發。<br><span class="side con">反</span>不該美化苦難；不是每個人都能從逆境中站起來，需要支持系統。<br><span class="exam">相關考題：縫隙的聯想、躺平</span></td><td><a href="#M3">M3</a>、<a href="#M6">M6</a>、<a href="#M9">M9</a>、<a href="#M14">M14</a>、<a href="#M16">M16</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H6">H6</a>、<a href="#C1">C1</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a></td></tr><tr><td class="k">傳統與創新</td><td><b>該守住既有的做法，還是勇於改變？</b><br><span class="side pro">正</span>不改變就會被時代淘汰；創新常來自打破慣例。<br><span class="side con">反</span>傳統承載經驗與價值；創新不必否定過去，而是轉化過去。<br><span class="exam">相關考題：經驗機器、樂齡出遊</span></td><td><a href="#M3">M3</a>、<a href="#M6">M6</a>、<a href="#M11">M11</a>、<a href="#M14">M14</a>、<a href="#H1">H1</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H5">H5</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a></td></tr><tr><td class="k">多元與同溫</td><td><b>如何面對和自己不同的聲音？</b><br><span class="side pro">正</span>多聽不同的觀點，才能做出好判斷。<br><span class="side con">反</span>尊重多元不等於沒有是非；容忍也需要界線。<br><span class="exam">相關考題：擬社會互動、標籤、52 赫茲</span></td><td><a href="#M2">M2</a>、<a href="#M4">M4</a>、<a href="#M5">M5</a>、<a href="#M10">M10</a>、<a href="#M13">M13</a>、<a href="#H2">H2</a>、<a href="#R4">R4</a>、<a href="#R6">R6</a></td></tr></tbody></table></div></div>
+    <div class="step"><span class="step-tag">議題與論點</span><p>近年知性題的題材多半落在這八個議題裡。先熟悉每個議題的正反論點，看到題目時就知道可以往哪個方向寫。最右欄是能用的素材編號，點一下就會跳到素材卡。</p><div class="table-wrap"><table><thead><tr><th>議題</th><th>核心問題與正反論點</th><th>可用素材</th></tr></thead><tbody><tr><td class="k">科技與人性</td><td><b>科技是擴展人的能力，還是削弱人的思考與關係？</b><br><span class="side pro">正</span>科技擴展能力、解放時間，讓更多人得到資源與連結。<br><span class="side con">反</span>科技讓人依賴、削弱思考，並侵蝕隱私與真實的人際關係。<br><span class="exam">相關考題：經驗機器、擬社會互動、網路與記憶</span></td><td><a href="#M1">M1</a>、<a href="#M2">M2</a>、<a href="#M3">M3</a>、<a href="#M11">M11</a>、<a href="#M12">M12</a>、<a href="#M13">M13</a>、<a href="#M14">M14</a>、<a href="#H1">H1</a>、<a href="#H5">H5</a>、<a href="#C1">C1</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#C9">C9</a>、<a href="#C10">C10</a>、<a href="#C13">C13</a>、<a href="#C15">C15</a>、<a href="#C16">C16</a>、<a href="#C17">C17</a>、<a href="#C18">C18</a>、<a href="#R6">R6</a>、<a href="#R7">R7</a>、<a href="#R8">R8</a>、<a href="#R15">R15</a>、<a href="#R16">R16</a>、<a href="#R17">R17</a>、<a href="#R18">R18</a></td></tr><tr><td class="k">標籤與偏見</td><td><b>標籤是理解他人的捷徑，還是限制他人的框架？</b><br><span class="side pro">正</span>標籤幫助我們快速理解世界；正向的期待能成就一個人。<br><span class="side con">反</span>標籤把人簡化成一個詞，還可能讓人照著標籤活成那個樣子。<br><span class="exam">相關考題：標籤現象</span></td><td><a href="#M2">M2</a>、<a href="#M11">M11</a>、<a href="#M15">M15</a>、<a href="#H4">H4</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a>、<a href="#C8">C8</a>、<a href="#C11">C11</a>、<a href="#C13">C13</a>、<a href="#R1">R1</a>、<a href="#R2">R2</a>、<a href="#R11">R11</a>、<a href="#R12">R12</a>、<a href="#R13">R13</a>、<a href="#R15">R15</a>、<a href="#R16">R16</a></td></tr><tr><td class="k">個人與群體</td><td><b>個人自由與公共利益衝突時，該如何取捨？</b><br><span class="side pro">正</span>公共利益與知情權優先，個人自由應有界線。<br><span class="side con">反</span>個人權利不能因為多數的方便而被犧牲。<br><span class="exam">相關考題：被遺忘權、隱私與防疫</span></td><td><a href="#M4">M4</a>、<a href="#M5">M5</a>、<a href="#M7">M7</a>、<a href="#M8">M8</a>、<a href="#M10">M10</a>、<a href="#M12">M12</a>、<a href="#M15">M15</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#C8">C8</a>、<a href="#C12">C12</a>、<a href="#C16">C16</a>、<a href="#C17">C17</a>、<a href="#R8">R8</a>、<a href="#R10">R10</a>、<a href="#R13">R13</a>、<a href="#R17">R17</a></td></tr><tr><td class="k">理性與情感</td><td><b>做決定時，該依靠計算效益，還是同理心？</b><br><span class="side pro">正</span>理性計算能找出最有效的做法，真正幫到最多人。<br><span class="side con">反</span>同理心是道德的起點；只看數字會讓人冷漠。<br><span class="exam">相關考題：福爾摩斯與華生、臉</span></td><td><a href="#M1">M1</a>、<a href="#M6">M6</a>、<a href="#M8">M8</a>、<a href="#M12">M12</a>、<a href="#H2">H2</a>、<a href="#C7">C7</a>、<a href="#C14">C14</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a>、<a href="#R7">R7</a>、<a href="#R14">R14</a>、<a href="#R18">R18</a></td></tr><tr><td class="k">承擔與逃避</td><td><b>看見問題時，個人該承擔多少責任？</b><br><span class="side pro">正</span>每個人都對自己看見的事有責任，沉默也是一種選擇。<br><span class="side con">反</span>責任會在群體中被稀釋；與其責怪個人，不如設計讓承擔更容易的制度。<br><span class="exam">相關考題：臉（逃避或承擔）</span></td><td><a href="#M1">M1</a>、<a href="#M5">M5</a>、<a href="#M7">M7</a>、<a href="#M9">M9</a>、<a href="#M15">M15</a>、<a href="#M16">M16</a>、<a href="#H1">H1</a>、<a href="#H2">H2</a>、<a href="#H6">H6</a>、<a href="#C7">C7</a>、<a href="#C8">C8</a>、<a href="#C14">C14</a>、<a href="#C17">C17</a>、<a href="#R3">R3</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a>、<a href="#R9">R9</a>、<a href="#R10">R10</a>、<a href="#R14">R14</a></td></tr><tr><td class="k">失敗與逆境</td><td><b>挫折、停頓與「無用」的時間，有沒有價值？</b><br><span class="side pro">正</span>挫折與停頓帶來轉機，空白讓人重新出發。<br><span class="side con">反</span>不該美化苦難；不是每個人都能從逆境中站起來，需要支持系統。<br><span class="exam">相關考題：縫隙的聯想、躺平</span></td><td><a href="#M3">M3</a>、<a href="#M6">M6</a>、<a href="#M9">M9</a>、<a href="#M14">M14</a>、<a href="#M16">M16</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H6">H6</a>、<a href="#C1">C1</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a>、<a href="#C11">C11</a>、<a href="#C12">C12</a>、<a href="#C13">C13</a>、<a href="#R11">R11</a>、<a href="#R12">R12</a>、<a href="#R13">R13</a></td></tr><tr><td class="k">傳統與創新</td><td><b>該守住既有的做法，還是勇於改變？</b><br><span class="side pro">正</span>不改變就會被時代淘汰；創新常來自打破慣例。<br><span class="side con">反</span>傳統承載經驗與價值；創新不必否定過去，而是轉化過去。<br><span class="exam">相關考題：經驗機器、樂齡出遊</span></td><td><a href="#M3">M3</a>、<a href="#M6">M6</a>、<a href="#M11">M11</a>、<a href="#M14">M14</a>、<a href="#H1">H1</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H5">H5</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a>、<a href="#C9">C9</a>、<a href="#C10">C10</a>、<a href="#C11">C11</a>、<a href="#C14">C14</a></td></tr><tr><td class="k">多元與同溫</td><td><b>如何面對和自己不同的聲音？</b><br><span class="side pro">正</span>多聽不同的觀點，才能做出好判斷。<br><span class="side con">反</span>尊重多元不等於沒有是非；容忍也需要界線。<br><span class="exam">相關考題：擬社會互動、標籤、52 赫茲</span></td><td><a href="#M2">M2</a>、<a href="#M4">M4</a>、<a href="#M5">M5</a>、<a href="#M10">M10</a>、<a href="#M13">M13</a>、<a href="#H2">H2</a>、<a href="#C15">C15</a>、<a href="#C18">C18</a>、<a href="#R4">R4</a>、<a href="#R6">R6</a>、<a href="#R9">R9</a>、<a href="#R15">R15</a>、<a href="#R16">R16</a></td></tr></tbody></table></div></div>
 
   </section>
   <section class="part prose" id="materials">
     <div class="part-kicker"><b>素材卡</b></div>
-    <h2>38 個素材：名言、歷史、時事、研究</h2>
+    <h2>58 個素材：名言、歷史、時事、研究</h2>
     <p class="note">名言都選用近現代人物的白話名言，並附英文原文或出處年代，方便查證。</p>
-    <p>點選議題，只看能用在那個議題的素材。勾選「我要背這個素材」，會記在這台裝置，方便考前複習。<span class="mono kept-count">已勾選 <b id="p-mats">0</b> 個</span></p>
-    <div class="chips" role="group" aria-label="依議題篩選"><button type="button" class="chip on" data-filter="all">全部</button><button type="button" class="chip" data-filter="T1">科技與人性</button><button type="button" class="chip" data-filter="T2">標籤與偏見</button><button type="button" class="chip" data-filter="T3">個人與群體</button><button type="button" class="chip" data-filter="T4">理性與情感</button><button type="button" class="chip" data-filter="T5">承擔與逃避</button><button type="button" class="chip" data-filter="T6">失敗與逆境</button><button type="button" class="chip" data-filter="T7">傳統與創新</button><button type="button" class="chip" data-filter="T8">多元與同溫</button></div>
+    <p>點選議題，只看能用在那個議題的素材。素材很多，不必全背：挑 8～10 個最有感、又能用在多個議題的素材，勾選「加入我的必背清單」，考前按「★ 只看我的必背清單」就能只複習這些。清單記在這台裝置。<span class="mono kept-count">必背清單：<b id="p-mats">0</b> 個</span></p>
+    <div class="chips" role="group" aria-label="依議題篩選"><button type="button" class="chip on" data-filter="all">全部</button><button type="button" class="chip kept" data-filter="kept">★ 只看我的必背清單</button><button type="button" class="chip" data-filter="T1">科技與人性</button><button type="button" class="chip" data-filter="T2">標籤與偏見</button><button type="button" class="chip" data-filter="T3">個人與群體</button><button type="button" class="chip" data-filter="T4">理性與情感</button><button type="button" class="chip" data-filter="T5">承擔與逃避</button><button type="button" class="chip" data-filter="T6">失敗與逆境</button><button type="button" class="chip" data-filter="T7">傳統與創新</button><button type="button" class="chip" data-filter="T8">多元與同溫</button></div>
+    <p class="kept-empty" id="kept-empty" hidden>必背清單還是空的。先在素材卡下方勾選「加入我的必背清單」。</p>
     <div class="mat-list">
 <article class="mat-card" id="M1" data-tags="T1 T4 T5">
   <div class="mat-head"><span class="mid">M1</span><span class="kind k-quote">名言</span><h3>愛的反面不是恨，而是冷漠</h3><span class="msrc">埃利・維瑟爾，1986 年受訪（原文：The opposite of love is not hate, it's indifference.）</span></div>
@@ -311,7 +317,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">維瑟爾說，愛的反面不是恨，而是冷漠；在群組裡看見霸凌卻只按已讀，那一刻我們選擇的，正是冷漠。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M1"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M1"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M2" data-tags="T1 T2 T8">
   <div class="mat-head"><span class="mid">M2</span><span class="kind k-quote">名言</span><h3>非凡的主張，需要非凡的證據</h3><span class="msrc">卡爾・薩根，電視節目《宇宙》（1980）（原文：Extraordinary claims require extraordinary evidence.）</span></div>
@@ -321,7 +327,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">薩根說「非凡的主張需要非凡的證據」；在一則訊息被轉傳一萬次之前，總該有人先問一句：證據在哪裡？</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M2"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M2"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M3" data-tags="T1 T6 T7">
   <div class="mat-head"><span class="mid">M3</span><span class="kind k-quote">名言</span><h3>我們只能看見前方很短的距離，但已經足以看見許多該做的事</h3><span class="msrc">艾倫・圖靈〈計算機器與智慧〉（1950）（原文：We can only see a short distance ahead, but we can see plenty there that needs to be done.）</span></div>
@@ -331,7 +337,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">圖靈說我們只能看見前方很短的距離，卻已足以看見許多該做的事；面對 AI 帶來的未知，與其焦慮看不見的終點，不如先走好看得見的下一步。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M3"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M3"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M4" data-tags="T3 T8">
   <div class="mat-head"><span class="mid">M4</span><span class="kind k-quote">名言</span><h3>我不同意你說的話，但我誓死捍衛你說話的權利</h3><span class="msrc">伊芙琳・霍爾《伏爾泰的朋友們》（1906）</span></div>
@@ -341,7 +347,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">霍爾筆下的那句「我不同意你說的話，但我誓死捍衛你說話的權利」，考驗的不是我們能不能接受喜歡的意見，而是能不能容下討厭的意見。</p>
   <p class="note">引用時寫「霍爾概括伏爾泰的精神」最準確；若只寫「伏爾泰說」，是常見的誤植。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M4"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M4"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M5" data-tags="T3 T5 T8">
   <div class="mat-head"><span class="mid">M5</span><span class="kind k-quote">名言</span><h3>如果自由有任何意義，那就是說出別人不想聽的話的權利</h3><span class="msrc">喬治・歐威爾，為《動物農莊》寫的序文〈出版自由〉（原文：If liberty means anything at all, it means the right to tell people what they do not want to hear.）</span></div>
@@ -351,7 +357,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">歐威爾說，自由就是說出別人不想聽的話的權利；挑戰者號的工程師說出了別人不想聽的話，可惜沒有人願意聽。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M5"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M5"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M6" data-tags="T4 T6 T7">
   <div class="mat-head"><span class="mid">M6</span><span class="kind k-quote">名言</span><h3>你無法預先把點點滴滴串連起來，只能在回顧時才看見它們的連結</h3><span class="msrc">賈伯斯，史丹佛大學畢業演講（2005）（原文：You can't connect the dots looking forward; you can only connect them looking backwards.）</span></div>
@@ -361,7 +367,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">賈伯斯說點點滴滴只能在回顧時串連；那些被大人說「沒用」的興趣，也許正在替未來的某一天準備答案。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M6"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M6"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M7" data-tags="T3 T5">
   <div class="mat-head"><span class="mid">M7</span><span class="kind k-quote">名言</span><h3>不要問國家能為你做什麼，要問你能為國家做什麼</h3><span class="msrc">約翰・甘迺迪，美國總統就職演說（1961）（原文：Ask not what your country can do for you—ask what you can do for your country.）</span></div>
@@ -371,7 +377,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">甘迺迪說「不要問國家能為你做什麼」；放在班級裡也一樣，與其抱怨班會沒人發言，不如自己先舉手。</p>
   <p class="note">同一句話可支持「群體優先」，也可以引出「個人權利的界線」，是一素材多論點的好例子。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M7"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M7"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M8" data-tags="T3 T4">
   <div class="mat-head"><span class="mid">M8</span><span class="kind k-quote">名言</span><h3>在高大堅固的牆和撞牆破碎的蛋之間，我永遠站在蛋那一邊</h3><span class="msrc">村上春樹，耶路撒冷文學獎得獎演說（2009）</span></div>
@@ -381,7 +387,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">村上春樹說他永遠站在蛋那一邊；當規定碰上一個具體的人，我們至少該停下來，看看那顆蛋的樣子。</p>
   <p class="note">可用來支持「同情弱者」，也可以引出「同理之外仍需判斷」，適合寫讓步段。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M8"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M8"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M9" data-tags="T5 T6">
   <div class="mat-head"><span class="mid">M9</span><span class="kind k-quote">名言</span><h3>人的一切都可以被奪走，唯獨最後的自由：選擇自己態度的自由</h3><span class="msrc">維克多・弗蘭克《活出意義來》（1946）</span></div>
@@ -391,7 +397,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">弗蘭克說，人最後的自由是選擇自己的態度；考試失利無法重來，但怎麼走出考場，仍然是我自己的選擇。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M9"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M9"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M10" data-tags="T3 T8">
   <div class="mat-head"><span class="mid">M10</span><span class="kind k-quote">名言</span><h3>容忍比自由更重要</h3><span class="msrc">胡適〈容忍與自由〉（1959）</span></div>
@@ -401,7 +407,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">胡適說「容忍比自由更重要」；我們爭取自己說話的自由時，也要記得容忍別人說出我們不愛聽的話。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M10"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M10"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M11" data-tags="T1 T2 T7">
   <div class="mat-head"><span class="mid">M11</span><span class="kind k-quote">名言</span><h3>未經檢視的人生不值得過</h3><span class="msrc">蘇格拉底，見柏拉圖《申辯篇》</span></div>
@@ -411,7 +417,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">蘇格拉底說「未經檢視的人生不值得過」；經驗機器再完美，也只是一段被別人安排、無法檢視的人生。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M11"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M11"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M12" data-tags="T1 T3 T4">
   <div class="mat-head"><span class="mid">M12</span><span class="kind k-quote">名言</span><h3>人是目的，不只是手段</h3><span class="msrc">康德的道德哲學</span></div>
@@ -421,7 +427,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">康德提醒我們，人永遠是目的而不只是手段；當平台把我們的注意力賣給廣告商，我們其實已經成了商品。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M12"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M12"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M13" data-tags="T1 T8">
   <div class="mat-head"><span class="mid">M13</span><span class="kind k-quote">名言</span><h3>媒介即訊息</h3><span class="msrc">麥克魯漢《認識媒體》（1964）</span></div>
@@ -431,7 +437,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">麥克魯漢說「媒介即訊息」；每天滑兩小時短影音，改變我們的不是影片內容，而是越來越短的專注力。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M13"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M13"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M14" data-tags="T1 T6 T7">
   <div class="mat-head"><span class="mid">M14</span><span class="kind k-quote">名言</span><h3>跑吧！不要用走的</h3><span class="msrc">黃仁勳，臺灣大學畢業典禮演講（2023）（原文：Run, don't walk.）</span></div>
@@ -441,7 +447,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">黃仁勳說「跑吧，不要用走的」；但我想，奔跑之前更重要的，是確定自己跑的方向是自己選的。</p>
   <p class="note">同一句話可以支持「積極競爭」，也可以用來討論「過度競爭的焦慮」。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M14"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M14"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M15" data-tags="T2 T3 T5">
   <div class="mat-head"><span class="mid">M15</span><span class="kind k-quote">名言</span><h3>一個孩子、一位老師、一本書和一枝筆，就能改變世界</h3><span class="msrc">馬拉拉，聯合國演講（2013）（原文：One child, one teacher, one book and one pen can change the world.）</span></div>
@@ -451,7 +457,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">馬拉拉說，一個孩子、一位老師、一本書和一枝筆就能改變世界；改變不一定從大人物開始，也可以從一個願意發聲的學生開始。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M15"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M15"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="M16" data-tags="T5 T6">
   <div class="mat-head"><span class="mid">M16</span><span class="kind k-quote">名言</span><h3>世界雖然充滿苦難，也充滿了克服苦難的力量</h3><span class="msrc">海倫・凱勒《樂觀》（1903）（原文：Although the world is full of suffering, it is full also of the overcoming of it.）</span></div>
@@ -461,7 +467,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">海倫・凱勒說，世界充滿苦難，也充滿克服苦難的力量；而她的力量裡，有一大部分來自那位不放棄她的老師。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M16"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M16"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H1" data-tags="T1 T5 T7">
   <div class="mat-head"><span class="mid">H1</span><span class="kind k-hist">歷史</span><h3>鐵達尼號沉沒</h3><span class="msrc">1912 年</span></div>
@@ -471,7 +477,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">鐵達尼號被稱為「永不沉沒」，卻連足夠的救生艇都沒有；真正讓它沉沒的，或許不是冰山，而是人的傲慢。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H1"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H1"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H2" data-tags="T4 T5 T8">
   <div class="mat-head"><span class="mid">H2</span><span class="kind k-hist">歷史</span><h3>挑戰者號太空梭事故</h3><span class="msrc">1986 年</span></div>
@@ -481,7 +487,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">挑戰者號的悲劇提醒我們：問題不是沒有人知道危險，而是知道的人說了，卻沒有人聽。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H2"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H2"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H3" data-tags="T6 T7">
   <div class="mat-head"><span class="mid">H3</span><span class="kind k-hist">歷史</span><h3>弗萊明發現盤尼西林</h3><span class="msrc">1928 年</span></div>
@@ -491,7 +497,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">一個被汙染的培養皿，在別人眼中是失敗，在弗萊明眼中卻是縫隙；盤尼西林就從那道縫隙裡長了出來。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H3"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H3"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H4" data-tags="T2 T6 T7">
   <div class="mat-head"><span class="mid">H4</span><span class="kind k-hist">歷史</span><h3>便利貼的誕生</h3><span class="msrc">3M 公司，1968–1980 年</span></div>
@@ -501,7 +507,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">便利貼的黏膠一開始被認為是失敗的產品；它告訴我們，失敗與成功之間，有時只差一個新的用途。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H4"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H4"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H5" data-tags="T1 T7">
   <div class="mat-head"><span class="mid">H5</span><span class="kind k-hist">歷史</span><h3>柯達與數位相機</h3><span class="msrc">1975–2012 年</span></div>
@@ -511,7 +517,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">柯達發明了數位相機，最後卻被數位相機打敗；它輸的不是技術，而是不敢放下過去成功的勇氣。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H5"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H5"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="H6" data-tags="T5 T6">
   <div class="mat-head"><span class="mid">H6</span><span class="kind k-hist">歷史</span><h3>司馬遷忍辱完成《史記》</h3><span class="msrc">西漢</span></div>
@@ -521,7 +527,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">司馬遷因為替別人說了一句公道話而受辱，卻沒有因此放下手中的筆；《史記》能留下來，是因為有人在最痛的時候，仍然選擇完成自己該做的事。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H6"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H6"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C1" data-tags="T1 T6">
   <div class="mat-head"><span class="mid">C1</span><span class="kind k-now">時事</span><h3>AlphaGo 對戰李世乭</h3><span class="msrc">2016 年</span></div>
@@ -531,7 +537,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">AlphaGo 贏了四局，但人們記得最久的，是李世乭在第四局下出的那一手；機器證明了它的強，人則證明了不放棄。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C1"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C1"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C2" data-tags="T1 T3">
   <div class="mat-head"><span class="mid">C2</span><span class="kind k-now">時事</span><h3>臺灣口罩實名制與口罩地圖</h3><span class="msrc">2020 年</span></div>
@@ -541,7 +547,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">口罩地圖證明，科技不一定讓人疏離；當政府願意開放資料、民間願意投入，科技也能成為一張把人連在一起的網。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C2"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C2"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C3" data-tags="T1 T3">
   <div class="mat-head"><span class="mid">C3</span><span class="kind k-now">時事</span><h3>劍橋分析事件</h3><span class="msrc">2018 年揭露</span></div>
@@ -551,7 +557,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">劍橋分析事件讓人明白：當一項服務是免費的，被賣出去的可能就是我們自己。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C3"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C3"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C4" data-tags="T2 T6">
   <div class="mat-head"><span class="mid">C4</span><span class="kind k-now">時事</span><h3>林書豪與「林來瘋」</h3><span class="msrc">2012 年</span></div>
@@ -561,7 +567,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">林書豪曾經坐在板凳末端，因為很多人覺得亞裔球員打不了 NBA；他上場的那一刻，打破的不只是防守，還有一個標籤。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C4"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C4"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C5" data-tags="T2 T6 T7">
   <div class="mat-head"><span class="mid">C5</span><span class="kind k-now">時事</span><h3>吳寶春</h3><span class="msrc">2010 年世界冠軍</span></div>
@@ -571,7 +577,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">吳寶春只有國中學歷，卻做出世界冠軍的麵包；他的酒釀桂圓麵包裡，有臺灣的味道，也有對學歷標籤最好的回答。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C5"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C5"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C6" data-tags="T2 T7">
   <div class="mat-head"><span class="mid">C6</span><span class="kind k-now">時事</span><h3>張忠謀 55 歲創立台積電</h3><span class="msrc">1987 年</span></div>
@@ -581,7 +587,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">張忠謀 55 歲才創立台積電；如果他相信「這個年紀該退休了」的標籤，世界的晶片地圖可能完全不同。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C6"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C6"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C7" data-tags="T4 T5">
   <div class="mat-head"><span class="mid">C7</span><span class="kind k-now">時事</span><h3>陳樹菊</h3><span class="msrc">2010 年入選《時代》百大</span></div>
@@ -591,7 +597,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">陳樹菊不是富人，捐出的卻是一個菜販一輩子的積蓄；她證明了善行的分量，不能只用金額來計算。</p>
   <p class="note">可與 112 福爾摩斯題對照：福爾摩斯重視效益，陳樹菊的故事則顯示心意本身的力量。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C7"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C7"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="C8" data-tags="T2 T3 T5">
   <div class="mat-head"><span class="mid">C8</span><span class="kind k-now">時事</span><h3>葛瑞塔・通貝里的氣候罷課</h3><span class="msrc">2018 年起</span></div>
@@ -601,7 +607,107 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">通貝里一開始只是一個人坐在國會外；她證明了承擔不必等到長大，也不必等到有人陪。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C8"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C8"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C9" data-tags="T1 T7">
+  <div class="mat-head"><span class="mid">C9</span><span class="kind k-now">時事</span><h3>ChatGPT 與校園作業</h3><span class="msrc">2022 年 11 月推出至今</span></div>
+  <p>生成式 AI 聊天機器人 ChatGPT 推出後迅速普及，學生可以用它寫報告、解題。各國學校一度禁止，後來多改為訂定使用規範，並調整作業與評量方式。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">正方</span>AI 能成為個人化的家教，降低學習門檻。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>直接交出 AI 的答案，等於跳過了思考的過程（可搭配 M2、R15）。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>與其禁止新工具，不如改變教學與評量的方式。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">ChatGPT 能在十秒內寫完一篇報告，卻不能替我理解報告裡的任何一句話；工具越強，越考驗使用者是否還願意思考。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C9"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C10" data-tags="T1 T7">
+  <div class="mat-head"><span class="mid">C10</span><span class="kind k-now">時事</span><h3>AI 繪圖作品奪得美術比賽首獎</h3><span class="msrc">2022 年，美國科羅拉多州博覽會</span></div>
+  <p>一位參賽者以 AI 繪圖工具 Midjourney 生成的作品，在州博覽會的數位藝術類獲得首獎，引發「AI 作品算不算藝術」的激烈爭論。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>每一種新工具（如攝影）出現時都曾被質疑不是藝術。</li><li><span class="iss">傳統與創新</span><span class="dir">傳統方</span>藝術的價值在於創作者的經驗與技藝，AI 生成難以取代。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>當機器能輕易產出作品，人的創作價值需要重新定義。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">AI 繪圖奪下首獎時，有人說藝術已死，也有人說攝影剛出現時也被這樣說過；爭論的核心其實是：我們珍惜的，是作品，還是創作的人？</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C10"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C11" data-tags="T2 T6 T7">
+  <div class="mat-head"><span class="mid">C11</span><span class="kind k-now">時事</span><h3>大谷翔平的「二刀流」</h3><span class="msrc">2018 年起；2024 年達成 50 轟 50 盜</span></div>
+  <p>大谷翔平進入美國職棒時，許多人認為職業球員不可能同時兼顧投手與打者。他堅持投打兼修，成為頂尖的投手與打者，2024 年更成為大聯盟史上第一位單季 50 支全壘打、50 次盜壘的球員。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>「只能選一樣」是一種限制人的框架。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>打破慣例的嘗試，能重新定義一個領域的可能。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>他也經歷手肘手術與傷停，仍持續回到場上。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">當所有人都說投打只能選一樣，大谷翔平選擇兩樣都要；他打破的不只是紀錄，還有「本來就是這樣」的想像。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C11"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C12" data-tags="T3 T6">
+  <div class="mat-head"><span class="mid">C12</span><span class="kind k-now">時事</span><h3>麟洋配奧運羽球雙打連霸</h3><span class="msrc">2021 年東京、2024 年巴黎</span></div>
+  <p>李洋與王齊麟組成的「麟洋配」，在 2021 年東京奧運奪得羽球男子雙打金牌，2024 年巴黎奧運再度奪金，成為臺灣首面奧運連霸金牌。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">個人與群體</span><span class="dir">群體方</span>雙打的勝利來自互補與信任，合作的力量大於個人。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>衛冕的壓力比第一次更大，堅持需要長期準備。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">麟洋配的兩面金牌告訴我們，最強的組合不是兩個最強的人，而是兩個最懂得補位的人。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C12"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C13" data-tags="T1 T2 T6">
+  <div class="mat-head"><span class="mid">C13</span><span class="kind k-now">時事</span><h3>林郁婷奪金與網路攻擊</h3><span class="msrc">2024 年巴黎奧運</span></div>
+  <p>拳擊選手林郁婷在巴黎奧運奪得女子 57 公斤級金牌。賽事期間，她因外界對參賽資格的不實質疑，遭到大量網路攻擊；國際奧會表示她符合參賽資格，中華奧會也發表聲明支持她。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>一個未經查證的標籤，就能讓一個人承受鋪天蓋地的攻擊（可搭配 M2 薩根）。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>網路讓不實指控的傳播速度遠超過澄清。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>在攻擊與壓力中仍完成比賽，展現了心理韌性。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">林郁婷在擂台上贏得金牌，在網路上卻要面對不實的指控；一則沒有證據的質疑被轉傳千萬次，傷害的是一個真實的人。</p>
+  <p class="note">引用時聚焦在「網路攻擊與不實指控」，不需要描述爭議細節。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C13"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C14" data-tags="T4 T5 T7">
+  <div class="mat-head"><span class="mid">C14</span><span class="kind k-now">時事</span><h3>泰坦號潛水器內爆</h3><span class="msrc">2023 年 6 月</span></div>
+  <p>載著五人前往參觀鐵達尼號殘骸的私人潛水器「泰坦號」在深海內爆，無人生還。事後報導指出，業界專家曾多次對其設計與未經第三方認證提出警告。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">傳統與創新</span><span class="dir">反方</span>創新不能以忽視安全規範為代價。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>專業者提出警告，是對他人生命的承擔；忽視警告則是決策者的失職（可搭配 H2 挑戰者號）。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>冒險精神需要建立在嚴謹的證據與檢驗上。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">一百多年前，鐵達尼號被稱為永不沉沒；2023 年，前往探訪它的泰坦號也忽視了專家的警告。歷史會重演，往往是因為人總以為自己是例外。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C14"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C15" data-tags="T1 T8">
+  <div class="mat-head"><span class="mid">C15</span><span class="kind k-now">時事</span><h3>深偽視訊會議詐騙</h3><span class="msrc">2024 年，香港</span></div>
+  <p>一家跨國工程公司的香港員工參加視訊會議，畫面中的「財務長」與多位「同事」其實都是 AI 深偽技術製造的假影像。他依指示轉出約 2 億港元，事後才發現受騙。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>眼見不再為憑，科技讓詐騙更難辨識。</li><li><span class="iss">多元與同溫</span><span class="dir">正方</span>面對重大決定，需要多方查證，不能只相信單一管道（可搭配 M2 薩根）。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">深偽詐騙讓「親眼看見」也不再可靠；在這個時代，最重要的能力也許不是看得多，而是願意多問一句、多查一次。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C15"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C16" data-tags="T1 T3">
+  <div class="mat-head"><span class="mid">C16</span><span class="kind k-now">時事</span><h3>澳洲禁止 16 歲以下使用社群媒體</h3><span class="msrc">2024 年 11 月通過，2025 年 12 月 10 日生效</span></div>
+  <p>澳洲國會通過法律，要求社群平台採取合理措施，阻止 16 歲以下的人使用帳號；違規的平台最高可被罰約 5000 萬澳元，未成年人與家長則不受處罰。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">個人與群體</span><span class="dir">群體方</span>為了保護青少年身心，社會可以限制平台與使用年齡。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>也有人認為這限制了青少年的表達與資訊自由，且難以落實。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>社群媒體對青少年的影響，已經大到需要國家立法介入。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">澳洲禁止 16 歲以下使用社群媒體，支持者看見保護，反對者看見限制；這個爭論真正的問題是：保護與自由之間，界線該由誰來畫？</p>
+  <p class="note">這是正反都能寫的爭議題，適合練習「立場二擇一」的讓步寫法。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C16"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C17" data-tags="T1 T3 T5">
+  <div class="mat-head"><span class="mid">C17</span><span class="kind k-now">時事</span><h3>花蓮光復的「鏟子超人」</h3><span class="msrc">2025 年 9 月</span></div>
+  <p>2025 年 9 月 23 日，花蓮馬太鞍溪堰塞湖溢流，洪水與泥流沖進光復鄉，造成嚴重災情。之後連日有大批來自各地的志工自發前往，扛著鏟子協助居民清理淤泥，被稱為「鏟子超人」。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>看見他人的苦難，選擇親自前往，是最直接的承擔。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>災難中的公民自發行動，展現了社會的韌性。</li><li><span class="iss">科技與人性</span><span class="dir">正方</span>社群媒體也能成為動員與互助的工具，讓志工知道哪裡需要幫忙。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">光復鄉的泥巴有一層樓高，來自各地的鏟子超人卻一鏟一鏟地把它挖開；他們證明了，面對他人的苦難，最好的回應不是轉發，而是到場。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C17"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="C18" data-tags="T1 T8">
+  <div class="mat-head"><span class="mid">C18</span><span class="kind k-now">時事</span><h3>泰勒絲巡迴演唱會的粉絲現象</h3><span class="msrc">2023–2024 年</span></div>
+  <p>泰勒絲的「時代巡迴演唱會」在全球創下驚人的票房，粉絲為了搶票、跨國追演唱會投入大量金錢與時間，演唱會也帶動舉辦城市的觀光消費。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">正方</span>偶像帶來的歸屬感與陪伴，能凝聚社群、帶動經濟（可用於 114 擬社會互動）。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>單向的情感投入可能失衡，甚至影響真實生活與經濟能力。</li><li><span class="iss">多元與同溫</span><span class="dir">正方</span>粉絲社群跨越國界與語言，是多元交流的場域。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">泰勒絲不認識台下的任何一位歌迷，歌迷卻能唱出她的每一句歌詞；擬社會互動的力量與風險，都在這份不對等裡。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C18"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R1" data-tags="T2">
   <div class="mat-head"><span class="mid">R1</span><span class="kind k-study">研究</span><h3>比馬龍效應</h3><span class="msrc">羅森塔爾與雅各布森，1968 年</span></div>
@@ -611,7 +717,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">比馬龍效應告訴我們，期待本身就是一種力量；我們貼在別人身上的標籤，可能正在悄悄改寫他的未來。</p>
   <p class="note">後續研究對效果大小有爭議，引用時宜說「研究發現期待可能影響表現」，不要誇大。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R1"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R1"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R2" data-tags="T2">
   <div class="mat-head"><span class="mid">R2</span><span class="kind k-study">研究</span><h3>刻板印象威脅</h3><span class="msrc">史提爾與阿隆森，1995 年</span></div>
@@ -621,7 +727,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">刻板印象威脅的研究顯示，一句「女生數學比較差」，就可能讓原本會的題目變難；標籤不只描述人，也在改變人。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R2"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R2"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R3" data-tags="T5">
   <div class="mat-head"><span class="mid">R3</span><span class="kind k-study">研究</span><h3>旁觀者效應</h3><span class="msrc">達利與拉丹，1968 年</span></div>
@@ -631,7 +737,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">旁觀者效應提醒我們：當每個人都以為別人會出手，最後往往沒有人出手；打破它的方法，就是讓自己成為那個「別人」。</p>
   <p class="note">當年媒體報導的目擊人數後來被證實有誇大，引用時以「研究發現」為主，不要細述命案細節。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R3"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R3"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R4" data-tags="T4 T5 T8">
   <div class="mat-head"><span class="mid">R4</span><span class="kind k-study">研究</span><h3>米爾格倫服從實驗</h3><span class="msrc">1961 年起</span></div>
@@ -641,7 +747,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">米爾格倫的實驗讓人不安：按下按鈕的不是惡人，而是一群「只是聽從指示」的普通人。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R4"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R4"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R5" data-tags="T4 T5">
   <div class="mat-head"><span class="mid">R5</span><span class="kind k-study">研究</span><h3>平庸之惡</h3><span class="msrc">漢娜・鄂蘭《平凡的邪惡》（1963）</span></div>
@@ -651,7 +757,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">鄂蘭說的「平庸之惡」，不是發生在遙遠的戰場，也可能發生在一個人人轉發、卻沒有人停下來想一想的群組裡。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R5"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R5"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R6" data-tags="T1 T8">
   <div class="mat-head"><span class="mid">R6</span><span class="kind k-study">研究</span><h3>過濾泡泡（同溫層）</h3><span class="msrc">帕理澤《搜尋引擎沒告訴你的事》（2011）</span></div>
@@ -661,7 +767,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">過濾泡泡最可怕的地方，在於我們看不見它；我們以為自己看見了全世界，其實只看見了自己的倒影。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R6"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R6"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R7" data-tags="T1 T4">
   <div class="mat-head"><span class="mid">R7</span><span class="kind k-study">研究</span><h3>經驗機器</h3><span class="msrc">諾齊克《無政府、國家與烏托邦》（1974）</span></div>
@@ -671,7 +777,7 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">諾齊克的經驗機器問的其實是：我們要的是「感覺很好」，還是「真的活過」？</p>
   <p class="note">110 學測知性題的原型。</p>
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R7"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R7"><span>加入我的必背清單</span></label>
 </article>
 <article class="mat-card" id="R8" data-tags="T1 T3">
   <div class="mat-head"><span class="mid">R8</span><span class="kind k-study">研究</span><h3>《一九八四》的老大哥</h3><span class="msrc">歐威爾，1949 年</span></div>
@@ -681,7 +787,107 @@
   <p class="uses-title">用法示範</p>
   <p class="sample">《一九八四》裡的螢幕是政府裝的；今天我們口袋裡的螢幕，卻是自己買的。</p>
   
-  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R8"><span>我要背這個素材</span></label>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R8"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R9" data-tags="T5 T8">
+  <div class="mat-head"><span class="mid">R9</span><span class="kind k-study">研究</span><h3>艾許從眾實驗</h3><span class="msrc">1951 年</span></div>
+  <p>受試者和一群事先安排好的「假受試者」一起判斷線條長短。當其他人都故意說出明顯錯誤的答案時，許多受試者也跟著說錯；約四分之三的人至少從眾過一次。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">反方</span>群體的壓力，會讓人放棄自己看見的事實。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>實驗也發現，只要有一個人說出不同答案，從眾的比例就大幅下降：說真話的人能帶動別人。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">艾許的實驗發現，只要有一個人敢說出不同的答案，其他人就更敢說真話；在群組裡第一個說「這樣不對」的人，比想像中更重要。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R9"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R10" data-tags="T3 T5">
+  <div class="mat-head"><span class="mid">R10</span><span class="kind k-study">研究</span><h3>史丹佛監獄實驗</h3><span class="msrc">津巴多，1971 年</span></div>
+  <p>大學生被隨機分配扮演獄卒或囚犯，部分「獄卒」很快出現羞辱與虐待行為，原定兩週的實驗六天就被迫中止，被用來說明情境與角色能深刻影響人的行為。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">逃避方</span>情境與制度的力量，會讓一般人做出平常不會做的事。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>要避免惡行，需要設計好的制度，而不只是期待個人善良。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">史丹佛監獄實驗提醒我們：讓人變壞的，有時不是人本身，而是他被放進的那個位置。</p>
+  <p class="note">這個實驗後來受到很多方法上的批評（例如研究者可能引導了獄卒的行為），引用時宜寫「常被用來說明」，不要當成定論。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R10"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R11" data-tags="T2 T6">
+  <div class="mat-head"><span class="mid">R11</span><span class="kind k-study">研究</span><h3>習得無助</h3><span class="msrc">塞利格曼，1967 年起</span></div>
+  <p>研究發現，長期處在無法控制的負面情境中，人與動物可能會放棄嘗試，即使後來情境改變、其實可以逃脫，也不再努力。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">反方</span>反覆的挫折若沒有支持，可能讓人放棄，而不是成長；不能一味美化苦難。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>長期被說「你不行」，也可能讓人真的不再嘗試。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>反過來說，讓人經驗到「努力有用」，就能打破無助感。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">習得無助的研究告訴我們，放棄有時不是因為懶，而是因為曾經努力了很多次都沒有用；要求一個人振作之前，也許要先讓他看見一次希望。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R11"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R12" data-tags="T2 T6">
+  <div class="mat-head"><span class="mid">R12</span><span class="kind k-study">研究</span><h3>稱讚努力，還是稱讚聰明？</h3><span class="msrc">穆勒與杜維克，1998 年</span></div>
+  <p>研究者讓孩子完成題目後，分別稱讚他們「很聰明」或「很努力」。被稱讚聰明的孩子，之後較傾向選擇簡單的題目、遇到困難時表現下降；被稱讚努力的孩子，則較願意挑戰難題。杜維克後來以此發展出「成長心態」的概念。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>即使是正面標籤（「你很聰明」），也可能讓人害怕失敗而不敢挑戰。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>把失敗看成學習的過程，人就更願意面對困難。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">穆勒與杜維克的研究發現，「你好聰明」反而讓孩子不敢挑戰難題；有時最好的鼓勵不是說你很棒，而是說你很努力。</p>
+  <p class="note">可與 R1 比馬龍效應對照：正向標籤也有兩面。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R12"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R13" data-tags="T2 T3 T6">
+  <div class="mat-head"><span class="mid">R13</span><span class="kind k-study">研究</span><h3>棉花糖實驗</h3><span class="msrc">米歇爾，1960–70 年代</span></div>
+  <p>研究者讓幼兒選擇：現在吃一顆棉花糖，或等一段時間就能吃兩顆。追蹤研究發現，能等待的孩子日後的學業表現較好。但 2018 年的大規模重複研究發現，考慮家庭背景等因素後，這個關聯小了很多。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>延遲滿足的能力，有助於長期目標。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>後續研究顯示，環境與家庭資源也會影響孩子「願不願意等」：不能只歸因於個人意志。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>不能用一次測驗，就替孩子貼上「沒有自制力」的標籤。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">棉花糖實驗曾被說成「能等待的孩子比較會成功」；後來的研究卻發現，一個孩子願不願意等，也取決於他是否相信大人會守信。</p>
+  <p class="note">引用時最好同時提到後續研究的修正，論述會更嚴謹。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R13"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R14" data-tags="T4 T5">
+  <div class="mat-head"><span class="mid">R14</span><span class="kind k-study">研究</span><h3>認知失調</h3><span class="msrc">費斯汀格與卡爾史密斯，1959 年</span></div>
+  <p>受試者做完一件很無聊的工作後，被付錢請他們告訴下一位受試者「工作很有趣」。只拿到 1 美元的人，事後反而比拿到 20 美元的人更覺得工作有趣：因為他們需要替自己的說法找理由。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">逃避方</span>人會替自己的選擇找藉口，讓逃避看起來合理。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>我們以為自己很理性，其實常在事後才替決定編理由。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">認知失調的研究提醒我們，人很擅長替自己找理由；當我說「反正我說了也沒用」時，也許只是在替自己的沉默找一個舒服的解釋。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R14"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R15" data-tags="T1 T2 T8">
+  <div class="mat-head"><span class="mid">R15</span><span class="kind k-study">研究</span><h3>確認偏誤（2-4-6 實驗）</h3><span class="msrc">華森，1960 年</span></div>
+  <p>受試者要猜出「2、4、6」背後的規則。多數人只會提出符合自己猜想的數列來驗證，很少去找可能推翻猜想的例子，因此常常猜錯。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">反方</span>人傾向尋找支持自己想法的證據，忽略相反的聲音（可搭配 R6 同溫層）。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>一旦對某人有了印象，我們就只看見符合印象的行為。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>演算法放大了確認偏誤，只推給我們想看的內容。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">華森的 2-4-6 實驗發現，人總是找證據證明自己是對的，卻很少去找自己錯在哪裡；真正的思考，從願意尋找反例開始。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R15"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R16" data-tags="T1 T2 T8">
+  <div class="mat-head"><span class="mid">R16</span><span class="kind k-study">研究</span><h3>單純曝光效應</h3><span class="msrc">札瓊克，1968 年</span></div>
+  <p>研究發現，人對於重複看到的事物，即使沒有任何互動，也會逐漸產生好感。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>每天在螢幕上看到偶像，就容易產生親近感，這是擬社會互動的心理基礎（可用於 114 題）。</li><li><span class="iss">多元與同溫</span><span class="dir">反方</span>反覆接觸同一種觀點，會讓人誤以為那就是對的。</li><li><span class="iss">標籤與偏見</span><span class="dir">正方</span>增加接觸，也能減少對陌生群體的偏見。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">單純曝光效應說明，我們會喜歡常常看見的東西；我們以為是自己選擇了喜歡誰，其實常常是演算法替我們安排了要常常看見誰。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R16"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R17" data-tags="T1 T3">
+  <div class="mat-head"><span class="mid">R17</span><span class="kind k-study">研究</span><h3>鄧巴數</h3><span class="msrc">鄧巴，1990 年代</span></div>
+  <p>人類學家鄧巴根據大腦大小與社會群體的研究，推估一個人能維持穩定關係的人數大約是 150 人。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>社群上有上千個好友，真正能維持的關係仍然有限。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>群體太大時，需要制度與分工來維持合作。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">鄧巴數提醒我們，一個人真正能放在心上的，大約只有 150 人；社群上的好友數再多，深夜願意接你電話的，也只有少數幾個。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R17"><span>加入我的必背清單</span></label>
+</article>
+<article class="mat-card" id="R18" data-tags="T1 T4">
+  <div class="mat-head"><span class="mid">R18</span><span class="kind k-study">研究</span><h3>哈洛的恆河猴實驗</h3><span class="msrc">1958 年</span></div>
+  <p>哈洛讓幼猴選擇兩個「代理母親」：一個是會提供奶水的鐵絲猴，一個是不提供食物、但包著柔軟布料的布猴。幼猴大部分時間都依偎著布猴，受驚嚇時也跑向布猴。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">理性與情感</span><span class="dir">情感方</span>溫暖與陪伴的需求，不亞於物質需求。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>螢幕能提供資訊，卻無法取代真實的擁抱與陪伴。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">哈洛的幼猴寧可餓著，也要抱著那隻柔軟的布猴；人需要的從來不只是被餵飽，更是被好好地抱著。</p>
+  <p class="note">這個實驗因為對動物造成傷害，今日在倫理上備受批評。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R18"><span>加入我的必背清單</span></label>
 </article>
     </div>
   </section>
