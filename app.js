@@ -191,6 +191,7 @@
     set_("p-answers", answered());
     var qd = allKeys().filter(function (k) { return /^gsat2027:看題判斷題型:quiz\d+$/.test(k); }).length;
     set_("p-quiz", qd);
+    set_("p-mats", allKeys().filter(function (k) { return /^gsat2027:mat:/.test(k); }).length);
     for (var n = 1; n <= 12; n++) {
       var b = document.getElementById("card-badge-" + n);
       if (b) {
@@ -263,6 +264,18 @@
     });
   });
 
+
+  /* 8. 素材篩選 */
+  var chips = document.querySelectorAll(".chip[data-filter]");
+  chips.forEach(function (c) {
+    c.addEventListener("click", function () {
+      var f = c.getAttribute("data-filter");
+      chips.forEach(function (x) { x.classList.toggle("on", x === c); x.setAttribute("aria-pressed", x === c ? "true" : "false"); });
+      document.querySelectorAll(".mat-card").forEach(function (m) {
+        m.hidden = !(f === "all" || (" " + m.getAttribute("data-tags") + " ").indexOf(" " + f + " ") >= 0);
+      });
+    });
+  });
   /* 儲存不可用時提醒 */
   try { localStorage.setItem(P + "_t", "1"); localStorage.removeItem(P + "_t"); }
   catch (e) {

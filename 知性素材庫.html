@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知性素材庫｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
+  .side.pro{ background:var(--ab); color:var(--ab-ink); }
+  .side.con{ background:var(--accent); color:var(--accent-ink); }
+  .exam{ font-size:0.8rem; color:var(--ink-muted); }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem; position:sticky; top:0; z-index:2; background:var(--bg); padding:0.5rem 0; }
+  .chip{ cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:0.25rem 0.8rem; font-size:0.85rem; }
+  .chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .chip:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .kept-count{ display:block; font-size:0.82rem; color:var(--ink-muted); margin-top:0.3rem; }
+  .kept-count b{ color:var(--accent); }
+  .mat-list{ display:flex; flex-direction:column; gap:1rem; }
+  .mat-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); scroll-margin-top:4.5rem; }
+  .mat-card[hidden]{ display:none; }
+  .mat-card:target{ border-color:var(--accent); }
+  .mat-card p{ margin:0 0 0.6rem; }
+  .mat-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.6rem; margin-bottom:0.6rem; }
+  .mat-head h3{ font-size:1.12rem; }
+  .mid{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .msrc{ font-size:0.82rem; color:var(--ink-muted); }
+  .kind{ font-size:0.7rem; padding:0.05rem 0.5rem; border-radius:4px; }
+  .k-quote{ background:var(--accent-soft); color:var(--accent); border:1px solid var(--line); }
+  .k-hist{ background:var(--b2); color:var(--b2-ink); }
+  .k-now{ background:var(--ab); color:var(--ab-ink); }
+  .k-study{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+  .uses-title{ font-size:0.8rem; color:var(--ink-muted); margin:0.6rem 0 0.3rem !important; }
+  ul.uses{ list-style:none; padding:0; margin:0 0 0.6rem; }
+  ul.uses li{ margin:0.35rem 0; font-size:0.95rem; }
+  .iss{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.45rem; margin-right:0.3rem; }
+  .dir{ font-size:0.72rem; font-weight:700; color:var(--accent); margin-right:0.4rem; }
+  .mat-card .sample{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.9; }
+  .keep{ display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--ink-muted); cursor:pointer; }
+  .keep .chk{ margin-top:0; }
+
+  .demo-more{ margin:0.5rem 0 0; }
+  .demo-list{ margin-top:1.4rem; }
+  .step ol.bones{ padding-left:1.3rem; }
+  .step .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.7rem 1rem; border-radius:4px; line-height:1.95; }
+
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="知性素材庫">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第三部・素材準備・6</span>
+    <h1>知性素材庫</h1>
+    <p class="sub">知性題的論證素材：八個常見議題的正反論點，以及名言、歷史事件、時事與研究。每個素材都標出能支持哪些論點。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>知性題要「論點明確、舉例適切」。自己的生活經驗是必要的例子，名言與事件則能讓論述更有說服力。這一頁整理 35 個素材，每一個都能對應到不同議題、甚至相反的論點。</p>
+    <ul class="toc"><li><a href="#how"><b>1</b>怎麼用</a></li><li><a href="#issues"><b>2</b>八個常見議題</a></li><li><a href="#materials"><b>3</b>素材卡</a></li><li><a href="#practice"><b>4</b>練習題</a></li></ul>
+  </section>
+  <section class="part prose" id="how">
+    <div class="part-kicker"><b>怎麼用</b></div>
+    <h2>一個好素材，要能被你說出兩種意思</h2>
+    <div class="step"><span class="step-tag">三步驟</span><ol><li><b>引述</b>：用一句話交代素材（誰、做了什麼或說了什麼）。不要整段抄。</li><li><b>連結</b>：說出它和你的論點有什麼關係——「這說明了……」。</li><li><b>分析</b>：往前推一步，回到題目或自己的經驗。</li></ol></div>
+    <div class="step"><span class="step-tag">一素材多論點</span><p>同一個素材，換一個角度詮釋，就能支持不同論點，甚至相反的論點。例如陶淵明辭官：可以是「堅守尊嚴」，也可以是「逃避現實」。每張素材卡下方都列出它能支持的論點，練習時至少準備兩種用法。</p></div>
+    <div class="step"><span class="step-tag">引用的規矩</span><ul><li><b>準確比華麗重要</b>：記不清原文時，寧可轉述（「孟子曾說，人皆有不忍人之心」），不要自己編名言。</li><li><b>一篇一到兩個就好</b>：知性題重在分析，素材堆太多會變成抄書。</li><li><b>素材不能取代自己的例子</b>：113、115 的評分原則都要求舉出生活事例；名人素材是加分，自己的例子是必要。</li></ul></div>
+
+  </section>
+  <section class="part prose" id="issues">
+    <div class="part-kicker"><b>八個常見議題</b></div>
+    <h2>知性題反覆出現的議題，以及正反雙方的論點</h2>
+    <div class="step"><span class="step-tag">議題與論點</span><p>近年知性題的題材多半落在這八個議題裡。先熟悉每個議題的正反論點，看到題目時就知道可以往哪個方向寫。最右欄是能用的素材編號，點一下就會跳到素材卡。</p><div class="table-wrap"><table><thead><tr><th>議題</th><th>核心問題與正反論點</th><th>可用素材</th></tr></thead><tbody><tr><td class="k">科技與人性</td><td><b>科技是擴展人的能力，還是削弱人的思考與關係？</b><br><span class="side pro">正</span>科技擴展能力、解放時間，讓更多人得到資源與連結。<br><span class="side con">反</span>科技讓人依賴、削弱思考，並侵蝕隱私與真實的人際關係。<br><span class="exam">相關考題：經驗機器、擬社會互動、網路與記憶</span></td><td><a href="#M1">M1</a>、<a href="#M2">M2</a>、<a href="#M3">M3</a>、<a href="#M5">M5</a>、<a href="#M11">M11</a>、<a href="#M12">M12</a>、<a href="#M13">M13</a>、<a href="#H1">H1</a>、<a href="#H5">H5</a>、<a href="#C1">C1</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#R6">R6</a>、<a href="#R7">R7</a>、<a href="#R8">R8</a></td></tr><tr><td class="k">標籤與偏見</td><td><b>標籤是理解他人的捷徑，還是限制他人的框架？</b><br><span class="side pro">正</span>標籤幫助我們快速理解世界；正向的期待能成就一個人。<br><span class="side con">反</span>標籤把人簡化成一個詞，還可能讓人照著標籤活成那個樣子。<br><span class="exam">相關考題：標籤現象</span></td><td><a href="#M3">M3</a>、<a href="#M4">M4</a>、<a href="#M6">M6</a>、<a href="#M11">M11</a>、<a href="#H4">H4</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a>、<a href="#C8">C8</a>、<a href="#R1">R1</a>、<a href="#R2">R2</a></td></tr><tr><td class="k">個人與群體</td><td><b>個人自由與公共利益衝突時，該如何取捨？</b><br><span class="side pro">正</span>公共利益與知情權優先，個人自由應有界線。<br><span class="side con">反</span>個人權利不能因為多數的方便而被犧牲。<br><span class="exam">相關考題：被遺忘權、隱私與防疫</span></td><td><a href="#M4">M4</a>、<a href="#M7">M7</a>、<a href="#M8">M8</a>、<a href="#M10">M10</a>、<a href="#M12">M12</a>、<a href="#C2">C2</a>、<a href="#C3">C3</a>、<a href="#C8">C8</a>、<a href="#R8">R8</a></td></tr><tr><td class="k">理性與情感</td><td><b>做決定時，該依靠計算效益，還是同理心？</b><br><span class="side pro">正</span>理性計算能找出最有效的做法，真正幫到最多人。<br><span class="side con">反</span>同理心是道德的起點；只看數字會讓人冷漠。<br><span class="exam">相關考題：福爾摩斯與華生、臉</span></td><td><a href="#M1">M1</a>、<a href="#M5">M5</a>、<a href="#M6">M6</a>、<a href="#M12">M12</a>、<a href="#H2">H2</a>、<a href="#C7">C7</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a>、<a href="#R7">R7</a></td></tr><tr><td class="k">承擔與逃避</td><td><b>看見問題時，個人該承擔多少責任？</b><br><span class="side pro">正</span>每個人都對自己看見的事有責任，沉默也是一種選擇。<br><span class="side con">反</span>責任會在群體中被稀釋；與其責怪個人，不如設計讓承擔更容易的制度。<br><span class="exam">相關考題：臉（逃避或承擔）</span></td><td><a href="#M1">M1</a>、<a href="#M7">M7</a>、<a href="#M8">M8</a>、<a href="#H1">H1</a>、<a href="#H2">H2</a>、<a href="#H6">H6</a>、<a href="#C7">C7</a>、<a href="#C8">C8</a>、<a href="#R3">R3</a>、<a href="#R4">R4</a>、<a href="#R5">R5</a></td></tr><tr><td class="k">失敗與逆境</td><td><b>挫折、停頓與「無用」的時間，有沒有價值？</b><br><span class="side pro">正</span>挫折與停頓帶來轉機，空白讓人重新出發。<br><span class="side con">反</span>不該美化苦難；不是每個人都能從逆境中站起來，需要支持系統。<br><span class="exam">相關考題：縫隙的聯想、躺平</span></td><td><a href="#M6">M6</a>、<a href="#M8">M8</a>、<a href="#M9">M9</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H6">H6</a>、<a href="#C1">C1</a>、<a href="#C4">C4</a>、<a href="#C5">C5</a></td></tr><tr><td class="k">傳統與創新</td><td><b>該守住既有的做法，還是勇於改變？</b><br><span class="side pro">正</span>不改變就會被時代淘汰；創新常來自打破慣例。<br><span class="side con">反</span>傳統承載經驗與價值；創新不必否定過去，而是轉化過去。<br><span class="exam">相關考題：經驗機器、樂齡出遊</span></td><td><a href="#M2">M2</a>、<a href="#M11">M11</a>、<a href="#H1">H1</a>、<a href="#H3">H3</a>、<a href="#H4">H4</a>、<a href="#H5">H5</a>、<a href="#C5">C5</a>、<a href="#C6">C6</a></td></tr><tr><td class="k">多元與同溫</td><td><b>如何面對和自己不同的聲音？</b><br><span class="side pro">正</span>兼聽則明，接觸不同觀點才能做出好判斷。<br><span class="side con">反</span>尊重多元不等於沒有是非；容忍也需要界線。<br><span class="exam">相關考題：擬社會互動、標籤、52 赫茲</span></td><td><a href="#M3">M3</a>、<a href="#M4">M4</a>、<a href="#M5">M5</a>、<a href="#M10">M10</a>、<a href="#M13">M13</a>、<a href="#H2">H2</a>、<a href="#R4">R4</a>、<a href="#R6">R6</a></td></tr></tbody></table></div></div>
+
+  </section>
+  <section class="part prose" id="materials">
+    <div class="part-kicker"><b>素材卡</b></div>
+    <h2>35 個素材：名言、歷史、時事、研究</h2>
+    <p>點選議題，只看能用在那個議題的素材。勾選「我要背這個素材」，會記在這台裝置，方便考前複習。<span class="mono kept-count">已勾選 <b id="p-mats">0</b> 個</span></p>
+    <div class="chips" role="group" aria-label="依議題篩選"><button type="button" class="chip on" data-filter="all">全部</button><button type="button" class="chip" data-filter="T1">科技與人性</button><button type="button" class="chip" data-filter="T2">標籤與偏見</button><button type="button" class="chip" data-filter="T3">個人與群體</button><button type="button" class="chip" data-filter="T4">理性與情感</button><button type="button" class="chip" data-filter="T5">承擔與逃避</button><button type="button" class="chip" data-filter="T6">失敗與逆境</button><button type="button" class="chip" data-filter="T7">傳統與創新</button><button type="button" class="chip" data-filter="T8">多元與同溫</button></div>
+    <div class="mat-list">
+<article class="mat-card" id="M1" data-tags="T1 T4 T5">
+  <div class="mat-head"><span class="mid">M1</span><span class="kind k-quote">名言</span><h3>乍見孺子將入於井</h3><span class="msrc">《孟子・公孫丑上》</span></div>
+  <p>孟子說，任何人突然看見小孩快掉進井裡，都會本能地驚懼不忍；這不是為了討好孩子的父母或博取名聲，而是人人都有「不忍人之心」。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">理性與情感</span><span class="dir">情感方</span>同理心是道德的起點，先於任何計算。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>人本來就有不忍之心，逃避是壓抑了本心。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>孟子強調「乍見」；網路讓我們看不見對方的臉，不忍之心便難以被喚起。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">孟子說人「乍見孺子將入於井」便會心生惻隱，關鍵在那個「見」字；當螢幕把人變成一個暱稱，這份本能就容易沉睡。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M1"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M2" data-tags="T1 T7">
+  <div class="mat-head"><span class="mid">M2</span><span class="kind k-quote">名言</span><h3>學而不思則罔，思而不學則殆</h3><span class="msrc">《論語・為政》</span></div>
+  <p>只學習而不思考，會迷惘無所得；只空想而不學習，會疑惑不安。學與思必須並行。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>查得到不等於想過；網路給了「學」，卻常讓人跳過「思」。</li><li><span class="iss">傳統與創新</span><span class="dir">折衷</span>傳統（學）與創新（思）缺一不可。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">網路讓我們隨時能「學」，卻也讓我們以為查到就是懂了；孔子早說「學而不思則罔」，資訊若沒有經過思考，只會讓人更迷惘。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M2"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M3" data-tags="T1 T2 T8">
+  <div class="mat-head"><span class="mid">M3</span><span class="kind k-quote">名言</span><h3>盡信書，則不如無書</h3><span class="msrc">《孟子・盡心下》</span></div>
+  <p>完全相信書上所寫的，還不如沒有書。提醒人閱讀要有判斷，不可盲從權威。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>面對網路資訊與 AI 的答案，更需要判讀而非全盤接受。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>別人的評價與標籤也是一種「書」，不能盡信。</li><li><span class="iss">多元與同溫</span><span class="dir">正方</span>不盲從單一來源，才能看見多元的真相。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">孟子說「盡信書，則不如無書」；放到今天，盡信演算法推給我們的內容，或許也不如不看。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M3"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M4" data-tags="T2 T3 T8">
+  <div class="mat-head"><span class="mid">M4</span><span class="kind k-quote">名言</span><h3>君子和而不同，小人同而不和</h3><span class="msrc">《論語・子路》</span></div>
+  <p>君子能與人和諧相處，卻不盲目附和；小人表面附和，內心卻不和諧。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">正方</span>真正的和諧建立在接納差異，而非人人相同。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>在群體中保有自己的意見，不等於破壞群體。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>不必為了被接納而活成別人貼的標籤。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">孔子說「君子和而不同」；一個班級能吵架卻不決裂，比人人點頭卻各懷心事，更接近真正的和諧。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M4"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M5" data-tags="T1 T4 T8">
+  <div class="mat-head"><span class="mid">M5</span><span class="kind k-quote">名言</span><h3>兼聽則明，偏信則暗</h3><span class="msrc">魏徵對唐太宗語，見《資治通鑑・唐紀》</span></div>
+  <p>唐太宗問魏徵，君主怎樣算明、怎樣算昏。魏徵回答：多方聽取意見就明智，只相信一方就昏昧。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">正方</span>接觸不同立場，才能做出明智的判斷。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>演算法只推送相似觀點，讓人在不知不覺中「偏信」。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>好的決策需要蒐集各方資訊，而不是憑一時好惡。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">魏徵提醒唐太宗「兼聽則明，偏信則暗」；在演算法替我們挑選資訊的時代，主動去聽不一樣的聲音，反而成了一種需要練習的能力。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M5"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M6" data-tags="T2 T4 T6">
+  <div class="mat-head"><span class="mid">M6</span><span class="kind k-quote">名言</span><h3>無用之用</h3><span class="msrc">《莊子・人間世》</span></div>
+  <p>「人皆知有用之用，而莫知無用之用也。」人們只知道有用的東西的用處，卻不知道看似無用之物也有它的價值。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>休息、發呆、停頓看似無用，卻是重新出發的空間（可連結〈縫隙的聯想〉）。</li><li><span class="iss">理性與情感</span><span class="dir">情感方</span>不是所有價值都能被效益計算。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>被貼上「沒用」標籤的人或事，也許只是用處還沒被看見。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">莊子說「人皆知有用之用，而莫知無用之用」；考前的每一個十分鐘下課，看似浪費，其實正是讓腦袋重新呼吸的縫隙。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M6"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M7" data-tags="T3 T5">
+  <div class="mat-head"><span class="mid">M7</span><span class="kind k-quote">名言</span><h3>先天下之憂而憂，後天下之樂而樂</h3><span class="msrc">范仲淹〈岳陽樓記〉</span></div>
+  <p>范仲淹以古仁人自許：在眾人憂慮之前先憂慮，在眾人快樂之後才快樂，表達以天下為己任的胸懷。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>有能力的人應主動承擔，而非等待別人。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>把群體的福祉放在個人之前。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">范仲淹「先天下之憂而憂」的承擔，不一定要是治國平天下；在群組裡第一個開口制止霸凌，也是一種先憂。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M7"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M8" data-tags="T3 T5 T6">
+  <div class="mat-head"><span class="mid">M8</span><span class="kind k-quote">名言</span><h3>不能為五斗米折腰</h3><span class="msrc">陶淵明，見《宋書》、《晉書》本傳</span></div>
+  <p>陶淵明任彭澤令時，不願為了微薄俸祿向上級督郵卑躬屈膝，辭官歸隱田園。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">個人與群體</span><span class="dir">個人方</span>個人的尊嚴與價值，不應為了外在利益而妥協。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>選擇退出也是一種勇氣，可為「躺平」的正面意義辯護。</li><li><span class="iss">承擔與逃避</span><span class="dir">逃避方</span>也可被解讀為對現實的逃避：若人人歸隱，誰來改變官場？</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">陶淵明「不能為五斗米折腰」，有人看見風骨，也有人看見逃避；這正說明了退出與堅持之間，本來就沒有簡單的答案。</p>
+  <p class="note">一個素材支持相反論點的好例子：同一件事，換個角度詮釋。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M8"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M9" data-tags="T6">
+  <div class="mat-head"><span class="mid">M9</span><span class="kind k-quote">名言</span><h3>回首向來蕭瑟處，也無風雨也無晴</h3><span class="msrc">蘇軾〈定風波〉</span></div>
+  <p>蘇軾因「烏臺詩案」下獄後被貶黃州，在途中遇雨，寫下此詞：回頭看剛才經過的風雨之處，其實既無風雨也無晴，心境已超然。黃州時期也寫出〈赤壁賦〉。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>逆境能轉化為生命的養分，心境決定風雨的意義。</li><li><span class="iss">失敗與逆境</span><span class="dir">反方</span>蘇軾的豁達是經歷痛苦後的結果，不代表苦難本身值得歌頌。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">蘇軾被貶黃州，卻寫下「也無風雨也無晴」；逆境沒有消失，改變的是他看待風雨的眼光。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M9"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M10" data-tags="T3 T8">
+  <div class="mat-head"><span class="mid">M10</span><span class="kind k-quote">名言</span><h3>容忍比自由更重要</h3><span class="msrc">胡適〈容忍與自由〉（1959）</span></div>
+  <p>胡適認為，容忍是一切自由的根本；沒有容忍異己的雅量，就不會有自由。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">正方</span>尊重不同聲音，是多元社會存在的前提。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>個人自由需要以容忍他人為界線。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">胡適說「容忍比自由更重要」；我們爭取自己說話的自由時，也要記得容忍別人說出我們不愛聽的話。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M10"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M11" data-tags="T1 T2 T7">
+  <div class="mat-head"><span class="mid">M11</span><span class="kind k-quote">名言</span><h3>未經檢視的人生不值得過</h3><span class="msrc">蘇格拉底，見柏拉圖《申辯篇》</span></div>
+  <p>蘇格拉底在受審時表示，不經反省與檢視的生活，不值得人去過。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>經驗機器提供完美體驗，卻剝奪了檢視與選擇（可用於 110 經驗機器題）。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>接受標籤而不檢視，就是讓別人替自己過人生。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>反省既有做法，是改變的起點。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">蘇格拉底說「未經檢視的人生不值得過」；經驗機器再完美，也只是一段被別人安排、無法檢視的人生。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M11"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M12" data-tags="T1 T3 T4">
+  <div class="mat-head"><span class="mid">M12</span><span class="kind k-quote">名言</span><h3>人是目的，不只是手段</h3><span class="msrc">康德的道德哲學</span></div>
+  <p>康德主張，對待人（包括自己）時，永遠要把人當作目的本身，而不能只當作達成其他目標的工具。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">理性與情感</span><span class="dir">情感方</span>效益計算若犧牲個人，就違背了人的尊嚴。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>不能為了多數的利益而任意犧牲少數人。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>當平台把使用者當成資料來源，人就淪為手段。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">康德提醒我們，人永遠是目的而不只是手段；當平台把我們的注意力賣給廣告商，我們其實已經成了商品。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M12"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="M13" data-tags="T1 T8">
+  <div class="mat-head"><span class="mid">M13</span><span class="kind k-quote">名言</span><h3>媒介即訊息</h3><span class="msrc">麥克魯漢《認識媒體》（1964）</span></div>
+  <p>麥克魯漢認為，媒介本身的形式，比它承載的內容更深刻地改變人與社會。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>短影音改變的不只是我們看什麼，更是我們專注的方式。</li><li><span class="iss">多元與同溫</span><span class="dir">反方</span>演算法的推送形式本身，就在塑造我們的立場。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">麥克魯漢說「媒介即訊息」；每天滑兩小時短影音，改變我們的不是影片內容，而是越來越短的專注力。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:M13"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H1" data-tags="T1 T5 T7">
+  <div class="mat-head"><span class="mid">H1</span><span class="kind k-hist">歷史</span><h3>鐵達尼號沉沒</h3><span class="msrc">1912 年</span></div>
+  <p>號稱「永不沉沒」的郵輪首航撞上冰山沉沒，救生艇數量不足以容納所有乘客，造成一千五百多人罹難。沉船過程中也流傳許多讓位、堅守崗位的故事。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">傳統與創新</span><span class="dir">反方</span>對新技術的過度自信，讓人忽略了基本的風險準備。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>科技再先進，也不能取代謙卑與防備。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>危難中選擇讓位與堅守的人，展現了承擔的勇氣。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">鐵達尼號被稱為「永不沉沒」，卻連足夠的救生艇都沒有；真正讓它沉沒的，或許不是冰山，而是人的傲慢。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H1"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H2" data-tags="T4 T5 T8">
+  <div class="mat-head"><span class="mid">H2</span><span class="kind k-hist">歷史</span><h3>挑戰者號太空梭事故</h3><span class="msrc">1986 年</span></div>
+  <p>發射前，承包商的工程師曾警告低溫可能使固體火箭推進器的 O 型環失效，但在時程壓力下仍照常發射，太空梭升空約 73 秒後解體，七名太空人罹難。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">理性與情感</span><span class="dir">理性方</span>專業數據被組織壓力壓過，就會釀成災難。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>說出不受歡迎的真話，是專業者的責任。</li><li><span class="iss">多元與同溫</span><span class="dir">正方</span>決策者偏信時程與樂觀意見，忽略了少數的警告。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">挑戰者號的悲劇提醒我們：問題不是沒有人知道危險，而是知道的人說了，卻沒有人聽。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H2"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H3" data-tags="T6 T7">
+  <div class="mat-head"><span class="mid">H3</span><span class="kind k-hist">歷史</span><h3>弗萊明發現盤尼西林</h3><span class="msrc">1928 年</span></div>
+  <p>弗萊明度假回來，發現培養皿被黴菌汙染，黴菌周圍的細菌卻死了。他沒有把它當成失敗丟掉，而是深入研究，最終發現了青黴素。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>意外與失誤中也藏著轉機，關鍵在於是否看見。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>創新常來自對「異常」的好奇，而不是照表操課。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">一個被汙染的培養皿，在別人眼中是失敗，在弗萊明眼中卻是縫隙；盤尼西林就從那道縫隙裡長了出來。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H3"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H4" data-tags="T2 T6 T7">
+  <div class="mat-head"><span class="mid">H4</span><span class="kind k-hist">歷史</span><h3>便利貼的誕生</h3><span class="msrc">3M 公司，1968–1980 年</span></div>
+  <p>3M 研究員原本想開發強力黏膠，卻做出一種黏性很弱、可以重複撕貼的膠。多年後，另一位同事想到把它用在書籤上，才發展成便利貼，1980 年正式上市。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>被認為失敗的成果，換一個用途就可能成功。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>「失敗品」只是一個標籤，換個情境就是發明。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>創新常常是舊東西的新用法。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">便利貼的黏膠一開始被認為是失敗的產品；它告訴我們，失敗與成功之間，有時只差一個新的用途。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H4"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H5" data-tags="T1 T7">
+  <div class="mat-head"><span class="mid">H5</span><span class="kind k-hist">歷史</span><h3>柯達與數位相機</h3><span class="msrc">1975–2012 年</span></div>
+  <p>柯達的工程師在 1975 年就做出了數位相機原型，但公司擔心衝擊獲利豐厚的底片事業，沒有全力發展。數位相機普及後，柯達在 2012 年聲請破產保護。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>守著過去的成功，可能就是被時代淘汰的開始。</li><li><span class="iss">科技與人性</span><span class="dir">正方</span>科技浪潮不會等待任何人，拒絕改變的代價很高。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">柯達發明了數位相機，最後卻被數位相機打敗；它輸的不是技術，而是不敢放下過去成功的勇氣。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H5"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="H6" data-tags="T5 T6">
+  <div class="mat-head"><span class="mid">H6</span><span class="kind k-hist">歷史</span><h3>司馬遷忍辱著《史記》</h3><span class="msrc">西漢</span></div>
+  <p>司馬遷因替李陵辯護觸怒漢武帝，遭受宮刑。他在〈報任安書〉中寫「人固有一死，或重於泰山，或輕於鴻毛」，選擇忍辱活下來，完成《史記》。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>逆境中仍堅持志業，讓苦難有了意義。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>承擔使命，有時比一死了之更艱難。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>他因為說出不同意見而受罰，也是「說真話的代價」的例子。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">司馬遷說死「或重於泰山，或輕於鴻毛」；他選擇忍辱活下來，因為他知道有一部書，比自己的尊嚴更重。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:H6"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C1" data-tags="T1 T6">
+  <div class="mat-head"><span class="mid">C1</span><span class="kind k-now">時事</span><h3>AlphaGo 對戰李世乭</h3><span class="msrc">2016 年</span></div>
+  <p>Google DeepMind 的 AlphaGo 以四比一擊敗世界頂尖棋士李世乭。李世乭唯一贏下的第四局，第 78 手被許多人稱為「神之一手」。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">正方</span>AI 的能力已超越人類專家，可以成為學習的夥伴。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>當機器在專業領域勝過人，人需要重新思考自己的價值。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>李世乭在連敗之後仍下出關鍵一手，展現了人在逆境中的創造力。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">AlphaGo 贏了四局，但人們記得最久的，是李世乭在第四局下出的那一手；機器證明了它的強，人則證明了不放棄。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C1"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C2" data-tags="T1 T3">
+  <div class="mat-head"><span class="mid">C2</span><span class="kind k-now">時事</span><h3>臺灣口罩實名制與口罩地圖</h3><span class="msrc">2020 年</span></div>
+  <p>新冠疫情初期，臺灣實施口罩實名制，憑健保卡購買；政府開放藥局的即時庫存資料，民間工程師據此做出口罩地圖，方便民眾查詢。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">正方</span>科技與開放資料可以服務公共利益。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>在公共危機中，以個人資料登記換取公平分配，是合理的取捨。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>也要追問：危機時交出的個人資料，事後是否被妥善保護與限制使用？</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">口罩地圖證明，科技不一定讓人疏離；當政府願意開放資料、民間願意投入，科技也能成為一張把人連在一起的網。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C2"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C3" data-tags="T1 T3">
+  <div class="mat-head"><span class="mid">C3</span><span class="kind k-now">時事</span><h3>劍橋分析事件</h3><span class="msrc">2018 年揭露</span></div>
+  <p>一家政治顧問公司透過心理測驗應用程式，取得數千萬名 Facebook 使用者的個人資料，用於分析並投放政治廣告，引發全球對隱私的關注。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>免費的平台其實在收集我們的資料，使用者成了商品。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>個人隱私需要法律保護，不能任由企業利用。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">劍橋分析事件讓人明白：當一項服務是免費的，被賣出去的可能就是我們自己。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C3"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C4" data-tags="T2 T6">
+  <div class="mat-head"><span class="mid">C4</span><span class="kind k-now">時事</span><h3>林書豪與「林來瘋」</h3><span class="msrc">2012 年</span></div>
+  <p>林書豪曾是不被看好的板凳球員，在一次上場機會中連續打出佳績，掀起「林來瘋」熱潮，也打破了外界對亞裔球員的刻板印象。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>刻板印象會讓人看不見一個人的實力。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>長期的準備，讓他抓住了唯一的機會。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">林書豪曾經坐在板凳末端，因為很多人覺得亞裔球員打不了 NBA；他上場的那一刻，打破的不只是防守，還有一個標籤。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C4"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C5" data-tags="T2 T6 T7">
+  <div class="mat-head"><span class="mid">C5</span><span class="kind k-now">時事</span><h3>吳寶春</h3><span class="msrc">2010 年世界冠軍</span></div>
+  <p>吳寶春國中畢業就到臺北當麵包學徒，2010 年在法國樂斯福麵包大賽的麵包大師個人賽中奪得世界冠軍，作品運用了臺灣的酒釀與桂圓。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>學歷標籤無法衡量一個人的能力與努力。</li><li><span class="iss">失敗與逆境</span><span class="dir">正方</span>出身的限制，可以透過持續精進突破。</li><li><span class="iss">傳統與創新</span><span class="dir">折衷</span>用在地食材做西式麵包，是傳統與創新的結合。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">吳寶春只有國中學歷，卻做出世界冠軍的麵包；他的酒釀桂圓麵包裡，有臺灣的味道，也有對學歷標籤最好的回答。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C5"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C6" data-tags="T2 T7">
+  <div class="mat-head"><span class="mid">C6</span><span class="kind k-now">時事</span><h3>張忠謀 55 歲創立台積電</h3><span class="msrc">1987 年</span></div>
+  <p>張忠謀在 55 歲時創立台積電，開創專門替其他公司代工製造晶片的「晶圓代工」模式，後來成為全球最重要的半導體公司之一。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>年齡不是限制，「太老了」只是一個標籤（可連結樂齡議題）。</li><li><span class="iss">傳統與創新</span><span class="dir">創新方</span>開創新的商業模式，比在舊市場裡競爭更有力量。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">張忠謀 55 歲才創立台積電；如果他相信「這個年紀該退休了」的標籤，世界的晶片地圖可能完全不同。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C6"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C7" data-tags="T4 T5">
+  <div class="mat-head"><span class="mid">C7</span><span class="kind k-now">時事</span><h3>陳樹菊</h3><span class="msrc">2010 年入選《時代》百大</span></div>
+  <p>陳樹菊在臺東菜市場賣菜，生活簡樸，卻長年把積蓄捐給學校、圖書館與慈善機構，2010 年入選《時代》雜誌年度百大人物。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">理性與情感</span><span class="dir">情感方</span>善行的價值不在金額大小，而在背後的心意。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>承擔不一定需要權力或財富，平凡人也能改變社會。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">陳樹菊不是富人，捐出的卻是一個菜販一輩子的積蓄；她證明了善行的分量，不能只用金額來計算。</p>
+  <p class="note">可與 112 福爾摩斯題對照：福爾摩斯重視效益，陳樹菊的故事則顯示心意本身的力量。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C7"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="C8" data-tags="T2 T3 T5">
+  <div class="mat-head"><span class="mid">C8</span><span class="kind k-now">時事</span><h3>葛瑞塔・通貝里的氣候罷課</h3><span class="msrc">2018 年起</span></div>
+  <p>瑞典少女通貝里 15 歲時獨自在國會外靜坐罷課，呼籲政府正視氣候變遷，後來引發全球青年的氣候行動。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>「年輕人不懂事」的標籤，無法阻止年輕人改變世界。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>一個人的承擔，可以喚起群體的行動。</li><li><span class="iss">個人與群體</span><span class="dir">群體方</span>為了公共議題，個人可以選擇付出代價。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">通貝里一開始只是一個人坐在國會外；她證明了承擔不必等到長大，也不必等到有人陪。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:C8"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R1" data-tags="T2">
+  <div class="mat-head"><span class="mid">R1</span><span class="kind k-study">研究</span><h3>比馬龍效應</h3><span class="msrc">羅森塔爾與雅各布森，1968 年</span></div>
+  <p>研究者告訴老師，某些學生（其實是隨機挑選的）有很高的潛力；一段時間後，這些學生的表現進步較多，顯示他人的期待會影響一個人的表現。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">正方</span>正向的標籤與期待，能成就一個人。</li><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>反過來說，負面的期待也可能讓人越來越差。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">比馬龍效應告訴我們，期待本身就是一種力量；我們貼在別人身上的標籤，可能正在悄悄改寫他的未來。</p>
+  <p class="note">後續研究對效果大小有爭議，引用時宜說「研究發現期待可能影響表現」，不要誇大。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R1"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R2" data-tags="T2">
+  <div class="mat-head"><span class="mid">R2</span><span class="kind k-study">研究</span><h3>刻板印象威脅</h3><span class="msrc">史提爾與阿隆森，1995 年</span></div>
+  <p>研究發現，當受試者在考試前被提醒自己所屬群體的負面刻板印象時，表現會下降，因為擔心「證實」那個刻板印象帶來額外壓力。後續研究在性別與數學表現上也發現類似現象。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">標籤與偏見</span><span class="dir">反方</span>負面標籤會讓人照著標籤表現，形成惡性循環。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">刻板印象威脅的研究顯示，一句「女生數學比較差」，就可能讓原本會的題目變難；標籤不只描述人，也在改變人。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R2"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R3" data-tags="T5">
+  <div class="mat-head"><span class="mid">R3</span><span class="kind k-study">研究</span><h3>旁觀者效應</h3><span class="msrc">達利與拉丹，1968 年</span></div>
+  <p>實驗發現，在場的人越多，越不容易有人主動伸出援手，因為責任被分散了。這個研究源自 1964 年紐約一起受矚目的命案。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">逃避方</span>責任在群體中被稀釋，不能只責怪個人冷漠。</li><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>知道這個效應，就更該提醒自己成為第一個出手的人。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">旁觀者效應提醒我們：當每個人都以為別人會出手，最後往往沒有人出手；打破它的方法，就是讓自己成為那個「別人」。</p>
+  <p class="note">當年媒體報導的目擊人數後來被證實有誇大，引用時以「研究發現」為主，不要細述命案細節。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R3"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R4" data-tags="T4 T5 T8">
+  <div class="mat-head"><span class="mid">R4</span><span class="kind k-study">研究</span><h3>米爾格倫服從實驗</h3><span class="msrc">1961 年起</span></div>
+  <p>受試者被要求在權威人士指示下，對答錯的人施加越來越強的電擊（其實是假的）。許多受試者雖然不安，仍持續按下按鈕。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">逃避方</span>在權威壓力下，一般人也可能放棄自己的判斷。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>服從體制而不思考，比冷血更可怕。</li><li><span class="iss">多元與同溫</span><span class="dir">反方</span>單一權威的聲音，會壓過個人的良知。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">米爾格倫的實驗讓人不安：按下按鈕的不是惡人，而是一群「只是聽從指示」的普通人。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R4"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R5" data-tags="T4 T5">
+  <div class="mat-head"><span class="mid">R5</span><span class="kind k-study">研究</span><h3>平庸之惡</h3><span class="msrc">漢娜・鄂蘭《平凡的邪惡》（1963）</span></div>
+  <p>鄂蘭觀察納粹官員艾希曼的審判，發現他不是狂熱的惡魔，而是一個不思考、只執行命令的官僚，提出「平庸之惡」的概念。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">承擔與逃避</span><span class="dir">承擔方</span>不思考、只服從，本身就是一種惡；每個人都要為自己的行動負責。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>真正的思考，是在服從之前先問「這樣對嗎」。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">鄂蘭說的「平庸之惡」，不是發生在遙遠的戰場，也可能發生在一個人人轉發、卻沒有人停下來想一想的群組裡。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R5"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R6" data-tags="T1 T8">
+  <div class="mat-head"><span class="mid">R6</span><span class="kind k-study">研究</span><h3>過濾泡泡（同溫層）</h3><span class="msrc">帕理澤《搜尋引擎沒告訴你的事》（2011）</span></div>
+  <p>網路平台依照我們的喜好推送內容，讓我們只看見自己認同的觀點，像被包在一個看不見的泡泡裡。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">多元與同溫</span><span class="dir">反方</span>同溫層讓人誤以為大家都和自己想的一樣。</li><li><span class="iss">科技與人性</span><span class="dir">反方</span>演算法在不知不覺中替我們做了選擇。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">過濾泡泡最可怕的地方，在於我們看不見它；我們以為自己看見了全世界，其實只看見了自己的倒影。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R6"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R7" data-tags="T1 T4">
+  <div class="mat-head"><span class="mid">R7</span><span class="kind k-study">研究</span><h3>經驗機器</h3><span class="msrc">諾齊克《無政府、國家與烏托邦》（1974）</span></div>
+  <p>哲學家諾齊克設想一台機器，能讓人體驗任何想要的人生，並問：你願意一輩子接上它嗎？多數人的直覺是不願意，說明人在乎的不只是快樂的感受，還有真實。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>真實的經驗與選擇，比完美的模擬更有價值（110 學測知性題）。</li><li><span class="iss">理性與情感</span><span class="dir">理性方</span>若只計算快樂，接上機器是最好的選擇，這正好考驗我們重視什麼。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">諾齊克的經驗機器問的其實是：我們要的是「感覺很好」，還是「真的活過」？</p>
+  <p class="note">110 學測知性題的原型。</p>
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R7"><span>我要背這個素材</span></label>
+</article>
+<article class="mat-card" id="R8" data-tags="T1 T3">
+  <div class="mat-head"><span class="mid">R8</span><span class="kind k-study">研究</span><h3>《一九八四》的老大哥</h3><span class="msrc">歐威爾，1949 年</span></div>
+  <p>小說描寫一個極權社會，處處有「老大哥在看著你」的監控螢幕，人民的思想與言行都被控制。</p>
+  <p class="uses-title">可支持的論點</p>
+  <ul class="uses"><li><span class="iss">科技與人性</span><span class="dir">反方</span>監控科技若無節制，可能侵蝕自由。</li><li><span class="iss">個人與群體</span><span class="dir">個人方</span>以安全或效率為名的監控，需要警惕。</li></ul>
+  <p class="uses-title">用法示範</p>
+  <p class="sample">《一九八四》裡的螢幕是政府裝的；今天我們口袋裡的螢幕，卻是自己買的。</p>
+  
+  <label class="keep"><input type="checkbox" class="chk" data-global data-save="mat:R8"><span>我要背這個素材</span></label>
+</article>
+    </div>
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：一個素材，兩種用法</h2>
+    <p class="lede-line">以下練習題為自編，非歷屆試題，也非大考中心練習題（第 3 題改寫自 113 學測知性題）。</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">一素材多論點</span></div>
+        <p>用「AlphaGo 對戰李世乭」（C1），分別寫出支持「科技是人的助力」與「科技讓人失去價值」的兩句話。</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p><b>助力</b>：「AlphaGo 之後，許多棋士開始向 AI 學習新的布局；機器不是終結了圍棋，而是替人類打開了新的棋路。」</p><p><b>威脅</b>：「當 AlphaGo 以四比一擊敗李世乭，人類第一次在自己最引以為傲的智力遊戲裡退居第二；若我們只用輸贏衡量價值，人的位置將越來越小。」</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">議題找素材</span></div>
+        <p>題目：「有人認為網路讓人更容易接觸多元觀點，也有人認為網路讓人更封閉。」請為兩個立場各挑兩個素材，並說明理由。</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><ul><li><b>網路讓人更多元</b>：C2 口罩地圖（資訊開放、公民協作）；M5 兼聽則明（網路讓「兼聽」的機會變多，關鍵在是否主動去聽）。</li><li><b>網路讓人更封閉</b>：R6 過濾泡泡（演算法只推送相似觀點）；M13 媒介即訊息（推送的形式本身塑造立場）。</li></ul><p>寫作時可用 M3「盡信書，則不如無書」收束：工具本身不決定多元或封閉，決定的是使用者的判斷。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">改寫自 113 標籤題</span></div>
+        <p>請針對「標籤」現象，各選一個素材說明其正面與負面作用，再加上一個自己的例子。</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><ul><li><b>正面</b>：R1 比馬龍效應——老師的正向期待讓學生表現進步。</li><li><b>負面</b>：R2 刻板印象威脅，或 C4 林書豪打破亞裔球員的刻板印象。</li><li><b>自己的例子</b>：從經驗素材庫 #11（被貼標籤的經驗）取材。</li></ul><p class="note">提醒：113 評分原則要求舉出「貼標籤」或「被貼標籤」的實例；名人素材之外，自己的例子不能少。</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：一個素材，寫成很多題</h2><p>知性素材準備好之後，下一個單元示範如何把同一件生活經驗改寫成不同的歷屆題目。</p><p><a href="素材套用示範.html">素材套用示範 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第三部 素材準備</span><span>知性素材庫</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
