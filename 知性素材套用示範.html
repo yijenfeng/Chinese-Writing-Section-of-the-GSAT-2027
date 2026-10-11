@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知性素材套用示範｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
+  .side.pro{ background:var(--ab); color:var(--ab-ink); }
+  .side.con{ background:var(--accent); color:var(--accent-ink); }
+  .exam{ font-size:0.8rem; color:var(--ink-muted); }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem; position:sticky; top:0; z-index:2; background:var(--bg); padding:0.5rem 0; }
+  .chip{ cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:0.25rem 0.8rem; font-size:0.85rem; }
+  .chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .chip:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .kept-count{ display:block; font-size:0.82rem; color:var(--ink-muted); margin-top:0.3rem; }
+  .kept-count b{ color:var(--accent); }
+  .mat-list{ display:flex; flex-direction:column; gap:1rem; }
+  .mat-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); scroll-margin-top:4.5rem; }
+  .mat-card[hidden]{ display:none; }
+  .mat-card:target{ border-color:var(--accent); }
+  .mat-card p{ margin:0 0 0.6rem; }
+  .mat-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.6rem; margin-bottom:0.6rem; }
+  .mat-head h3{ font-size:1.12rem; }
+  .mid{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .msrc{ font-size:0.82rem; color:var(--ink-muted); }
+  .kind{ font-size:0.7rem; padding:0.05rem 0.5rem; border-radius:4px; }
+  .k-quote{ background:var(--accent-soft); color:var(--accent); border:1px solid var(--line); }
+  .k-hist{ background:var(--b2); color:var(--b2-ink); }
+  .k-now{ background:var(--ab); color:var(--ab-ink); }
+  .k-study{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+  .uses-title{ font-size:0.8rem; color:var(--ink-muted); margin:0.6rem 0 0.3rem !important; }
+  ul.uses{ list-style:none; padding:0; margin:0 0 0.6rem; }
+  ul.uses li{ margin:0.35rem 0; font-size:0.95rem; }
+  .iss{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.45rem; margin-right:0.3rem; }
+  .dir{ font-size:0.72rem; font-weight:700; color:var(--accent); margin-right:0.4rem; }
+  .mat-card .sample{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.9; }
+  .keep{ display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--ink-muted); cursor:pointer; }
+  .keep .chk{ margin-top:0; }
+
+  .demo-more{ margin:0.5rem 0 0; }
+  .demo-list{ margin-top:1.4rem; }
+  .step ol.bones{ padding-left:1.3rem; }
+  .step .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.7rem 1rem; border-radius:4px; line-height:1.95; }
+
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+</head>
+<body data-page="知性素材套用示範">
+<nav class="site-nav"><a href="index.html">← 回到國寫學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第三部・素材準備・8</span>
+    <h1>知性素材套用示範</h1>
+    <p class="sub">示範把一句名言套用到五個歷屆知性題，以及在一題中組合多個素材與自己的例子。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>知性素材的用法和經驗素材不同：經驗素材換的是「放大的細節」，知性素材換的是「連結的論點」。這一頁先示範一句名言如何回應五個歷屆題目，再示範一題如何組合多個素材。</p>
+    <ul class="toc"><li><a href="#material"><b>1</b>示範素材</a></li><li><a href="#five"><b>2</b>一句名言寫五題</a></li><li><a href="#multi"><b>3</b>一題用多個素材</a></li><li><a href="#how"><b>4</b>套用三步驟</a></li><li><a href="#practice"><b>5</b>練習題</a></li></ul>
+  </section>
+  <section class="part prose" id="material">
+    <div class="part-kicker"><b>示範素材</b></div>
+    <h2>一句話：維瑟爾「愛的反面不是恨，而是冷漠」</h2>
+    <div class="step"><span class="step-tag">示範素材</span><p class="quote">「愛的反面不是恨，而是冷漠。」——埃利・維瑟爾（1986 年受訪）</p>
+<p>維瑟爾是納粹集中營的倖存者，也是諾貝爾和平獎得主。這句話的核心是：對他人的處境無動於衷，比仇恨更可怕。</p>
+<p class="note">選它當示範，是因為「冷漠」這個概念能接到很多議題：承擔、同理、科技、標籤。素材卡見 <a href="知性素材庫.html#M1">M1 愛的反面不是恨，而是冷漠</a>。</p></div>
+
+  </section>
+  <section class="part prose" id="five">
+    <div class="part-kicker"><b>一句名言寫五題</b></div>
+    <h2>同一個素材，換「連結的論點」就能用在不同題目</h2>
+    <div class="step"><span class="step-tag">115 知性｜臉（逃避或承擔）</span><p><span class="srctag official">歷屆試題</span>　<a href="https://www.unews.com.tw/News/Info/10780">出處</a></p>
+<p><b>對應議題：</b>承擔與逃避（承擔方）</p>
+<p><b>論點句：</b>選擇逃避，往往不是因為我們恨誰，而是因為我們讓自己不去在乎。</p>
+<p><b>示範段落：</b></p><p class="sample">維瑟爾說，愛的反面不是恨，而是冷漠。在群組裡看見同學被嘲笑而只按已讀，我並不討厭他；正因為不討厭也不在乎，才讓我能心安理得地沉默。文中所說的「臉」，就是打破這種冷漠的開關：一旦看見對方的臉，冷漠便很難維持。</p>
+<p class="note">搭配自己的例子：經驗素材庫 #6（逃避與承擔）。</p></div>
+    <div class="step"><span class="step-tag">114 知性｜擬社會互動</span><p><span class="srctag official">歷屆試題</span>　<a href="https://www.1111.com.tw/news/jobns/159382">出處</a></p>
+<p><b>對應議題：</b>科技與人性（反方）</p>
+<p><b>論點句：</b>擬社會互動的危險，不是我們太愛偶像，而是我們把熱情都給了不認識我們的人。</p>
+<p><b>示範段落：</b></p><p class="sample">維瑟爾說愛的反面是冷漠。擬社會互動讓人對螢幕裡的偶像投入大量情感，卻可能對身邊會回應自己的人越來越冷淡。正面影響是陪伴，負面影響則是情感的錯置：熱情流向單向的關係，冷漠留給了雙向的關係。</p>
+<p class="note">寫負面影響段時使用；正面影響段可改用 C1 或自己的追星經驗。</p></div>
+    <div class="step"><span class="step-tag">113 知性｜標籤現象</span><p><span class="srctag official">歷屆試題</span>　<a href="https://news.ltn.com.tw/news/life/paper/1627370">出處</a></p>
+<p><b>對應議題：</b>標籤與偏見（反方）</p>
+<p><b>論點句：</b>貼標籤之所以容易，是因為它讓我們不必真正認識一個人。</p>
+<p><b>示範段落：</b></p><p class="sample">維瑟爾說愛的反面不是恨，而是冷漠。貼標籤不一定出於惡意，更多時候是一種省事的冷漠：一句「他就是草莓族」，就讓我們不必再了解他的處境。標籤的負面作用，正是讓冷漠變得理所當然。</p>
+<p class="note">正面作用可另用 R1 比馬龍效應；自己的例子用經驗素材庫 #11。</p></div>
+    <div class="step"><span class="step-tag">112 知性｜福爾摩斯與華生</span><p><span class="srctag official">歷屆試題</span>　<a href="https://www.gvm.com.tw/article/98755">出處</a></p>
+<p><b>對應議題：</b>理性與情感（兩方都可）</p>
+<p><b>論點句：</b>福爾摩斯不是冷漠，華生也不只是感性；兩人都在乎，只是在乎的方式不同。</p>
+<p><b>示範段落：</b></p><p class="sample">若傾向華生：維瑟爾提醒我們愛的反面是冷漠，而華生親手做三明治的那份在乎，正是對抗冷漠的力量。若傾向福爾摩斯：真正的冷漠是只顧著自己的心意，而不計算能幫到多少人；福爾摩斯的計算，其實是更大範圍的在乎。</p>
+<p class="note">同一句名言，兩個立場都能用，示範「一素材多論點」。</p></div>
+    <div class="step"><span class="step-tag">110 知性｜經驗機器</span><p><span class="srctag official">歷屆試題</span>　<a href="https://www.thenewslens.com/article/146675">出處</a></p>
+<p><b>對應議題：</b>科技與人性（反方）</p>
+<p><b>論點句：</b>接上經驗機器的那一刻，我們對真實世界的人，選擇了冷漠。</p>
+<p><b>示範段落：</b></p><p class="sample">經驗機器能給我完美的人生體驗，但機器外的家人與朋友依然真實地活著。維瑟爾說愛的反面是冷漠；選擇接上機器，等於宣告我只在乎自己的感受，而不再在乎真實的他們。因此我不支持接上經驗機器。</p>
+<p class="note">可再搭配 R7 經驗機器、M11 蘇格拉底強化論點。</p></div>
+
+  </section>
+  <section class="part prose" id="multi">
+    <div class="part-kicker"><b>一題用多個素材</b></div>
+    <h2>以 113〈標籤現象〉小題二為例：正反兩面各用一個素材，再加上自己的例子</h2>
+    <div class="step"><span class="step-tag">審題</span><p><span class="srctag official">歷屆試題・113 學測</span></p><p>題目要求透過生活中「貼標籤」或「被貼標籤」的實例，說明對標籤現象的看法。評分原則要求<b>舉出適切的生活事例</b>，所以名人素材之外，一定要有自己的例子。</p></div>
+    <div class="step"><span class="step-tag">選素材</span><ul>
+<li><b>正面作用</b>：<a href="知性素材庫.html#R1">R1 比馬龍效應</a>——正向的期待能讓人表現進步。</li>
+<li><b>負面作用</b>：<a href="知性素材庫.html#R2">R2 刻板印象威脅</a> 或 <a href="知性素材庫.html#C4">C4 林書豪與「林來瘋」</a>——負面標籤讓人照著標籤表現，或讓人看不見一個人的實力。</li>
+<li><b>收束</b>：<a href="知性素材庫.html#M2">M2 非凡的主張，需要非凡的證據</a>——對一個人的判斷也需要證據。</li>
+<li><b>自己的例子</b>：經驗素材庫 #11（被貼標籤的經驗）。</li></ul></div>
+    <div class="step"><span class="step-tag">段落骨架</span><ol class="bones">
+<li><b>立論</b>：標籤是一條暫時的捷徑，危險在於我們忘了它只是捷徑。</li>
+<li><b>正面＋素材</b>：比馬龍效應：老師相信學生有潛力，學生真的進步了。</li>
+<li><b>負面＋素材</b>：林書豪曾因亞裔身分被看輕，直到上場才打破標籤。</li>
+<li><b>自己的例子</b>：我曾被說「文組的人數學一定不好」，結果真的開始逃避數學。</li>
+<li><b>收束</b>：薩根說非凡的主張需要非凡的證據；在貼上標籤之前，先問自己：證據在哪裡？</li></ol></div>
+    <div class="step"><span class="step-tag">示範段落</span><p class="sample">標籤的力量，在比馬龍效應與林書豪身上呈現了兩種相反的結果。前者的老師相信學生有潛力，學生便真的進步；後者在被看輕的歲月裡，只能坐在板凳末端等待機會。我也曾被說「文組的人數學一定不好」，聽久了，我竟真的開始在數學課上放棄思考。天文學家薩根說，非凡的主張需要非凡的證據；一個標籤之所以危險，正是因為它常常沒有證據，卻被當成了事實。</p><p class="note">注意比例：兩個名人素材各一兩句，自己的例子與分析才是主體。</p></div>
+
+  </section>
+  <section class="part prose" id="how">
+    <div class="part-kicker"><b>套用三步驟</b></div>
+    <h2>考場上 1 分鐘選定素材</h2>
+    <div class="step"><span class="step-tag">步驟</span><div class="tpl"><div class="tpl-title">知性素材套用三步驟</div><ol><li>判斷題目屬於八個議題中的哪一個（可能兩個），在知性素材庫用議題篩選，找出 2–3 個候選。</li><li>依論點的方向挑素材：要支持正方還是反方？每張素材卡都標了可支持的論點。</li><li>用「引述 → 連結 → 分析」寫進段落：一句交代素材，一句說明它和論點的關係，再回到題目或自己的例子。</li></ol></div></div>
+    <div class="step"><span class="step-tag">最常見的錯誤</span><ul>
+<li><b>只引不析</b>：引了名言就換下一段。名言後面一定要接「這說明了……」。</li>
+<li><b>素材堆疊</b>：一段塞三個名人，變成抄書。一個論點配一個素材就好。</li>
+<li><b>取代自己的例子</b>：評分原則要求生活事例，名人素材只能加分，不能取代。</li>
+<li><b>引錯出處</b>：記不清就轉述，例如「霍爾」那句不要寫成伏爾泰原話。</li></ul></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：知性素材的套用</h2>
+    <p class="lede-line">以下練習題為自編，非歷屆試題，也非大考中心練習題（題目情境改寫自 114、115 學測知性題）。</p>
+    <div class="qlist">
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">改寫自 115 臉</span></div>
+        <p>用 H2 挑戰者號事故，寫一段說明「選擇逃避或積極承擔」的看法（約 150 字）。</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p class="sample">挑戰者號發射前，工程師曾警告低溫可能讓零件失效，但在時程壓力下，決策者選擇不去面對這個壞消息，七名太空人因此罹難。逃避不一定是冷血，更多時候只是不想承擔說「不」的代價。可是當每個人都把責任往外推，最後付出代價的，往往是最無法選擇的人。積極承擔，就是在壓力最大的時候，仍然願意聽見那個不受歡迎的聲音。</p></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag alt">改寫自 114 擬社會互動</span></div>
+        <p>為「擬社會互動」的正面影響與負面影響各選一個素材，並寫出各一句連結句。</p>
+        <div class="save-wrap"><label class="field-label" for="q2">我的答案<span class="saved">已儲存</span></label><textarea id="q2" data-save="q2" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><ul><li><b>正面</b>：<a href="知性素材庫.html#M15">M15 一個孩子、一位老師、一本書和一枝筆，就能改變世界</a>——偶像也可以是榜樣；馬拉拉讓許多年輕人相信自己能改變世界，這種單向的仰慕成了前進的動力。</li><li><b>負面</b>：<a href="知性素材庫.html#R6">R6 過濾泡泡（同溫層）</a>——平台依照喜好推送偶像的內容，讓人活在只有偶像的泡泡裡，誤以為那就是真實的關係。</li></ul></div></details>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">一素材多論點</span></div>
+        <p>用 <a href="知性素材庫.html#M7">M7 不要問國家能為你做什麼，要問你能為國家做什麼</a>，分別寫出支持「群體優先」與「個人權利有界線」的兩句話。</p>
+        <div class="save-wrap"><label class="field-label" for="q3">我的答案<span class="saved">已儲存</span></label><textarea id="q3" data-save="q3" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details><summary>參考答案</summary><div class="ans"><p><b>群體優先</b>：「甘迺迪說，不要問國家能為你做什麼，要問你能為國家做什麼；一個社會能運作，靠的正是每個人願意多做一點。」</p><p><b>個人權利</b>：「然而，若『為國家做什麼』沒有界線，個人就可能被要求無止盡地犧牲；群體的需要，不能成為取消個人權利的理由。」</p></div></details>
+      </div>
+    </div>
+  </section>
+  <section class="closing prose"><div class="card"><h2>下一步：排進練習計畫</h2><p>經驗素材與知性素材都會套用之後，最後一個單元把所有內容排成到考前的練習計畫。</p><p><a href="練習計畫.html">練習計畫 →</a></p></div></section>
+
+  <footer><span>筱葳學測國文・第三部 素材準備</span><span>知性素材套用示範</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
