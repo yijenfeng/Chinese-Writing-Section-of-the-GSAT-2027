@@ -91,6 +91,19 @@
   .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
   @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
 
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
   .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
   .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
     background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
@@ -247,57 +260,110 @@
   </section>
   <section class="practice prose" id="practice">
     <h2>練習題：判斷題型</h2>
-    <p class="lede-line">以下是模擬題目。點選你認為的題型，馬上看到解析；作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
+    <p class="lede-line">以下 8 題是自編的模擬題。點選你認為的題型，馬上看到解析；作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
     <div class="qlist">
       <div class="qcard quiz" data-answer="知 B">
-        <div class="qhead"><span class="qnum">1</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>近年「躺平」一詞在年輕人之間流行。請說明此現象可能帶來的正面與負面意義，並提出你的看法。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>訊號是「正面與負面」。正、負各一段，各配一個例子，最後找出兩者的分界點。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="情 甲">
-        <div class="qhead"><span class="qnum">2</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">2</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈如果時間可以收藏〉為題，寫一篇文章。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題目是一個抽象物。先定義「對我而言，可以收藏的時間是……」，再用一件事證明。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="知 D">
-        <div class="qhead"><span class="qnum">3</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>下圖為近十年高中生每日使用手機時數的變化。請說明圖表呈現的趨勢，並提出你認為合宜的使用建議。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>有圖表、要你說明趨勢與建議。先引用最大、最小或變化最明顯的數字，再解釋原因、提出具體建議。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="知 C">
-        <div class="qhead"><span class="qnum">4</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">4</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>文章提出「斷捨離」的概念：捨棄不需要的物品以整理內心。請結合生活經驗，說明你如何理解並運用這個概念。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題幹先定義概念，再要你舉例。用概念重新解釋自己的經驗，最好包含一次「捨不得丟」的反向例子。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="情 丙">
-        <div class="qhead"><span class="qnum">5</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">5</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈那一頓沒吃完的晚餐〉為題，寫你與某人之間的一段經歷與體會。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>重點在「與某人之間」的變化，主模板用關係事件，晚餐場景只當開頭。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="知 A">
-        <div class="qhead"><span class="qnum">6</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">6</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>有人主張高中應取消段考排名，也有人認為排名能激勵學習。你支持哪一方？請說明理由。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>「支持哪一方」就是立場二擇一。記得用「誠然……然而……」先承認對方的合理處。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="情 乙">
-        <div class="qhead"><span class="qnum">7</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">7</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈下雨天的味道〉為題，寫一段由氣味喚起的記憶與感受。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>氣味＋記憶，與 112〈花草樹木的氣味記憶〉同型。關鍵在今昔對照，讓氣味和記憶綁得夠緊。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
       <div class="qcard quiz" data-answer="情 丁">
-        <div class="qhead"><span class="qnum">8</span><span class="qtag">判斷題型</span></div>
+        <div class="qhead"><span class="qnum">8</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>閱讀一段作家描寫父親背影的文字後：小題一分析作者為何流淚；小題二以「背影」為題寫自己的經驗。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>先給作家文本、小題問人物情感，就是文本對讀。作文要借作家的手法（以一個畫面承載情感），而不只是寫父親。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
       </div>
     </div>
+    <details class="extend" id="extend">
+      <summary><span class="ext-title">延伸練習：再 8 題</span><span class="ext-sub">全部出自歷屆學測與大考中心試辦試題，八種題型各一題</span></summary>
+      <div class="qlist ext-list">
+      <div class="qcard quiz" data-answer="知 A">
+        <div class="qhead"><span class="qnum">9</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・112 學測</span></div>
+        <p>112 學測知性題：題幹改寫自福爾摩斯與華生的對話。小題一指出福爾摩斯認為華生犯的兩個錯誤；小題二分析兩人不同的生活態度，並說明自己比較傾向哪一邊。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>關鍵訊號是「說明自己比較傾向哪一邊」，就是立場二擇一。閱卷原則要求先分析兩人生活態度的差異，再表明傾向；只寫自己、不連回文本，回答就不完整。</p><p class="src-line">出處：<a href="https://www.gvm.com.tw/article/98755">歷屆試題・112 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 B">
+        <div class="qhead"><span class="qnum">10</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・114 學測</span></div>
+        <p>114 學測知性題：引導文本說明「擬社會互動」——大眾透過單向的傳播對媒體人物產生信任與依賴。請解讀這個概念，並分析它可能帶來的正負面影響。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>「正負面影響」是現象分析的訊號。不過此題先要解讀一個陌生概念，帶有概念應用的成分；主結構仍是正、負兩面，再談如何讓正面大於負面。</p><p class="src-line">出處：<a href="https://www.1111.com.tw/news/jobns/159382">歷屆試題・114 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 C">
+        <div class="qhead"><span class="qnum">11</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・115 學測</span></div>
+        <p>115 學測知性題：以《就算牠沒有臉》與韓劇《愛的迫降》情節出發。小題一說明女主角拒吃同行小豬卻能接受吃魚的理由；小題二透過文中對「臉」的說明，舉出生活見聞中選擇逃避或積極承擔的事例，表達看法與省思。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>題幹先建立「臉」這個概念，再要你用它解釋生活事例，就是概念應用。評分原則寫明：未能舉例或舉例不當，只能拿 C+。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/10780">歷屆試題・115 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="知 D">
+        <div class="qhead"><span class="qnum">12</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・107 學測</span></div>
+        <p>107 學測知性題：小題一根據實驗結果的圖示，說明為何人們比較會記得資訊的儲存位置，而比較不會記得資訊的內容；小題二針對網路資訊對記憶力、思考力、創造力的利弊，提出自己的看法。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>小題一的核心是判讀實驗圖，所以歸為圖表判讀。小題二談利弊，又帶有現象分析的成分。這種混合題要先把圖讀對，再用知 B 的結構寫小題二。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/1445">歷屆試題・107 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 甲">
+        <div class="qhead"><span class="qnum">13</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・110 學測</span></div>
+        <p>110 學測情意題：以〈如果我有一座新冰箱〉為題，寫一篇文章。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>題目是一個物件，而不是一件事，就是意象轉化。大考中心說明，此題要考生發揮冰箱與情感的連結，引導思考對美好生活的想像：冰箱「保存」的特性，可以對應你想留住的人、事或未來。</p><p class="src-line">出處：<a href="https://news.tvbs.com.tw/life/1455963">歷屆試題・110 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 乙">
+        <div class="qhead"><span class="qnum">14</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・107 學測</span></div>
+        <p>107 學測情意題：以〈季節的感思〉為題，寫出季節經驗帶給你的感觸。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>季節是場景與感官經驗，屬於感官與場景記憶。重點不是描寫季節本身，而是季節經驗引發的「感觸」：先寫季節的外在特性，再帶出相呼應的個人思考。</p><p class="src-line">出處：<a href="https://www.thenewslens.com/article/146078">歷屆試題・107 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 丙">
+        <div class="qhead"><span class="qnum">15</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・108 學測</span></div>
+        <p>108 學測情意題：以〈溫暖的心〉為題，述說一件事，並表達事件背後的體會。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>「溫暖」發生在人與人之間，就是關係事件。如果只交代一個溫馨小故事，主題容易停在「人間有愛」；要寫出事件帶來的變化與體會，例如從小事裡看見人性，或因此反省自己。</p><p class="src-line">出處：<a href="https://www.thenewslens.com/article/146078">歷屆試題・108 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="情 丁">
+        <div class="qhead"><span class="qnum">16</span><span class="qtag">判斷題型</span><span class="srctag official">大考中心・106 試辦試題</span></div>
+        <p>106 大考中心試辦試題第二題〈花開花謝〉：閱讀王維〈辛夷塢〉與鹿橋《人子》中的〈幽谷〉，先分別說明你對兩則詩文體會到的含意，再設想如果自己是一朵花，希望有什麼樣的生命過程與生命結果。</p>
+        <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>先給作家文本，並要你說明對文本的體會，就是文本對讀。後半「如果自己是一朵花」帶有意象轉化，但必須接著兩則詩文的含意來寫，所以主結構仍是文本對讀。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/365">大考中心・106 試辦試題</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      </div>
+    </details>
   </section>
   <section class="closing prose"><div class="card"><h2>下一步：知性題四型的寫法與模板</h2><p>判斷出題型後，下一個單元給你知性題四型的基本寫法、進階技巧與填空模板。</p><p><a href="知性題寫法.html">知性題寫法 →</a></p></div></section>
 
