@@ -182,7 +182,7 @@
     return { done: done, right: right };
   }
   function answered() {
-    return allKeys().filter(function (k) { return /:q\d+$/.test(k); }).length;
+    return allKeys().filter(function (k) { return /:qz?\d+$/.test(k); }).length;
   }
   function refresh() {
     var set_ = function (id, v) { var e = document.getElementById(id); if (e) e.textContent = v; };

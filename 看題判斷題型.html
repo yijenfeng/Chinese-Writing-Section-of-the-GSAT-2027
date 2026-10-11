@@ -91,6 +91,12 @@
   .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
   @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
 
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
   .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
   .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
   .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
@@ -260,55 +266,135 @@
   </section>
   <section class="practice prose" id="practice">
     <h2>練習題：判斷題型</h2>
-    <p class="lede-line">以下 8 題是自編的模擬題。點選你認為的題型，馬上看到解析；作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
+    <p class="lede-line">以下 8 題是自編的模擬題。點選你認為的題型，馬上看到解析；再試著寫大綱，最後對照參考答案。作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
     <div class="qlist">
       <div class="qcard quiz" data-answer="知 B">
         <div class="qhead"><span class="qnum">1</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>近年「躺平」一詞在年輕人之間流行。請說明此現象可能帶來的正面與負面意義，並提出你的看法。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>訊號是「正面與負面」。正、負各一段，各配一個例子，最後找出兩者的分界點。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz1">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz1" data-save="qz1" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 B　現象分析</p>
+          <p><b>審題：</b>任務動詞是「說明」正面與負面意義、「提出看法」。三個任務都要寫到，看法要獨立成段。</p>
+          <p><b>立論／破題：</b>「躺平不是放棄人生，而是對過度競爭按下暫停；危險在於，暫停變成了停止。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>定義現象</b>：躺平是年輕人面對升學、工作的高壓，主動降低追求的態度，它本身沒有好壞。</li><li><b>正面意義</b>：拒絕只用分數與薪水衡量自己，保護身心。例如同學退掉第五個補習科目，換回睡眠和畫畫的時間。</li><li><b>負面意義</b>：當躺平成為逃避的藉口，就失去改變處境的動力。例如我曾以「躺平」為由不參加科展，事後才發現錯過了真正想做的題目。</li><li><b>轉換點與看法</b>：正負的分界在於「躺下之後，還有沒有想走的方向」。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">躺平的正負，不在躺下的姿勢，而在躺下之後眼睛看向哪裡。若是為了看清自己想要什麼而暫停，那是一種清醒；若只是因為害怕失敗而不再起身，那就是另一種形式的逃避。對我而言，值得學的不是躺平，而是在疲憊時允許自己停下，同時記得重新出發的方向。</p>
+          
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 甲">
         <div class="qhead"><span class="qnum">2</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈如果時間可以收藏〉為題，寫一篇文章。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題目是一個抽象物。先定義「對我而言，可以收藏的時間是……」，再用一件事證明。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz2">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz2" data-save="qz2" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 甲　意象轉化</p>
+          <p><b>審題：</b>題目是一個抽象的「可以收藏的時間」，沒有指定事件。要先定義「收藏」在你身上的意義，再用一件事證明。</p>
+          <p><b>立論／破題：</b>「如果時間可以收藏，我想收的不是假期，而是外婆削蘋果時，果皮一圈一圈不斷的那十分鐘。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>定義意象</b>：收藏是把不會再來的東西留下來；收藏時間，就是收藏某個人陪在身邊的樣子。</li><li><b>意象的特性</b>：收藏品要挑選、要保存，也會被反覆拿出來看。</li><li><b>經驗場景</b>：外婆坐在藤椅上削蘋果，刀聲細細的，果皮垂到地上都不斷。她說：「皮斷了，就不甜了。」</li><li><b>翻轉</b>：原以為收藏時間是把那十分鐘鎖起來；外婆住院後才明白，時間收不住，能收藏的是她留在我身上的習慣。</li><li><b>呼應收尾</b>：現在換我削蘋果給弟弟，果皮還是常常斷，但我一直在練。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">外婆住院那年，我才知道時間收不住。那十分鐘再也回不來，可是每當我拿起水果刀，手腕就會不自覺地轉成她的角度。原來時間不是被鎖在盒子裡收藏的，而是被另一個人接住，繼續轉下去。</p>
+          <p class="note">示範用的是假設情境，請換成你素材卡 #3（長輩教你的一件小事）或 #8（讓你想起某人的氣味）的真實經驗。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 D">
         <div class="qhead"><span class="qnum">3</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>下圖為近十年高中生每日使用手機時數的變化。請說明圖表呈現的趨勢，並提出你認為合宜的使用建議。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>有圖表、要你說明趨勢與建議。先引用最大、最小或變化最明顯的數字，再解釋原因、提出具體建議。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz3">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz3" data-save="qz3" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 D　圖表判讀</p>
+          <p><b>審題：</b>有圖表、要「說明趨勢」並「提出建議」。先讀數據，再解釋原因，最後的建議要具體到能執行。</p>
+          <p><b>立論／破題：</b>「手機使用時數逐年上升，問題不在「用多久」，而在「被誰決定用多久」。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>讀數據</b>：引用圖表的起點、終點與變化最大的年份（例如：假設由每日 2 小時增至 5 小時，以某一年增幅最大）。</li><li><b>解釋原因</b>：線上課程、社群與短影音的普及，讓手機從工具變成生活的預設畫面。</li><li><b>觀察補充</b>：圖表只呈現時數，沒有呈現用途；同樣三小時，查資料和滑短影音的影響完全不同。</li><li><b>具體建議</b>：以「用途」而非「時數」管理；睡前一小時手機放客廳；關掉非必要通知。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">因此，與其要求學生每天少用一小時，不如先讓他們知道時間花到哪裡。我自己的做法是每週日看一次手機的使用紀錄，把「查資料」和「滑影片」分開計算，並在睡前一小時把手機放在客廳充電。當選擇權回到自己手上，時數自然會下降。</p>
+          <p class="note">這題的圖表是自編情境，題目並未提供實際數據；示範中的數字是假設，考試時一定要引用題目圖表的真實數字。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 C">
         <div class="qhead"><span class="qnum">4</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>文章提出「斷捨離」的概念：捨棄不需要的物品以整理內心。請結合生活經驗，說明你如何理解並運用這個概念。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題幹先定義概念，再要你舉例。用概念重新解釋自己的經驗，最好包含一次「捨不得丟」的反向例子。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz4">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz4" data-save="qz4" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 C　概念應用</p>
+          <p><b>審題：</b>題幹先定義「斷捨離」，再要你「結合生活經驗」說明理解與運用。這是概念應用：用概念解釋經驗，並帶出省思。</p>
+          <p><b>立論／破題：</b>「斷捨離教我的不是丟東西，而是分辨：哪些東西我需要，哪些只是我捨不得承認已經不需要。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>重述概念</b>：斷捨離是透過捨棄不需要的物品，整理生活與內心的方法。</li><li><b>我的事例</b>：升高三整理書桌，我丟掉整箱國中講義，卻怎麼也丟不掉一本寫滿同學紙條的筆記本。</li><li><b>用概念解釋</b>：講義只是工具，所以捨得；筆記本承載的是關係，它雖然不再有用，卻仍是我需要的。</li><li><b>反省與選擇</b>：斷捨離的目的不是捨得越多越好，而是在丟與留之間，看清自己真正在乎什麼。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">以斷捨離的角度來看，我之所以能毫不猶豫地丟掉講義，是因為它們只剩下「曾經有用」；而那本筆記本，我翻開時仍會笑出聲，它對現在的我仍然有作用。原來「捨不得丟」不一定是失敗，它反而像一面鏡子，照出我真正在乎的東西。</p>
+          
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 丙">
         <div class="qhead"><span class="qnum">5</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈那一頓沒吃完的晚餐〉為題，寫你與某人之間的一段經歷與體會。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>重點在「與某人之間」的變化，主模板用關係事件，晚餐場景只當開頭。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz5">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz5" data-save="qz5" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 丙　關係事件</p>
+          <p><b>審題：</b>重點是「你與某人之間」的經歷與體會，主結構用關係事件；「沒吃完的晚餐」是場景，也是全文的線索物件。</p>
+          <p><b>立論／破題：</b>「那一碗湯在桌上放到冷，我和媽媽之間隔著的，從來不只是一張餐桌。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>點出關係</b>：我和媽媽之間曾經隔著一場關於選組的爭吵。</li><li><b>衝突</b>：晚餐時話題轉到選組，她說「讀設計會餓死」，我放下筷子回房間，湯一口也沒喝。</li><li><b>換位思考</b>：後來才想到，她說那句話時，想的是自己年輕時找不到工作的那幾年。</li><li><b>轉折與回應</b>：隔天桌上又是同一鍋湯，旁邊多了一份她印的設計系簡章。</li><li><b>未完的體悟</b>：我們仍然會吵，但我學會在放下筷子之前，先把她的話聽完。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">後來我才想到，媽媽說「會餓死」的時候，聲音其實在發抖。那不是對我的否定，而是她把自己年輕時找不到工作的害怕，原封不動地遞給了我。那一頓沒吃完的晚餐，冷掉的不是湯，而是兩個都太怕對方受傷的人，同時選擇了沉默。</p>
+          <p class="note">示範用的是假設情境，請換成你素材卡 #1（與家人最難忘的一次衝突）的真實經驗。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 A">
         <div class="qhead"><span class="qnum">6</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>有人主張高中應取消段考排名，也有人認為排名能激勵學習。你支持哪一方？請說明理由。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>「支持哪一方」就是立場二擇一。記得用「誠然……然而……」先承認對方的合理處。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz6">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz6" data-save="qz6" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 A　立場二擇一</p>
+          <p><b>審題：</b>「你支持哪一方」就是立場二擇一。要明確表態，並用「誠然……然而……」處理對方的理由。</p>
+          <p><b>立論／破題：</b>「我支持取消公開的段考排名，因為學習需要的是方向，而不是被放在一排數字裡比較。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>表態</b>：支持取消公開排名，但保留個人成績分析。</li><li><b>理由一＋例子</b>：排名只告訴你「在誰前面」，沒告訴你「哪裡不會」。我曾因排名進步十名而鬆懈，下次卻在同一個單元重複失分。</li><li><b>讓步＋理由二</b>：誠然，排名能帶來競爭的動力；然而這種動力常常建立在焦慮上，讓人只敢選擇有把握的科目。</li><li><b>收束</b>：取消排名不是取消標準，而是把標準從「別人」換回「昨天的自己」。若學校能提供個人的弱點分析，我願意接受任何形式的評量。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">誠然，排名能讓人知道自己的位置，也能帶來競爭的動力；然而，這種動力往往建立在焦慮之上。高一時我為了守住名次，只選有把握的題目練習，真正不會的單元反而一直沒有碰。因此，比起一個名次，學生更需要的是一張告訴他「哪裡還不會」的地圖。</p>
+          <p class="note">立場選哪一邊都可以，評分看的是理由與論證，不是立場本身。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 乙">
         <div class="qhead"><span class="qnum">7</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>請以〈下雨天的味道〉為題，寫一段由氣味喚起的記憶與感受。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>氣味＋記憶，與 112〈花草樹木的氣味記憶〉同型。關鍵在今昔對照，讓氣味和記憶綁得夠緊。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz7">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz7" data-save="qz7" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 乙　感官與場景記憶</p>
+          <p><b>審題：</b>氣味＋記憶，與 112〈花草樹木的氣味記憶〉同型。關鍵在感官細節要具體，並寫出今昔對照。</p>
+          <p><b>立論／破題：</b>「下雨天的味道，是柏油路被打濕的那一刻，從地面浮上來的一股溫溫的土腥味。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>感官特寫</b>：雨剛落下時，柏油路冒出溫熱潮濕的土味，像整條街在嘆氣。</li><li><b>記憶展開</b>：國小放學突然下大雨，爸爸騎機車來接我，雨衣裡混著他身上的機油味和雨的味道。</li><li><b>今昔對照</b>：當時只覺得雨衣悶、很丟臉；現在才知道，那是他提早下班、騎了半個城市才換來的味道。</li><li><b>意義收束</b>：下雨天的味道保存的不只是一場雨，還有一個人在雨裡朝我趕來的樣子。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">那是一種溫溫的、帶著土腥的味道，像整條街在雨落下的瞬間一起嘆了一口氣。每當聞到它，我就回到國小三年級的校門口，看見爸爸的機車在雨幕裡亮著一盞黃燈。他掀開雨衣叫我鑽進去，裡面混著機油味和雨的味道，悶得我一路都不想說話。</p>
+          <p class="note">示範用的是假設情境，請換成你素材卡 #8（讓你想起某人的氣味、聲音或食物）的真實經驗。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 丁">
         <div class="qhead"><span class="qnum">8</span><span class="qtag">判斷題型</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
         <p>閱讀一段作家描寫父親背影的文字後：小題一分析作者為何流淚；小題二以「背影」為題寫自己的經驗。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>先給作家文本、小題問人物情感，就是文本對讀。作文要借作家的手法（以一個畫面承載情感），而不只是寫父親。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz8">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz8" data-save="qz8" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 丁　文本對讀</p>
+          <p><b>審題：</b>先給作家文本，小題一問人物情感，小題二要你以同題寫自己，就是文本對讀。小題一要引文本證據；小題二要借作家的手法。</p>
+          <p><b>立論／破題：</b>「（小題二破題）我記得最清楚的媽媽，不是她的臉，而是她每晚在補習班門口等我時，被路燈拉長的背影。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>小題一</b>：依文本找出作者流淚的直接原因（看見的畫面）與深層原因（對父愛的領悟或愧疚），兩層都要寫。</li><li><b>小題二手法</b>：學作家「用一個畫面承載情感」，不直接說「我很感動」，而是把情感放進動作與姿態。</li><li><b>小題二結構</b>：背影的畫面 → 我過去沒注意到的事 → 某一天突然看懂 → 我的改變。</li><li><b>結尾連回文本</b>：如同文中那個背影，我也是在看見背影的時候，才看見了愛。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">以朱自清〈背影〉為例：作者流淚，直接原因是看見父親吃力地爬上月臺為他買橘子；深層原因是他終於明白，自己過去嫌父親迂腐，其實辜負了那份不擅言詞的愛。兩層原因都寫出來，並引用文本中的動作細節，才算完整。</p>
+          <p class="note">這題沒有附上實際文本，小題一的示範以朱自清〈背影〉為例。考試時一定要依題目所附文本作答。</p>
+        </div></details>
       </div>
     </div>
     <details class="extend" id="extend">
@@ -319,48 +405,128 @@
         <p>112 學測知性題：題幹改寫自福爾摩斯與華生的對話。小題一指出福爾摩斯認為華生犯的兩個錯誤；小題二分析兩人不同的生活態度，並說明自己比較傾向哪一邊。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>關鍵訊號是「說明自己比較傾向哪一邊」，就是立場二擇一。閱卷原則要求先分析兩人生活態度的差異，再表明傾向；只寫自己、不連回文本，回答就不完整。</p><p class="src-line">出處：<a href="https://www.gvm.com.tw/article/98755">歷屆試題・112 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz9">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz9" data-save="qz9" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 A　立場二擇一</p>
+          <p><b>審題：</b>任務動詞是「分析」兩人的生活態度、「說明」自己傾向哪一邊。閱卷原則把「分析差異」放在「表明立場」之前，所以兩人都要先寫清楚。</p>
+          <p><b>立論／破題：</b>「華生用心，福爾摩斯用腦；我傾向福爾摩斯，但希望自己算清楚之後，仍保留華生的那份心意。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>小題一（依原文）</b>：錯誤一，華生只比較單項價格，沒有計算買齊所需的總花費，反而買得更貴；錯誤二，他堅持自己做三明治，沒有考慮直接購買現成三明治更省錢，省下的錢還能幫助更多人。</li><li><b>分析差異</b>：華生重視親力親為、不浪費，關注個別細節與心意；福爾摩斯重視整體計算與實際成效，追求資源的最佳配置。</li><li><b>表態＋例子</b>：我傾向福爾摩斯。例如班級義賣，大家熱心手作餅乾，算下來材料費比義賣所得還高。</li><li><b>讓步與收束</b>：誠然華生的用心讓善意有溫度；然而善意要能真正幫到人，就需要先算清楚。最好的態度是用福爾摩斯的頭腦，完成華生的心意。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">華生與福爾摩斯都想做好事，差別在於衡量的方式。華生看重的是「我親手做了什麼」，每一片麵包都不浪費，代表他對物與人的珍惜；福爾摩斯看重的是「最後幫到了多少」，他願意放下自己做的成就感，換取更大的實際效益。前者是一種溫度，後者是一種清醒。</p>
+          <p class="note">小題一依大考中心公布的 112 學測試題內容整理；第二小題沒有標準立場，選華生也可以，只要分析與論證完整。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 B">
         <div class="qhead"><span class="qnum">10</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・114 學測</span></div>
         <p>114 學測知性題：引導文本說明「擬社會互動」——大眾透過單向的傳播對媒體人物產生信任與依賴。請解讀這個概念，並分析它可能帶來的正負面影響。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>「正負面影響」是現象分析的訊號。不過此題先要解讀一個陌生概念，帶有概念應用的成分；主結構仍是正、負兩面，再談如何讓正面大於負面。</p><p class="src-line">出處：<a href="https://www.1111.com.tw/news/jobns/159382">歷屆試題・114 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz10">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz10" data-save="qz10" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 B　現象分析</p>
+          <p><b>審題：</b>先「解讀」概念，再「分析」正負面影響。陌生概念要先用自己的話說清楚，否則後面的分析會失焦。</p>
+          <p><b>立論／破題：</b>「擬社會互動是一種只有一方記得對方的關係；它的價值與危險，都來自這份「不對等」。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>解讀概念</b>：觀眾透過媒體單向接觸名人或網紅，產生彷彿彼此熟識的親近、信任與依賴，但對方並不認識自己。</li><li><b>正面影響</b>：提供陪伴與榜樣。例如讀書直播主陪我撐過考前的深夜，他的自律讓我也願意多寫一題。</li><li><b>負面影響</b>：情感投入失衡、容易被消費操弄；一旦偶像形象崩塌，失落感遠大於真實的關係。</li><li><b>轉換點與對策</b>：分界在於是否意識到這段關係是單向的。把偶像當作「鏡子」而非「朋友」，並把時間留給真實的人際互動。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">擬社會互動的正負，關鍵不在追不追星，而在是否記得這段關係是單向的。當我把直播主當成一面鏡子，看見自律的可能，它就是助力；當我開始期待他回應我的心事，甚至因為他的一句話影響心情，這段關係就從陪伴變成了依賴。真正的陪伴，最後仍要回到能互相回應的人身上。</p>
+          
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 C">
         <div class="qhead"><span class="qnum">11</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・115 學測</span></div>
         <p>115 學測知性題：以《就算牠沒有臉》與韓劇《愛的迫降》情節出發。小題一說明女主角拒吃同行小豬卻能接受吃魚的理由；小題二透過文中對「臉」的說明，舉出生活見聞中選擇逃避或積極承擔的事例，表達看法與省思。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題幹先建立「臉」這個概念，再要你用它解釋生活事例，就是概念應用。評分原則寫明：未能舉例或舉例不當，只能拿 C+。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/10780">歷屆試題・115 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz11">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz11" data-save="qz11" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 C　概念應用</p>
+          <p><b>審題：</b>小題一只依文本說明理由；小題二要用「臉」的概念解釋自己的事例，並表達看法與省思。舉不出事例最多只有 C+。</p>
+          <p><b>立論／破題：</b>「我們不忍傷害一張看過的臉；真正的考驗，是在看不到臉的時候，仍然選擇承擔。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>小題一</b>：女主角與小豬對視、相處過，小豬對她而言有了一張具體的「臉」，產生情感連結，所以不忍吃牠；魚沒有讓她產生連結的面孔，她就沒有這份心理負擔。</li><li><b>重述概念</b>：「臉」代表我們看見對方是一個具體的存在，因而產生回應與責任。</li><li><b>我的事例（逃避）</b>：班群組裡有人被嘲笑，我看到了卻沒出聲，因為螢幕上的他只是一個暱稱。</li><li><b>用概念解釋＋省思</b>：隔天在教室看見他的表情，我才感到愧疚。網路讓人「無臉化」，所以承擔不能只靠看見，而要靠提醒自己：每個暱稱後面都有一張臉。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">那天在群組裡，我看著嘲笑他的訊息一則一則往上跳，卻只按了已讀。對我來說，他只是一個灰色的頭像，沒有表情，也不會看著我。直到隔天早上，我在走廊上看見他低著頭走過，那張真實的臉忽然壓在我心上。原來我不是沒有同情心，而是讓自己躲在一個看不到臉的地方。</p>
+          <p class="note">小題一依大考中心公布的 115 學測題幹與評分原則整理。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="知 D">
         <div class="qhead"><span class="qnum">12</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・107 學測</span></div>
         <p>107 學測知性題：小題一根據實驗結果的圖示，說明為何人們比較會記得資訊的儲存位置，而比較不會記得資訊的內容；小題二針對網路資訊對記憶力、思考力、創造力的利弊，提出自己的看法。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>小題一的核心是判讀實驗圖，所以歸為圖表判讀。小題二談利弊，又帶有現象分析的成分。這種混合題要先把圖讀對，再用知 B 的結構寫小題二。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/1445">歷屆試題・107 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz12">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz12" data-save="qz12" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>知 D　圖表判讀</p>
+          <p><b>審題：</b>小題一要判讀實驗圖並說明原因；小題二針對網路資訊的利弊提出看法。先把圖讀對，再寫利弊。</p>
+          <p><b>立論／破題：</b>「網路讓我們把記憶外包出去；我們省下的空間，應該拿來思考，而不是被更多資訊填滿。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>小題一（依圖示）</b>：當人們預期資訊會被儲存、日後查得到時，就不再費力記住內容，而是記住「去哪裡找」，把網路當成外部記憶。</li><li><b>利</b>：不必死背，能把力氣用在理解與連結；查詢快速，學習的門檻降低。</li><li><b>弊</b>：只記得位置，沒有內化成自己的知識；思考時腦中沒有材料，創造力也難以產生。</li><li><b>看法與建議</b>：關鍵在於「查完之後有沒有消化」。查到資料後，用自己的話寫下一句摘要，才算真正記住。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">網路讓我們不必再背下每一個年份與公式，這是解放；但如果查完就關掉，知識便從未進到腦中，這是遺忘。我的做法是：每查一次資料，就逼自己用一句話寫下重點。這句話不一定完美，卻是我真正思考過的痕跡。記憶可以外包，思考不行。</p>
+          <p class="note">小題一依大考中心公布的 107 學測評分原則所述的實驗內容整理，考試時要以題目圖示為準。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 甲">
         <div class="qhead"><span class="qnum">13</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・110 學測</span></div>
         <p>110 學測情意題：以〈如果我有一座新冰箱〉為題，寫一篇文章。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>題目是一個物件，而不是一件事，就是意象轉化。大考中心說明，此題要考生發揮冰箱與情感的連結，引導思考對美好生活的想像：冰箱「保存」的特性，可以對應你想留住的人、事或未來。</p><p class="src-line">出處：<a href="https://news.tvbs.com.tw/life/1455963">歷屆試題・110 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz13">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz13" data-save="qz13" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 甲　意象轉化</p>
+          <p><b>審題：</b>題目是一個物件，屬於意象轉化。大考中心說明此題要發揮冰箱與情感的連結，引導思考對美好生活的想像。</p>
+          <p><b>立論／破題：</b>「冰箱的功能是讓東西不要壞掉；如果我有一座新冰箱，我想冰的，是那些我捨不得讓它過期的人和日子。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>定義意象</b>：冰箱之於廚房是保存；之於我，是延長美好的時間。</li><li><b>意象的特性</b>：冰箱能保鮮，卻不能讓東西永遠不壞；新冰箱是空的，等著我決定放什麼進去。</li><li><b>經驗場景</b>：舊冰箱裡永遠有外婆包的水餃，一格一格排得整整齊齊。</li><li><b>翻轉</b>：外婆生病後水餃吃完了。我才明白冰箱留不住人，能做的是學會她的手藝，自己把冰箱填滿。</li><li><b>呼應收尾</b>：新冰箱的第一格，我想放我第一次自己包的水餃，形狀很醜，但會一直有。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">舊冰箱的冷凍庫裡，永遠有一格外婆包的水餃。我從沒想過它會吃完，直到那年冬天，最後一袋水餃被煮成一鍋，我才發現冰箱留得住食物，卻留不住包水餃的人。所以如果我有一座新冰箱，我想在第一格放進我自己包的水餃。它們形狀歪斜，摺痕也不整齊，卻是我學會把愛延續下去的證明。</p>
+          <p class="note">示範用的是假設情境，請換成你自己的真實素材。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 乙">
         <div class="qhead"><span class="qnum">14</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・107 學測</span></div>
         <p>107 學測情意題：以〈季節的感思〉為題，寫出季節經驗帶給你的感觸。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>季節是場景與感官經驗，屬於感官與場景記憶。重點不是描寫季節本身，而是季節經驗引發的「感觸」：先寫季節的外在特性，再帶出相呼應的個人思考。</p><p class="src-line">出處：<a href="https://www.thenewslens.com/article/146078">歷屆試題・107 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz14">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz14" data-save="qz14" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 乙　感官與場景記憶</p>
+          <p><b>審題：</b>季節是場景與感官經驗；題目要的是季節引發的「感思」，不是季節描寫。先寫季節的特性，再帶出相呼應的思考。</p>
+          <p><b>立論／破題：</b>「別人說夏天是熱的，對我而言，夏天是一整個學年結束後，教室突然變得很安靜的聲音。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>感官特寫</b>：七月的教室，電扇轉著，課桌椅被搬到走廊，地上留著一排排灰塵的方格。</li><li><b>記憶展開</b>：國三畢業那天，我最後一個離開教室，回頭看見黑板上還留著大家的簽名。</li><li><b>今昔對照</b>：當時只覺得終於解脫；現在才知道，夏天是用來告別的季節。</li><li><b>意義收束</b>：夏天的熱會散去，但每一個夏天都替我收好了一段不會再回來的時光。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">那年夏天我最後一個離開教室。電扇還在轉，課桌椅都被搬到走廊，地上留下一排排灰塵圍成的方格，像一張被撕掉的座位表。我站在門口，忽然聽見一種從沒聽過的安靜。原來夏天的熱鬧都是借來的，到了最後，它會把每個人都還回去。</p>
+          <p class="note">示範用的是假設情境，請換成你素材卡 #10（常去的地方與它的變化）或其他真實經驗。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 丙">
         <div class="qhead"><span class="qnum">15</span><span class="qtag">判斷題型</span><span class="srctag official">歷屆試題・108 學測</span></div>
         <p>108 學測情意題：以〈溫暖的心〉為題，述說一件事，並表達事件背後的體會。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>「溫暖」發生在人與人之間，就是關係事件。如果只交代一個溫馨小故事，主題容易停在「人間有愛」；要寫出事件帶來的變化與體會，例如從小事裡看見人性，或因此反省自己。</p><p class="src-line">出處：<a href="https://www.thenewslens.com/article/146078">歷屆試題・108 學測</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz15">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz15" data-save="qz15" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 丙　關係事件</p>
+          <p><b>審題：</b>「溫暖」發生在人與人之間，屬於關係事件。要寫出事件背後的體會，不能只停在「人間有愛」。</p>
+          <p><b>立論／破題：</b>「那份溫暖不是來自一個擁抱，而是來自一個陌生人願意多等我三十秒。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>點出關係</b>：我和公車司機只是陌生人，卻因為一場雨有了交集。</li><li><b>事件</b>：大雨天我追著已經起步的公車跑，司機停下來等我，還說「慢慢來，地很滑」。</li><li><b>換位思考</b>：後來才想到，他多等那三十秒，可能會被後面的車按喇叭，也可能因此誤點。</li><li><b>轉折與體悟</b>：從那天起，我開始在電梯裡多按住開門鍵幾秒。</li><li><b>收束</b>：溫暖的心不必很大，只要願意為別人慢一點。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">後來我才想到，那三十秒對司機來說並不輕鬆。後面的車在按喇叭，車上的乘客趕著上班，他卻選擇停下來，等一個渾身濕透的國中生。那天之後，我在電梯裡總會多按住開門鍵幾秒。我不知道會不會有人因此趕上什麼，但我知道，溫暖是一種會被傳下去的速度。</p>
+          <p class="note">示範用的是假設情境，請換成你自己的真實經驗。</p>
+        </div></details>
       </div>
       <div class="qcard quiz" data-answer="情 丁">
         <div class="qhead"><span class="qnum">16</span><span class="qtag">判斷題型</span><span class="srctag official">大考中心・106 試辦試題</span></div>
         <p>106 大考中心試辦試題第二題〈花開花謝〉：閱讀王維〈辛夷塢〉與鹿橋《人子》中的〈幽谷〉，先分別說明你對兩則詩文體會到的含意，再設想如果自己是一朵花，希望有什麼樣的生命過程與生命結果。</p>
         <div class="opts" role="group" aria-label="選擇題型"><button type="button" class="opt" data-opt="知 A" aria-pressed="false"><b>知 A</b><span>立場二擇一</span></button><button type="button" class="opt" data-opt="知 B" aria-pressed="false"><b>知 B</b><span>現象分析</span></button><button type="button" class="opt" data-opt="知 C" aria-pressed="false"><b>知 C</b><span>概念應用</span></button><button type="button" class="opt" data-opt="知 D" aria-pressed="false"><b>知 D</b><span>圖表判讀</span></button><button type="button" class="opt" data-opt="情 甲" aria-pressed="false"><b>情 甲</b><span>意象轉化</span></button><button type="button" class="opt" data-opt="情 乙" aria-pressed="false"><b>情 乙</b><span>感官與場景記憶</span></button><button type="button" class="opt" data-opt="情 丙" aria-pressed="false"><b>情 丙</b><span>關係事件</span></button><button type="button" class="opt" data-opt="情 丁" aria-pressed="false"><b>情 丁</b><span>文本對讀</span></button></div>
         <div class="quiz-fb" hidden><p class="verdict"></p><p>先給作家文本，並要你說明對文本的體會，就是文本對讀。後半「如果自己是一朵花」帶有意象轉化，但必須接著兩則詩文的含意來寫，所以主結構仍是文本對讀。</p><p class="src-line">出處：<a href="https://www.unews.com.tw/News/Info/365">大考中心・106 試辦試題</a></p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+        <div class="save-wrap"><label class="field-label" for="qz16">先寫自己的大綱，再看參考答案<span class="saved">已儲存</span></label><textarea id="qz16" data-save="qz16" rows="3" placeholder="例如：題型、立論或破題句、各段一行"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans">
+          <p class="ref-note">本站自編參考答案，非大考中心公布的參考答案或佳作，只示範一種寫法。</p>
+          <p><b>題型：</b>情 丁　文本對讀</p>
+          <p><b>審題：</b>前半要「分別說明」對兩則詩文的體會，後半要「設想自己是一朵花」並寫出希望的生命過程與結果。前後要連貫，後半必須呼應前半的體會。</p>
+          <p><b>立論／破題：</b>「王維的花不為誰而開，鹿橋的花因為等待而錯過；如果我是一朵花，我想在選定顏色之後，就安心地開，不必等誰來看。」</p>
+          <p><b>段落骨架：</b></p><ol class="bones"><li><b>〈辛夷塢〉的體會</b>：辛夷花在無人的山澗旁「紛紛開且落」，不因為沒有人看見而不開。生命的價值在於自足地完成自己。</li><li><b>〈幽谷〉的體會</b>：谷中小草都在天亮前選好顏色開花，只有一株猶豫不決，最後只留下枯萎的花苞。生命有時限，遲遲不選擇，也是一種選擇。</li><li><b>我希望的生命過程</b>：像幽谷中的小草一樣及時做出選擇，選定之後全力綻放。</li><li><b>我希望的生命結果</b>：像辛夷花一樣，開與落都坦然，不以有沒有人欣賞來衡量自己。</li></ol>
+          <p><b>示範段落：</b></p><p class="sample">如果我是一朵花，我不想成為那株在幽谷裡猶豫到最後的小草。我會在天亮之前選定一種顏色，也許不是最鮮豔的，但那是我自己選的。然後我想像山澗旁的辛夷花那樣，安靜地開，安靜地落。沒有人經過也沒關係，因為花開本身，就已經是答案。</p>
+          <p class="note">〈幽谷〉的情節依公開的書摘整理；兩則詩文的完整內容請以大考中心試辦試卷為準。</p>
+        </div></details>
       </div>
       </div>
     </details>
