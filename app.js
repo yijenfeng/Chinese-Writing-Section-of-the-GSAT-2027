@@ -361,6 +361,138 @@
     c.addEventListener("change", function () { if (curFilter === "kept") setTimeout(applyFilter, 250); });
   });
 
+  /* 9. 歷屆試卷作答卡 */
+  (function () {
+    var app = document.getElementById("sheet-app");
+    if (!app) return;
+    var sheets = JSON.parse(app.getAttribute("data-sheets"));
+    var cur = get("sheet:last") || sheets[0].key;
+    function el(tag, cls, text) { var e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; }
+    function load(k) { try { return JSON.parse(get("sheet:" + k) || "{}"); } catch (e) { return {}; } }
+    function save(k, st) { set("sheet:" + k, JSON.stringify(st)); }
+    function topicOf(sh, n) {
+      for (var i = 0; i < sh.topics.length; i++) if (n >= sh.topics[i][0] && n <= sh.topics[i][1]) return sh.topics[i];
+      return null;
+    }
+    function render() {
+      var sh = sheets.filter(function (x) { return x.key === cur; })[0] || sheets[0];
+      var st = load(sh.key); st.a = st.a || {}; st.w = st.w || {};
+      app.innerHTML = "";
+      var chips = el("div", "chips"); chips.setAttribute("role", "group"); chips.setAttribute("aria-label", "選擇試卷");
+      sheets.forEach(function (x) {
+        var b = el("button", "chip" + (x.key === sh.key ? " on" : ""), x.name + (load(x.key).done ? " ✓" : ""));
+        b.type = "button"; b.setAttribute("aria-pressed", x.key === sh.key ? "true" : "false");
+        b.addEventListener("click", function () { cur = x.key; set("sheet:last", cur); render(); });
+        chips.appendChild(b);
+      });
+      app.appendChild(chips);
+      var top = el("div", "sh-top");
+      if (sh.links.length) {
+        top.appendChild(el("span", "", "下載："));
+        sh.links.forEach(function (l) { var a = el("a", "", l[1]); a.href = l[0]; a.target = "_blank"; a.rel = "noopener"; top.appendChild(a); });
+      } else top.appendChild(el("span", "", "這份試卷請到大考中心網站下載。"));
+      app.appendChild(top);
+
+      var rows = el("div", "sh-rows"), lastSec = "";
+      var wrongs = [], mcGot = 0, mcMax = 0, wMax = 0, wGot = 0;
+      sh.ans.forEach(function (ans, i) {
+        var n = i + 1, isW = ans === "/", isM = !isW && n >= sh.multi[0] && n <= sh.multi[1];
+        var sec = isW || n > sh.multi[1] ? "混合題" : isM ? "多選題（每題 4 分）" : "單選題（每題 2 分）";
+        if (sec !== lastSec) { var h = el("p", "sh-sec", sec); h.style.gridColumn = "1 / -1"; rows.appendChild(h); lastSec = sec; }
+        var row = el("div", "sh-row"); row.appendChild(el("span", "sh-no", n));
+        if (isW) {
+          var max = sh.mix[n]; wMax += max;
+          row.appendChild(el("span", "sh-w", "手寫題，滿分 " + max + " 分　自評"));
+          var inp = el("input", "cell-num"); inp.type = "number"; inp.min = 0; inp.max = max; inp.style.width = "4em";
+          inp.setAttribute("aria-label", "第 " + n + " 題自評分數");
+          if (st.w[n] !== undefined) inp.value = st.w[n];
+          inp.addEventListener("change", function () {
+            var v = Math.max(0, Math.min(max, +inp.value || 0)); inp.value = inp.value === "" ? "" : v;
+            if (inp.value === "") delete st.w[n]; else st.w[n] = v;
+            save(sh.key, st); if (st.done) render();
+          });
+          row.appendChild(inp);
+          wGot += +st.w[n] || 0;
+        } else {
+          var letters = isM ? "ABCDE" : "ABCD", mine = st.a[n] || "", pts = isM ? 4 : 2;
+          letters.split("").forEach(function (L) {
+            var b = el("button", "sh-b" + (mine.indexOf(L) >= 0 ? " on" : ""), L);
+            b.type = "button"; b.setAttribute("aria-label", "第 " + n + " 題 " + L);
+            b.setAttribute("aria-pressed", mine.indexOf(L) >= 0 ? "true" : "false");
+            if (st.done) { b.disabled = true; if (ans.indexOf(L) >= 0) b.classList.add("key"); }
+            else b.addEventListener("click", function () {
+              var m = st.a[n] || "";
+              if (isM) m = m.indexOf(L) >= 0 ? m.replace(L, "") : (m + L).split("").sort().join("");
+              else m = m === L ? "" : L;
+              if (m) st.a[n] = m; else delete st.a[n];
+              save(sh.key, st); render();
+            });
+            row.appendChild(b);
+          });
+          mcMax += pts;
+          if (st.done) {
+            var got;
+            if (!mine) got = 0;
+            else if (isM) { var k = 0; letters.split("").forEach(function (L) { if ((ans.indexOf(L) >= 0) !== (mine.indexOf(L) >= 0)) k++; }); got = Math.max(0, (5 - 2 * k) / 5 * 4); }
+            else got = mine === ans ? 2 : 0;
+            got = Math.round(got * 10) / 10; mcGot += got;
+            row.classList.add(got === pts ? "ok" : "bad");
+            row.appendChild(el("span", "sh-mark", got === pts ? "✓" : "正解 " + ans + (isM ? "，得 " + got : "")));
+            if (got < pts) wrongs.push(n);
+          }
+        }
+        rows.appendChild(row);
+      });
+      app.appendChild(rows);
+
+      var bar = el("div", "toolbar");
+      if (!st.done) {
+        var go = el("button", "btn", "對答案"); go.type = "button";
+        go.addEventListener("click", function () {
+          var blank = sh.ans.filter(function (a, i) { return a !== "/" && !st.a[i + 1]; }).length;
+          if (blank && !confirm("還有 " + blank + " 題選擇題沒作答，確定要對答案嗎？")) return;
+          st.done = true; save(sh.key, st); render(); refresh();
+        });
+        bar.appendChild(go);
+      } else {
+        var edit = el("button", "btn ghost", "回去修改答案"); edit.type = "button";
+        edit.addEventListener("click", function () { st.done = false; save(sh.key, st); render(); });
+        bar.appendChild(edit);
+      }
+      var clr = el("button", "btn ghost", "清除這一份"); clr.type = "button";
+      clr.addEventListener("click", function () { if (!confirm("清除這份試卷的作答？")) return; set("sheet:" + sh.key, ""); render(); });
+      bar.appendChild(clr);
+      app.appendChild(bar);
+
+      if (st.done) {
+        mcGot = Math.round(mcGot * 10) / 10;
+        var total = Math.round((mcGot + wGot) * 10) / 10;
+        var res = el("div", "sh-result");
+        res.appendChild(el("h3", "", sh.name + "　成績"));
+        var p = el("p"); var big = el("b", "big", total); p.appendChild(big);
+        p.appendChild(document.createTextNode(" 分（選擇題 " + mcGot + " / " + mcMax + (wMax ? "，手寫題自評 " + wGot + " / " + wMax : "") + "）"));
+        res.appendChild(p);
+        if (wMax && Object.keys(st.w).length === 0) res.appendChild(el("p", "sh-w", "手寫題還沒有自評。對照評分原則後，把分數填進上面的格子，總分會更新。"));
+        if (wrongs.length && sh.topics.length) {
+          res.appendChild(el("h3", "", "錯題分析"));
+          var groups = {}, order = [];
+          wrongs.forEach(function (n) { var t = topicOf(sh, n); if (!t) return; var key = t[2] + "|" + t[3]; if (!groups[key]) { groups[key] = { t: t, ns: [] }; order.push(key); } groups[key].ns.push(n); });
+          var ul = el("ul");
+          order.forEach(function (key) {
+            var g = groups[key], li = el("li");
+            li.appendChild(document.createTextNode(g.t[2] + "：第 " + g.ns.join("、") + " 題　→　"));
+            var a = el("a", "", g.t[4]); a.href = g.t[3]; li.appendChild(a); ul.appendChild(li);
+          });
+          res.appendChild(ul);
+        } else if (wrongs.length) res.appendChild(el("p", "sh-w", "答錯或未得滿分：第 " + wrongs.join("、") + " 題。"));
+        else res.appendChild(el("p", "", "選擇題全部答對。"));
+        app.appendChild(res);
+        if (/^11[1-5]$/.test(sh.key)) { set("paper:" + sh.key, "1"); set("國綜考試規格:score-" + sh.key, String(total)); }
+      }
+    }
+    render();
+  })();
+
   /* 儲存不可用時提醒 */
   try { localStorage.setItem(P + "_t", "1"); localStorage.removeItem(P + "_t"); }
   catch (e) {
