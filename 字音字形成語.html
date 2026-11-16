@@ -279,6 +279,24 @@
   footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
 </style>
 <style>
+  .sh-top{ display:flex; flex-wrap:wrap; gap:0.4rem 1rem; align-items:center; font-size:0.9rem; margin:0.4rem 0 0.8rem; }
+  .sh-rows{ display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:0.35rem 1rem; }
+  .sh-row{ display:flex; align-items:center; gap:0.4rem; padding:0.25rem 0.4rem; border-radius:6px; }
+  .sh-row.ok{ background:color-mix(in srgb, var(--ab) 22%, transparent); }
+  .sh-row.bad{ background:var(--accent-soft); }
+  .sh-no{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; width:2em; text-align:right; color:var(--ink-muted); flex:none; }
+  .sh-b{ width:2.1rem; height:2.1rem; border-radius:50%; border:1px solid var(--line); background:var(--surface); cursor:pointer; font-size:0.85rem; padding:0; flex:none; }
+  .sh-b.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .sh-b:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .sh-b:disabled{ cursor:default; }
+  .sh-b.key{ box-shadow:0 0 0 2px var(--ab); }
+  .sh-mark{ font-size:0.78rem; color:var(--ink-muted); margin-left:0.2rem; white-space:nowrap; }
+  .sh-sec{ font-size:0.82rem; color:var(--ink-muted); margin:1rem 0 0.4rem; }
+  .sh-w{ font-size:0.85rem; color:var(--ink-muted); }
+  .sh-result{ margin-top:1.2rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); }
+  .sh-result h3{ font-size:1.1rem; margin-bottom:0.5rem; }
+  .sh-result b.big{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); }
+  .sh-result ul{ margin:0.4rem 0 0; padding-left:1.2rem; font-size:0.93rem; }
   .btn[hidden]{ display:none; }
   .opts.long{ grid-template-columns:1fr; }
   .opts.long .opt{ flex-direction:row; align-items:baseline; gap:0.6rem; font-size:0.93rem; line-height:1.6; padding:0.5rem 0.8rem; }
