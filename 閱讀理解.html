@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>閱讀理解解題法｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .app-row{ border-top:1px dashed var(--line); padding-top:0.8rem; margin-top:0.8rem; }
+  .app-head{ margin-bottom:0.3rem !important; }
+
+  .part-sub{ color:var(--ink-muted); font-size:1.02rem; margin:-0.9rem 0 1.6rem; }
+
+  .chip.kept{ border-color:var(--b2); color:var(--b2-ink); background:transparent; }
+  .chip.kept{ color:var(--ink); }
+  .chip.kept.on{ background:var(--b2); color:var(--b2-ink); border-color:var(--b2); }
+  .kept-empty{ font-size:0.9rem; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.8rem 1rem; }
+
+  .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
+  .side.pro{ background:var(--ab); color:var(--ab-ink); }
+  .side.con{ background:var(--accent); color:var(--accent-ink); }
+  .exam{ font-size:0.8rem; color:var(--ink-muted); }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem; position:sticky; top:0; z-index:2; background:var(--bg); padding:0.5rem 0; }
+  .chip{ cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:0.25rem 0.8rem; font-size:0.85rem; }
+  .chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .chip:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .kept-count{ display:block; font-size:0.82rem; color:var(--ink-muted); margin-top:0.3rem; }
+  .kept-count b{ color:var(--accent); }
+  .mat-list{ display:flex; flex-direction:column; gap:1rem; }
+  .mat-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); scroll-margin-top:4.5rem; }
+  .mat-card[hidden]{ display:none; }
+  .mat-card:target{ border-color:var(--accent); }
+  .mat-card p{ margin:0 0 0.6rem; }
+  .mat-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.6rem; margin-bottom:0.6rem; }
+  .mat-head h3{ font-size:1.12rem; }
+  .mid{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .msrc{ font-size:0.82rem; color:var(--ink-muted); }
+  .kind{ font-size:0.7rem; padding:0.05rem 0.5rem; border-radius:4px; }
+  .k-quote{ background:var(--accent-soft); color:var(--accent); border:1px solid var(--line); }
+  .k-hist{ background:var(--b2); color:var(--b2-ink); }
+  .k-now{ background:var(--ab); color:var(--ab-ink); }
+  .k-study{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+  .uses-title{ font-size:0.8rem; color:var(--ink-muted); margin:0.6rem 0 0.3rem !important; }
+  ul.uses{ list-style:none; padding:0; margin:0 0 0.6rem; }
+  ul.uses li{ margin:0.35rem 0; font-size:0.95rem; }
+  .iss{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.45rem; margin-right:0.3rem; }
+  .dir{ font-size:0.72rem; font-weight:700; color:var(--accent); margin-right:0.4rem; }
+  .mat-card .sample{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.9; }
+  .keep{ display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--ink-muted); cursor:pointer; }
+  .keep .chk{ margin-top:0; }
+
+  .demo-more{ margin:0.5rem 0 0; }
+  .demo-list{ margin-top:1.4rem; }
+  .step ol.bones{ padding-left:1.3rem; }
+  .step .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.7rem 1rem; border-radius:4px; line-height:1.95; }
+
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+<style>
+  .btn[hidden]{ display:none; }
+  .opts.long{ grid-template-columns:1fr; }
+  .opts.long .opt{ flex-direction:row; align-items:baseline; gap:0.6rem; font-size:0.93rem; line-height:1.6; padding:0.5rem 0.8rem; }
+  .opts.long .opt b{ flex:none; }
+  .opts.long .opt span{ flex:1; }
+  .opts.long .opt::after{ flex:none; margin-left:0.5rem; }
+  .mopt.sel{ border-color:var(--accent); box-shadow:inset 3px 0 0 var(--accent); }
+  .mopt.right.got::after{ content:"✓ 正解，你選了"; }
+  .mopt.right.missed::after{ content:"✓ 正解，你沒選"; }
+  .qtag.multi{ color:var(--b2-ink); background:var(--b2); }
+  .qsub{ font-size:0.82rem; color:var(--ink-muted); margin:0.2rem 0 0 !important; }
+  .passage{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--line); border-radius:4px; padding:0.7rem 1rem; margin:0.4rem 0 0.8rem; line-height:1.95; font-size:0.98rem; }
+  .passage p{ margin:0 0 0.6rem; } .passage p:last-child{ margin:0; }
+  .passage .plabel{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.75rem; color:var(--accent); display:block; margin-bottom:0.2rem; }
+  .gw-meta{ display:flex; flex-wrap:wrap; gap:0.35rem; margin:0 0 0.6rem; }
+  .gw-meta span{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.5rem; }
+  .gw-meta span.hit{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  dl.words{ display:grid; grid-template-columns:max-content 1fr; gap:0.25rem 0.9rem; margin:0.3rem 0 0.7rem; font-size:0.93rem; }
+  dl.words dt{ font-family:'Noto Serif TC',serif; color:var(--accent); }
+  dl.words dd{ margin:0; }
+  @media (max-width:520px){ dl.words{ grid-template-columns:1fr; gap:0; } dl.words dd{ margin-bottom:0.4rem; } }
+  .flow-line{ font-size:0.93rem; background:var(--surface-2); border-radius:6px; padding:0.5rem 0.8rem; }
+  input.cell-num{ width:5.5em; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.3rem 0.5rem; font-size:0.9rem; }
+  .zy{ font-family:'Noto Sans TC',sans-serif; color:var(--accent); white-space:nowrap; }
+</style>
+</head>
+<body data-page="閱讀理解">
+<nav class="site-nav"><a href="index.html">← 回到國文學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第七部・閱讀與混合題・13</span>
+    <h1>閱讀理解解題法</h1>
+    <p class="sub">題目的三個層次、作答四步、選項的六種錯法、不同文本的讀法。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>閱讀理解占國綜約八成。多數人失分不是因為讀不懂文章，而是選項看得太快：覺得「好像有說」就選了。這個單元練習的是回到文章找證據的習慣。</p>
+    <ul class="toc"><li><a href="#levels"><b>1</b>三個層次</a></li><li><a href="#flow"><b>2</b>作答流程</a></li><li><a href="#traps"><b>3</b>選項陷阱</a></li><li><a href="#types"><b>4</b>文本類型</a></li><li><a href="#practice"><b>5</b>練習題</a></li></ul>
+  </section>
+  <section class="part prose" id="levels">
+    <div class="part-kicker"><b>三個層次</b></div>
+    <h2>題目在問哪一層</h2>
+<div class="step"><span class="step-tag">先分辨題目問的是什麼</span><div class="table-wrap"><table><thead><tr><th>層次</th><th>題目常見的問法</th><th>作答方法</th></tr></thead><tbody><tr><td class="k">擷取訊息</td><td>「依據上文，下列敘述何者正確」「文中提到的原因是」</td><td>答案就在文章裡，回去找到那一句，逐字比對選項</td></tr><tr><td class="k">統整解釋</td><td>「最能說明本文主旨的是」「第二段的作用是」「甲、乙兩文的差別是」</td><td>要把幾句話或幾段合起來看，用自己的話先說一次，再找選項</td></tr><tr><td class="k">省思評鑑</td><td>「下列推論何者最合理」「最適合用來佐證文中觀點的是」「作者的寫作策略是」</td><td>要跳出文章判斷：這個說法有沒有根據、這個例子合不合用</td></tr></tbody></table></div><p>115 學測約八成的題目需要讀文章作答。其中只找資訊就能答的題目很少，多數要統整或推論。</p></div>
+
+  </section>
+  <section class="part prose" id="flow">
+    <div class="part-kicker"><b>作答流程</b></div>
+    <h2>先看題幹，再讀文章</h2>
+<div class="step"><span class="step-tag">四步</span><ol><li><b>先看題幹，不看選項</b>：知道要找什麼。看到「不正確」「不符合」先圈起來。</li><li><b>帶著問題讀文章</b>：每段在旁邊寫三五個字的大意。看到「但是、然而、其實」畫底線，後面通常是作者真正的看法。</li><li><b>分清楚是誰說的</b>：評論文章常先引別人的看法，再提出自己的。選項如果把別人的看法當成作者的看法，就是錯的。</li><li><b>每個選項都回文章找證據</b>：找得到對應的句子才選。只憑印象覺得「好像有說」的不要選。</li></ol></div>
+
+  </section>
+  <section class="part prose" id="traps">
+    <div class="part-kicker"><b>選項陷阱</b></div>
+    <h2>錯的選項，錯法只有幾種</h2>
+<div class="step"><span class="step-tag">六種常見錯法</span><div class="table-wrap"><table><thead><tr><th>錯法</th><th>怎麼錯</th><th>怎麼發現</th></tr></thead><tbody><tr><td class="k">張冠李戴</td><td>把甲的特徵說成乙的，或把別人的看法說成作者的</td><td>選項的主語是誰？回文章確認</td></tr><tr><td class="k">以偏概全</td><td>文章說「有些、常常」，選項寫成「所有、一定、只有」</td><td>看到絕對的字眼就回去比對</td></tr><tr><td class="k">因果顛倒</td><td>把原因和結果對調，或把只是同時發生的事說成因果</td><td>文章裡有沒有「因為、導致、所以」</td></tr><tr><td class="k">無中生有</td><td>選項的內容文章沒有提到</td><td>找不到對應的句子</td></tr><tr><td class="k">過度推論</td><td>文章只說到一半，選項多走了一步</td><td>問自己：文章真的說了這麼多嗎</td></tr><tr><td class="k">偷換說法</td><td>換了一個相近但意思不同的詞</td><td>把選項的關鍵詞放回原句，意思有沒有變</td></tr></tbody></table></div></div>
+
+  </section>
+  <section class="part prose" id="types">
+    <div class="part-kicker"><b>文本類型</b></div>
+    <h2>不同的文章，讀的重點不同</h2>
+<div class="step"><span class="step-tag">六種常見文本</span><div class="table-wrap"><table><thead><tr><th>類型</th><th>115 學測的例子</th><th>讀的重點</th></tr></thead><tbody><tr><td class="k">科普說明文</td><td>第 6–8 題：臺灣杉</td><td>定義、分類、原因、數字；每段在說明什麼</td></tr><tr><td class="k">學術摘要</td><td>第 8 題：與科普文比較寫法</td><td>研究目的、方法、結果；用語客觀、不用比喻</td></tr><tr><td class="k">評論</td><td>第 11–13 題：俠與中國文化</td><td>作者的主張是什麼、用什麼當證據</td></tr><tr><td class="k">文化史、藝術評論</td><td>第 16–18 題：肥皂；第 19–21 題：〈自敘帖〉</td><td>引用的古書各說了什麼，作者拿來證明什麼</td></tr><tr><td class="k">古詩文加注解</td><td>第 22–24 題：杜甫詩與兩家注解</td><td>先讀懂原作，再看每家注解的看法哪裡相同、哪裡不同</td></tr><tr><td class="k">多文本</td><td>第 32–36 題：三篇文章談同一主題</td><td>先各寫一句摘要，再列出共同點和不同點</td></tr></tbody></table></div><p class="note">平常可以用科普、人文類的網站文章練習：讀完一篇，寫一句主旨，再寫兩個「文章沒有直接說、但可以推論出來」的句子。</p></div>
+
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：兩篇短文</h2>
+    <p class="lede-line">兩篇閱讀材料都是本站為了練習而寫的短文，不是歷屆試題。作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
+    <div class="qlist">
+<div class="passage"><span class="plabel">閱讀材料一（本站自編，供練習用）</span><p>同一棵茶樹的葉子，可以做成綠茶，也可以做成紅茶。差別不在品種，而在採下之後的處理。茶葉裡有一類稱為多酚的物質，也有能讓多酚與氧氣反應的酵素。葉片完整時，兩者被細胞的構造隔開；揉捻把細胞壓破之後，它們才會相遇，葉子的顏色由綠轉紅，青草味變淡，出現果香與蜜香。製茶的人把這個過程叫做「發酵」。</p><p>做綠茶，要在採收後盡快用高溫讓酵素失去作用，這一步叫「殺菁」，所以綠茶保留了葉子原本的顏色和鮮味。做紅茶則相反，先揉捻，再讓葉子在潮濕溫暖的環境中充分反應，最後才加熱烘乾。烏龍茶介於兩者之間：先讓葉緣輕微反應，再殺菁，因此常有「綠葉紅鑲邊」的說法。</p><p>不過，「發酵」這個詞容易引起誤會。釀酒、做優格的發酵，靠的是微生物；紅茶的「發酵」，靠的是茶葉自己的酵素，嚴格說是氧化。真正需要微生物參與的茶是普洱熟茶一類的後發酵茶。</p></div>      <div class="qcard quiz" data-answer="C">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>依據閱讀材料一，綠茶和紅茶的主要差別來自：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>茶樹的品種不同</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>採收的季節不同</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>採收後是否讓多酚與氧氣充分反應</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>沖泡的水溫不同</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>擷取訊息。第一段說「差別不在品種，而在採下之後的處理」；第二段說明綠茶先殺菁、紅茶讓葉子充分反應。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard mquiz" data-answer="ABE">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag multi">多選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>依據閱讀材料一，下列敘述正確的是：</p>
+        <p class="qsub">可以選一個以上。選好後按「對答案」，會依學測多選題的計分方式算分。</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt mopt" data-opt="A" aria-pressed="false"><b>A</b><span>殺菁的目的是讓酵素失去作用</span></button><button type="button" class="opt mopt" data-opt="B" aria-pressed="false"><b>B</b><span>揉捻會讓多酚和酵素接觸</span></button><button type="button" class="opt mopt" data-opt="C" aria-pressed="false"><b>C</b><span>所有的茶在製作時都需要微生物參與</span></button><button type="button" class="opt mopt" data-opt="D" aria-pressed="false"><b>D</b><span>烏龍茶完全不經過氧化</span></button><button type="button" class="opt mopt" data-opt="E" aria-pressed="false"><b>E</b><span>紅茶的「發酵」嚴格來說是氧化</span></button></div>
+        <div class="toolbar"><button type="button" class="btn small mq-check">對答案</button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>(C) 以偏概全：文章說需要微生物的是後發酵茶。(D) 與文章相反：烏龍茶是葉緣輕微反應。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>閱讀材料一第三段的作用是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>介紹釀酒的方法</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>澄清「發酵」一詞在製茶時的實際意思</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>說明普洱茶比紅茶好</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>總結全文，重複前兩段的內容</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>統整解釋。第三段指出製茶所說的發酵和釀酒的發酵不同，是在釐清一個容易誤會的用詞。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">4</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>下列選項都是錯的。「紅茶變紅是因為加熱烘乾」這個選項，屬於哪一種錯法？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>以偏概全</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>因果顛倒或錯置</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>偷換說法</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>張冠李戴</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>文章說顏色變紅是多酚氧化的結果，加熱烘乾是最後一步。選項把順序在後的步驟當成原因。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+<div class="passage"><span class="plabel">閱讀材料二（本站自編，供練習用）</span><p>手機導航普及之後，「迷路」幾乎成了過時的經驗。支持者認為，把找路交給機器，人可以把心力留給更重要的事，就像計算機沒有讓人變笨，只是讓人不必再背九九乘法以外的東西。</p><p>但我想為迷路說幾句話。照著藍色箭頭走的時候，我們其實不在「那個地方」，而是在螢幕上的一條線裡。轉角的麵店、巷底的老樹，都只是路線旁邊的雜訊。等到手機沒電，才發現走過十次的路，一次也沒有記住。</p><p>我並不主張丟掉導航。趕時間的早晨，沒有人需要迷路。我想說的是，有些地方值得用比較慢的方法認識：出發前先看一次地圖，記住兩三個地標，然後把手機收進口袋。走錯了再拿出來。這樣走過的路，才會變成自己的。</p></div>      <div class="qcard quiz" data-answer="C">
+        <div class="qhead"><span class="qnum">5</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>閱讀材料二的作者，對手機導航的態度是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>完全反對，主張不要使用</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>完全贊成，認為迷路沒有價值</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>不反對使用，但認為有些地方值得不靠導航去認識</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>認為導航會讓人變笨</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>第三段開頭說「我並不主張丟掉導航」，接著說有些地方值得用比較慢的方法認識。(D) 是張冠李戴加過度推論：文章沒有說導航讓人變笨。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">6</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>閱讀材料二第一段提到計算機，這是誰的看法？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>作者自己的看法</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>支持導航的人的看法</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>反對導航的人的看法</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>研究者的實驗結果</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>第一段寫「支持者認為」。第二段的「但」之後，才是作者自己的意見。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard mquiz" data-answer="ABD">
+        <div class="qhead"><span class="qnum">7</span><span class="qtag multi">多選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>依據閱讀材料二，下列哪些說法是作者會同意的？</p>
+        <p class="qsub">可以選一個以上。選好後按「對答案」，會依學測多選題的計分方式算分。</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt mopt" data-opt="A" aria-pressed="false"><b>A</b><span>照著導航走，人容易忽略沿途的景物</span></button><button type="button" class="opt mopt" data-opt="B" aria-pressed="false"><b>B</b><span>趕時間的時候使用導航是合理的</span></button><button type="button" class="opt mopt" data-opt="C" aria-pressed="false"><b>C</b><span>任何情況下都應該先迷路再看地圖</span></button><button type="button" class="opt mopt" data-opt="D" aria-pressed="false"><b>D</b><span>記住地標有助於真正認識一個地方</span></button><button type="button" class="opt mopt" data-opt="E" aria-pressed="false"><b>E</b><span>迷路的經驗已經沒有任何意義</span></button></div>
+        <div class="toolbar"><button type="button" class="btn small mq-check">對答案</button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>(C)「任何情況」是以偏概全，作者說趕時間時不需要迷路。(E) 與作者相反。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard">
+        <div class="qhead"><span class="qnum">8</span><span class="qtag alt">手寫</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>用一句話（30 字以內）寫出閱讀材料二的主旨。</p>
+        <div class="save-wrap"><label class="field-label" for="q1">我的答案<span class="saved">已儲存</span></label><textarea id="q1" data-save="q1" rows="3" placeholder="先寫下自己的答案，再打開參考答案。內容會自動儲存在這台裝置。"></textarea></div>
+        <details class="refans"><summary>參考答案</summary><div class="ans"><p class="ref-note">本站自編參考答案，非大考中心公布的答案，只示範一種寫法。</p><p>導航很方便，但有些地方值得放下手機，靠自己記路去認識。（27 字）</p><p><b>檢查：</b>有沒有同時寫到「不反對導航」和「主張有時靠自己找路」兩層意思？只寫其中一層，就只答對一半。</p></div></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing prose"><div class="card"><h2>下一步</h2><p>接著到單元 14「混合題作答技巧」，把讀到的內容用限定的字數寫出來。</p></div></section>
+  <section class="prose"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;">資料來源</h2><ul class="sources"><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/76a223460e347c6a1e32e8f511d7f41d.pdf">115 學年度學測國語文綜合能力測驗試題</a>（大考中心；檔案由國語文學科中心提供）</li><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/d867f5c9691356b3554934768cd0a996.pdf">115 學測國綜試題分析</a>（國語文學科中心）</li><li><a href="https://udn.com/news/story/6925/9232603">115 學測國文命題分析：閱讀理解、混合題、基礎語文知識的比重</a>（聯合新聞網）</li><li><a href="https://www.1111.com.tw/news/jobns/164150">115 學測國綜考後評析</a>（1111 新聞，2026-01-18）</li><li>兩篇閱讀材料為本站自編。</li></ul></section>
+  <footer><span>筱葳學測國文</span><span>國文學習地圖・國綜</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

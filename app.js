@@ -1,4 +1,4 @@
-/* 國寫學習地圖：互動功能（資料只存在這台裝置的瀏覽器） */
+/* 國文學習地圖：互動功能（資料只存在這台裝置的瀏覽器） */
 (function () {
   "use strict";
   var P = "gsat2027:";
@@ -110,6 +110,65 @@
     });
   });
 
+  /* 3b. 多選題：依學測計分方式（答錯 k 個選項得 (n-2k)/n） */
+  document.querySelectorAll(".mquiz").forEach(function (q, qi) {
+    var ans = q.getAttribute("data-answer");
+    var key = PAGE + ":mq" + qi;
+    var fb = q.querySelector(".quiz-fb");
+    var opts = q.querySelectorAll("button.opt");
+    var checkBtn = q.querySelector(".mq-check");
+    var locked = false;
+    function picked() {
+      var out = "";
+      opts.forEach(function (b) { if (b.classList.contains("sel")) out += b.getAttribute("data-opt"); });
+      return out;
+    }
+    function show(choice) {
+      var wrong = 0;
+      opts.forEach(function (b) {
+        var o = b.getAttribute("data-opt");
+        var isAns = ans.indexOf(o) >= 0, sel = choice.indexOf(o) >= 0;
+        b.classList.remove("right", "wrong", "got", "missed");
+        b.classList.toggle("sel", sel);
+        b.setAttribute("aria-pressed", sel ? "true" : "false");
+        if (isAns) b.classList.add("right", sel ? "got" : "missed");
+        else if (sel) b.classList.add("wrong");
+        if (isAns !== sel) wrong++;
+      });
+      var n = opts.length;
+      var score = Math.max(0, Math.round((n - 2 * wrong) / n * 4 * 10) / 10);
+      fb.hidden = false;
+      fb.classList.toggle("ok", wrong === 0);
+      fb.querySelector(".verdict").textContent = wrong === 0
+        ? "全對，得 4 分。"
+        : "正解是「" + ans + "」。答錯 " + wrong + " 個選項，依學測計分得 " + score + " 分（滿分 4 分）。";
+      locked = true;
+      if (checkBtn) checkBtn.hidden = true;
+    }
+    opts.forEach(function (b) {
+      b.addEventListener("click", function () {
+        if (locked) return;
+        var on = !b.classList.contains("sel");
+        b.classList.toggle("sel", on);
+        b.setAttribute("aria-pressed", on ? "true" : "false");
+      });
+    });
+    if (checkBtn) checkBtn.addEventListener("click", function () {
+      var c = picked();
+      if (!c) { toast("請至少選一個選項"); return; }
+      set(key, c); show(c); refresh();
+    });
+    var saved = get(key);
+    if (saved) show(saved);
+    var reset = q.querySelector(".quiz-reset");
+    if (reset) reset.addEventListener("click", function () {
+      set(key, ""); fb.hidden = true; locked = false;
+      if (checkBtn) checkBtn.hidden = false;
+      opts.forEach(function (b) { b.classList.remove("right", "wrong", "got", "missed", "sel"); b.setAttribute("aria-pressed", "false"); });
+      refresh();
+    });
+  });
+
   /* 4. 素材卡進度 */
   var FIELDS = ["scene", "line", "me", "other", "turn", "now", "keys"];
   var FIELD_NAMES = ["場景（五感）", "關鍵一句話", "當時的我", "對方可能的想法", "轉折", "現在的我怎麼看", "可用關鍵詞"];
@@ -172,15 +231,20 @@
   /* 6. 進度數字 */
   function quizStats() {
     var right = 0, done = 0;
-    allKeys().forEach(function (k) {
-      var m = k.match(/:quiz(\d+)$/);
-      if (!m) return;
-      done++;
-      var el = document.querySelectorAll(".quiz")[+m[1]];
-      if (el && el.getAttribute("data-answer") === localStorage.getItem(k)) right++;
+    document.querySelectorAll(".quiz").forEach(function (el, i) {
+      var v = get(PAGE + ":quiz" + i);
+      if (!v) return;
+      done++; if (v === el.getAttribute("data-answer")) right++;
+    });
+    document.querySelectorAll(".mquiz").forEach(function (el, i) {
+      var v = get(PAGE + ":mq" + i);
+      if (!v) return;
+      done++; if (v === el.getAttribute("data-answer")) right++;
     });
     return { done: done, right: right };
   }
+  var GZ_RE = /^gsat2027:(核心古文十五篇|文言文閱讀|閱讀理解|混合題作答|字音字形成語|文法修辭應用文|國學常識):(quiz|mq)\d+$/;
+  function countKeys(re) { return allKeys().filter(function (k) { return re.test(k); }).length; }
   function answered() {
     return allKeys().filter(function (k) { return /:qz?\d+$/.test(k); }).length;
   }
@@ -192,6 +256,12 @@
     var qd = allKeys().filter(function (k) { return /^gsat2027:看題判斷題型:quiz\d+$/.test(k); }).length;
     set_("p-quiz", qd);
     set_("p-mats", allKeys().filter(function (k) { return /^gsat2027:mat:/.test(k); }).length);
+    var gw = countKeys(/^gsat2027:gw:\d+$/);
+    set_("p-gw", gw);
+    set_("p-gz", countKeys(GZ_RE));
+    set_("p-paper", countKeys(/^gsat2027:paper:\w+$/));
+    var gwBar = document.getElementById("gw-bar");
+    if (gwBar) gwBar.style.width = (gw / 15 * 100) + "%";
     for (var n = 1; n <= 12; n++) {
       var b = document.getElementById("card-badge-" + n);
       if (b) {
@@ -211,7 +281,7 @@
   function exportAll() {
     var data = {};
     allKeys().forEach(function (k) { data[k] = localStorage.getItem(k); });
-    download("國寫學習資料-" + today() + ".json", JSON.stringify({ site: "gsat2027", saved: new Date().toISOString(), data: data }, null, 2), "application/json");
+    download("國文學習資料-" + today() + ".json", JSON.stringify({ site: "gsat2027", saved: new Date().toISOString(), data: data }, null, 2), "application/json");
     toast("已下載備份檔");
   }
   function importAll(file) {
