@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>國綜考試規格與歷屆考點｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .app-row{ border-top:1px dashed var(--line); padding-top:0.8rem; margin-top:0.8rem; }
+  .app-head{ margin-bottom:0.3rem !important; }
+
+  .part-sub{ color:var(--ink-muted); font-size:1.02rem; margin:-0.9rem 0 1.6rem; }
+
+  .chip.kept{ border-color:var(--b2); color:var(--b2-ink); background:transparent; }
+  .chip.kept{ color:var(--ink); }
+  .chip.kept.on{ background:var(--b2); color:var(--b2-ink); border-color:var(--b2); }
+  .kept-empty{ font-size:0.9rem; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.8rem 1rem; }
+
+  .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
+  .side.pro{ background:var(--ab); color:var(--ab-ink); }
+  .side.con{ background:var(--accent); color:var(--accent-ink); }
+  .exam{ font-size:0.8rem; color:var(--ink-muted); }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem; position:sticky; top:0; z-index:2; background:var(--bg); padding:0.5rem 0; }
+  .chip{ cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:0.25rem 0.8rem; font-size:0.85rem; }
+  .chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .chip:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .kept-count{ display:block; font-size:0.82rem; color:var(--ink-muted); margin-top:0.3rem; }
+  .kept-count b{ color:var(--accent); }
+  .mat-list{ display:flex; flex-direction:column; gap:1rem; }
+  .mat-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); scroll-margin-top:4.5rem; }
+  .mat-card[hidden]{ display:none; }
+  .mat-card:target{ border-color:var(--accent); }
+  .mat-card p{ margin:0 0 0.6rem; }
+  .mat-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.6rem; margin-bottom:0.6rem; }
+  .mat-head h3{ font-size:1.12rem; }
+  .mid{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .msrc{ font-size:0.82rem; color:var(--ink-muted); }
+  .kind{ font-size:0.7rem; padding:0.05rem 0.5rem; border-radius:4px; }
+  .k-quote{ background:var(--accent-soft); color:var(--accent); border:1px solid var(--line); }
+  .k-hist{ background:var(--b2); color:var(--b2-ink); }
+  .k-now{ background:var(--ab); color:var(--ab-ink); }
+  .k-study{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+  .uses-title{ font-size:0.8rem; color:var(--ink-muted); margin:0.6rem 0 0.3rem !important; }
+  ul.uses{ list-style:none; padding:0; margin:0 0 0.6rem; }
+  ul.uses li{ margin:0.35rem 0; font-size:0.95rem; }
+  .iss{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.45rem; margin-right:0.3rem; }
+  .dir{ font-size:0.72rem; font-weight:700; color:var(--accent); margin-right:0.4rem; }
+  .mat-card .sample{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.9; }
+  .keep{ display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--ink-muted); cursor:pointer; }
+  .keep .chk{ margin-top:0; }
+
+  .demo-more{ margin:0.5rem 0 0; }
+  .demo-list{ margin-top:1.4rem; }
+  .step ol.bones{ padding-left:1.3rem; }
+  .step .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.7rem 1rem; border-radius:4px; line-height:1.95; }
+
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+<style>
+  .btn[hidden]{ display:none; }
+  .opts.long{ grid-template-columns:1fr; }
+  .opts.long .opt{ flex-direction:row; align-items:baseline; gap:0.6rem; font-size:0.93rem; line-height:1.6; padding:0.5rem 0.8rem; }
+  .opts.long .opt b{ flex:none; }
+  .opts.long .opt span{ flex:1; }
+  .opts.long .opt::after{ flex:none; margin-left:0.5rem; }
+  .mopt.sel{ border-color:var(--accent); box-shadow:inset 3px 0 0 var(--accent); }
+  .mopt.right.got::after{ content:"✓ 正解，你選了"; }
+  .mopt.right.missed::after{ content:"✓ 正解，你沒選"; }
+  .qtag.multi{ color:var(--b2-ink); background:var(--b2); }
+  .qsub{ font-size:0.82rem; color:var(--ink-muted); margin:0.2rem 0 0 !important; }
+  .passage{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--line); border-radius:4px; padding:0.7rem 1rem; margin:0.4rem 0 0.8rem; line-height:1.95; font-size:0.98rem; }
+  .passage p{ margin:0 0 0.6rem; } .passage p:last-child{ margin:0; }
+  .passage .plabel{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.75rem; color:var(--accent); display:block; margin-bottom:0.2rem; }
+  .gw-meta{ display:flex; flex-wrap:wrap; gap:0.35rem; margin:0 0 0.6rem; }
+  .gw-meta span{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.5rem; }
+  .gw-meta span.hit{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  dl.words{ display:grid; grid-template-columns:max-content 1fr; gap:0.25rem 0.9rem; margin:0.3rem 0 0.7rem; font-size:0.93rem; }
+  dl.words dt{ font-family:'Noto Serif TC',serif; color:var(--accent); }
+  dl.words dd{ margin:0; }
+  @media (max-width:520px){ dl.words{ grid-template-columns:1fr; gap:0; } dl.words dd{ margin-bottom:0.4rem; } }
+  .flow-line{ font-size:0.93rem; background:var(--surface-2); border-radius:6px; padding:0.5rem 0.8rem; }
+  input.cell-num{ width:5.5em; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.3rem 0.5rem; font-size:0.9rem; }
+  .zy{ font-family:'Noto Sans TC',sans-serif; color:var(--accent); white-space:nowrap; }
+</style>
+</head>
+<body data-page="國綜考試規格">
+<nav class="site-nav"><a href="index.html">← 回到國文學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第五部・認識國綜・10</span>
+    <h1>國綜考試規格與歷屆考點</h1>
+    <p class="sub">先知道考什麼、怎麼算分、時間怎麼分，再決定每個單元要花多少力氣。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>國綜和國寫各占國文科的一半。國綜全部是閱讀：讀懂文章、讀懂選項、讀懂題目要你做什麼。這個單元先看清楚考試的樣子。</p>
+    <ul class="toc"><li><a href="#spec"><b>1</b>考試規格</a></li><li><a href="#y115"><b>2</b>115 逐題考點</a></li><li><a href="#time"><b>3</b>時間分配</a></li><li><a href="#papers"><b>4</b>歷屆刷題紀錄</a></li><li><a href="#plan"><b>5</b>準備計畫</a></li></ul>
+  </section>
+  <section class="part prose" id="spec">
+    <div class="part-kicker"><b>考試規格</b></div>
+    <h2>90 分鐘，選擇題加混合題</h2>
+<div class="step"><span class="step-tag">基本資料</span><div class="table-wrap"><table><thead><tr><th>項目</th><th>內容</th></tr></thead><tbody><tr><td class="k">考試名稱</td><td>國文（一）：國語文綜合能力測驗，簡稱國綜</td></tr><tr><td class="k">考試時間</td><td>90 分鐘。116 學測在 2027 年 1 月 22 日至 24 日舉行，國綜和國寫排在第 2 天下午連考，中間休息 1 小時</td></tr><tr><td class="k">占分</td><td>國綜和國寫各占國文科成績的一半</td></tr><tr><td class="k">題型</td><td>選擇題（單選、多選）和混合題（同一個題組裡有選擇題，也有要手寫的非選擇題）</td></tr><tr><td class="k">作答工具</td><td>選擇題用 2B 鉛筆；非選擇題用筆尖較粗的黑色墨水筆</td></tr></tbody></table></div><p class="note">題數和配分每年會微調，下面以 115 學測的試卷為例。116 學測以大考中心的簡章和試卷為準。</p></div>
+<div class="step"><span class="step-tag">115 學測的配分</span><div class="table-wrap"><table><thead><tr><th>部分</th><th>題號</th><th>題數</th><th>每題</th><th>小計</th></tr></thead><tbody><tr><td class="k">單選題</td><td>1–24</td><td>24 題</td><td>2 分</td><td>48 分</td></tr><tr><td class="k">多選題</td><td>25–31</td><td>7 題</td><td>4 分</td><td>28 分</td></tr><tr><td class="k">混合題：非選擇題</td><td>32–34</td><td>3 題（各分 2 小題）</td><td>2 或 4 分</td><td>20 分</td></tr><tr><td class="k">混合題：單選題</td><td>35–36</td><td>2 題</td><td>2 分</td><td>4 分</td></tr><tr><td class="k">合計</td><td></td><td>36 題</td><td></td><td>100 分</td></tr></tbody></table></div></div>
+<div class="step"><span class="step-tag">多選題怎麼算分</span><p>多選題每個選項獨立判定。5 個選項的題目，全對得 4 分；每答錯 1 個選項扣 1.6 分，扣到 0 分為止。</p><div class="table-wrap"><table><thead><tr><th>答錯的選項數</th><th>0 個</th><th>1 個</th><th>2 個</th><th>3 個以上</th></tr></thead><tbody><tr><td class="k">得分（滿分 4 分）</td><td>4</td><td>2.4</td><td>0.8</td><td>0</td></tr></tbody></table></div><p>公式是「（選項數 − 2 × 答錯數）÷ 選項數」乘以該題分數。「答錯」包含該選沒選、不該選卻選了。所以沒把握的選項，要回到文本找證據再決定，不要整題放棄：錯 1 個還有 2.4 分。</p></div>
+
+  </section>
+  <section class="part prose" id="y115">
+    <div class="part-kicker"><b>歷屆考點</b></div>
+    <h2>115 學測逐題考了什麼</h2>
+<div class="step"><span class="step-tag">逐題考點表</span><p>下表只整理每一題的考點與取材，不收錄題目原文。練習時請搭配大考中心的試卷，連結在本頁最後的「資料來源」。</p><div class="table-wrap"><table><thead><tr><th>題號</th><th>考點</th><th>取材</th></tr></thead><tbody><tr><td class="k">1</td><td>字音</td><td>〈虯髯客傳〉、〈先妣事略〉、〈項脊軒志〉、〈勸和論〉的字詞</td></tr><tr><td class="k">2</td><td>字形</td><td>白話句子，找出沒有錯別字的一句</td></tr><tr><td class="k">3</td><td>應用文</td><td>鄭用錫、林占梅的賀詩；判斷書信稱謂與詩意</td></tr><tr><td class="k">4</td><td>古文統整</td><td>以《韓非子》的說法，對照〈鴻門宴〉、〈燭之武退秦師〉、〈諫逐客書〉、《孟子》</td></tr><tr><td class="k">5</td><td>文句排序</td><td>蘇軾〈書論〉</td></tr><tr><td class="k">6–8</td><td>科普閱讀、寫作手法</td><td>游旨价寫臺灣杉的文章，並與一篇學術摘要比較寫法</td></tr><tr><td class="k">9–10</td><td>小說評論閱讀</td><td>馬丁・費德談福爾摩斯小說的文章</td></tr><tr><td class="k">11–13</td><td>評論閱讀、古文佐證</td><td>余英時〈俠與中國文化〉；為文中論點選出最適合的古文句子</td></tr><tr><td class="k">14–15</td><td>文法：量詞</td><td>名量詞與動量詞；例句來自〈勸和論〉、〈馮諼客孟嘗君〉、〈劉姥姥〉、〈虯髯客傳〉</td></tr><tr><td class="k">16–18</td><td>文化史閱讀</td><td>以肥皂為主題的文章，引用《本草綱目》、《金瓶梅》、《紅樓夢》等</td></tr><tr><td class="k">19–21</td><td>藝術評論閱讀</td><td>盧慧紋談懷素〈自敘帖〉的文章</td></tr><tr><td class="k">22–24</td><td>古詩與注解比較</td><td>杜甫〈觀打魚歌〉，以及仇兆鰲、浦起龍兩家注解</td></tr><tr><td class="k">25（多選）</td><td>文言字義</td><td>「與、為、於、乃、竊」；每組各取兩篇課內古文的句子比較</td></tr><tr><td class="k">26（多選）</td><td>成語運用</td><td>沆瀣一氣、授人以柄、不次拔擢、秣馬厲兵、曲突徙薪</td></tr><tr><td class="k">27（多選）</td><td>文言閱讀、寫作特色</td><td>袁宏道〈開先寺至黃巖寺觀瀑記〉</td></tr><tr><td class="k">28（多選）</td><td>國學常識：韻文</td><td>從《詩經》、杜甫詩、〈畫菊自序〉到徐志摩，談押韻、平仄、合樂</td></tr><tr><td class="k">29（多選）</td><td>文言閱讀</td><td>《韓詩外傳》兩則孔子學琴、鼓瑟的故事</td></tr><tr><td class="k">30–31（多選）</td><td>文體知識：表</td><td>一篇談「表」的論文，搭配諸葛亮〈出師表〉、曹操〈陳損益表〉</td></tr><tr><td class="k">32–36（混合題）</td><td>多文本閱讀與簡答</td><td>主題「聽見她的聲音」：歸有光〈項脊軒志〉等三文、李欣倫〈水面下〉、阿嬤口述歷史訪問稿</td></tr></tbody></table></div></div>
+<div class="step"><span class="step-tag">從這張表看出的四件事</span><ol><li><b>閱讀占八成</b>：字音、字形、文法、應用文、國學常識等基礎題合計約兩成，其餘都要讀文章作答。</li><li><b>核心古文是唯一確定的範圍</b>：15 篇推薦選文在 115 學測出現了 12 篇，分布在第 1、4、14、25、28、30–31、32 題。考法是比較與應用，不是默寫翻譯。</li><li><b>基礎題的字詞來自課文注釋</b>：第 1 題字音、第 25 題字義的句子都出自課內古文。</li><li><b>混合題是多篇文本談同一個主題</b>：古文、現代散文、訪問稿放在一起，要先各自讀懂，再比較。</li></ol></div>
+
+  </section>
+  <section class="part prose" id="time">
+    <div class="part-kicker"><b>時間分配</b></div>
+    <h2>90 分鐘怎麼用</h2>
+<div class="step"><span class="step-tag">建議配速</span><div class="table-wrap"><table><thead><tr><th>段落</th><th>時間</th><th>做法</th></tr></thead><tbody><tr><td class="k">單選 24 題</td><td>約 35 分鐘</td><td>第 1–5 題基礎題每題 1 分鐘內；題組先看題幹再讀文章</td></tr><tr><td class="k">多選 7 題</td><td>約 20 分鐘</td><td>每個選項當成是非題，逐一回文本找證據</td></tr><tr><td class="k">混合題</td><td>約 25 分鐘</td><td>先看完所有小題再讀文本；手寫題先在題本上打草稿、數字數</td></tr><tr><td class="k">檢查</td><td>約 10 分鐘</td><td>檢查劃卡有沒有跳格、手寫題有沒有寫在指定欄位</td></tr></tbody></table></div><p class="note">這是本站建議的起點，不是大考中心的規定。每做完一份歷屆試題，就依自己實際花的時間調整。</p></div>
+
+  </section>
+  <section class="part prose" id="papers">
+    <div class="part-kicker"><b>歷屆刷題</b></div>
+    <h2>111 到 115 年，加上 116 參考試卷</h2>
+<div class="step"><span class="step-tag">為什麼從 111 年開始</span><p>111 學年度起，學測改依 108 課綱命題，國綜加入混合題。111 到 115 這五份試卷的題型和現在一樣，是最值得做的練習題。大考中心另外公布了 116 學測參考試卷，附參考答案與試題解析，可以當第六份。</p></div>
+<div class="step"><span class="step-tag">刷題紀錄</span><p>每份都計時 90 分鐘，做完對答案，把分數和檢討寫在這裡。</p><div class="table-wrap"><table><thead><tr><th>試卷</th><th>完成</th><th>分數</th><th>檢討</th></tr></thead><tbody><tr><td class="k">111 學測</td><td><input type="checkbox" class="chk" data-save="paper:111" data-global aria-label="111 學測 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-111" aria-label="111 學測 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-111" aria-label="111 學測 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr><tr><td class="k">112 學測</td><td><input type="checkbox" class="chk" data-save="paper:112" data-global aria-label="112 學測 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-112" aria-label="112 學測 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-112" aria-label="112 學測 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr><tr><td class="k">113 學測</td><td><input type="checkbox" class="chk" data-save="paper:113" data-global aria-label="113 學測 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-113" aria-label="113 學測 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-113" aria-label="113 學測 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr><tr><td class="k">114 學測</td><td><input type="checkbox" class="chk" data-save="paper:114" data-global aria-label="114 學測 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-114" aria-label="114 學測 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-114" aria-label="114 學測 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr><tr><td class="k">115 學測</td><td><input type="checkbox" class="chk" data-save="paper:115" data-global aria-label="115 學測 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-115" aria-label="115 學測 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-115" aria-label="115 學測 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr><tr><td class="k">116 參考試卷</td><td><input type="checkbox" class="chk" data-save="paper:ref116" data-global aria-label="116 參考試卷 已完成"></td><td><input type="number" class="cell-num" min="0" max="100" data-save="score-ref116" aria-label="116 參考試卷 分數" placeholder="分數"></td><td><textarea class="cell-in" rows="1" data-save="memo-ref116" aria-label="116 參考試卷 檢討" placeholder="錯最多的題型、要回頭看的單元"></textarea></td></tr></tbody></table></div><p class="tool-note">紀錄儲存在這台裝置。換裝置前，到首頁按「匯出備份」。</p></div>
+
+  </section>
+  <section class="part prose" id="plan">
+    <div class="part-kicker"><b>準備計畫</b></div>
+    <h2>到考前約 10 週</h2>
+<div class="step"><span class="step-tag">四個階段</span><div class="table-wrap"><table><thead><tr><th>階段</th><th>時間</th><th>要做的事</th><th>完成</th></tr></thead><tbody><tr><td class="k">一、打底</td><td>11 月中～12 月初（3 週）</td><td>核心古文每週 5 篇（單元 11）；每天 10 分鐘字音字形成語（單元 15）</td><td><input type="checkbox" class="chk" data-save="phase1" aria-label="一、打底完成"></td></tr><tr><td class="k">二、方法</td><td>12 月（3 週）</td><td>文言文閱讀方法、閱讀理解、混合題（單元 12–14）；每週一份歷屆：111、112、113</td><td><input type="checkbox" class="chk" data-save="phase2" aria-label="二、方法完成"></td></tr><tr><td class="k">三、計時模擬</td><td>12 月底～1 月中（3 週）</td><td>每週一份計時 90 分鐘：114、115、116 參考試卷；文法修辭、國學常識（單元 16、17）補弱</td><td><input type="checkbox" class="chk" data-save="phase3" aria-label="三、計時模擬完成"></td></tr><tr><td class="k">四、考前一週</td><td>1 月 16 日～22 日</td><td>只看錯題、15 篇的必會字詞、應用文表格</td><td><input type="checkbox" class="chk" data-save="phase4" aria-label="四、考前一週完成"></td></tr></tbody></table></div><p class="note">國寫的練習計畫在單元 9。兩邊可以錯開：平日做國綜的單元練習，週末寫一篇國寫或一份國綜試卷。</p></div>
+
+  </section>
+
+  <section class="closing prose"><div class="card"><h2>下一步</h2><p>接著讀單元 11「核心古文十五篇」。15 篇是國綜唯一確定的範圍，先把它讀熟。</p></div></section>
+  <section class="prose"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;">資料來源</h2><ul class="sources"><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/76a223460e347c6a1e32e8f511d7f41d.pdf">115 學年度學測國語文綜合能力測驗試題</a>（大考中心；檔案由國語文學科中心提供）</li><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/d867f5c9691356b3554934768cd0a996.pdf">115 學測國綜試題分析</a>（國語文學科中心）</li><li><a href="https://www.unews.com.tw/News/Info/11486">116 學測各科參考試卷下載整理</a>（大學問，資料來源為大考中心）</li><li><a href="https://www.1111.com.tw/news/jobns/166989">116 學年度考試簡章公告：學測日期與各科考試時間</a>（1111 新聞，2026-08-03）</li><li><a href="https://www.unews.com.tw/News/Info/11380">116 學測考試時程：國綜與國寫在第 2 天下午連考</a>（大學問）</li><li>歷年試題與參考答案可以在大考中心網站的「學科能力測驗」頁面下載。</li></ul></section>
+  <footer><span>筱葳學測國文</span><span>國文學習地圖・國綜</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>

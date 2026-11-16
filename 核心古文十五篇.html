@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>核心古文十五篇｜筱葳學測國文</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+  :root{
+    --bg:#F5F2EC; --surface:#FFFFFF; --surface-2:#EFE9DF;
+    --ink:#2A2420; --ink-muted:#6B6058; --line:#DDD3C4;
+    --accent:#A23B2A; --accent-ink:#FFFFFF; --accent-soft:#F6E3DC;
+    --ab:#4E8C7C; --ab-ink:#0B241F;
+    --b2:#C9852F; --b2-ink:#2E1C05;
+    --grid-line: rgba(162,59,42,0.07);
+    --shadow: 0 1px 2px rgba(42,36,32,0.06), 0 8px 24px rgba(42,36,32,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+      --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+      --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+      --ab:#3E8776; --ab-ink:#E7F5F1;
+      --b2:#C97E2E; --b2-ink:#2A1A05;
+      --grid-line: rgba(231,154,134,0.06);
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#18130F; --surface:#221C17; --surface-2:#2A231D;
+    --ink:#EFE8DF; --ink-muted:#A89C90; --line:#3A3128;
+    --accent:#E79A86; --accent-ink:#1E0F0B; --accent-soft:#3A2520;
+    --ab:#3E8776; --ab-ink:#E7F5F1;
+    --b2:#C97E2E; --b2-ink:#2A1A05;
+    --grid-line: rgba(231,154,134,0.06);
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+  *{ box-sizing:border-box; }
+  html{ -webkit-text-size-adjust:100%; }
+  body{
+    margin:0;
+    background:
+      repeating-linear-gradient(0deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid-line) 0 1px, transparent 1px 32px),
+      var(--bg);
+    color:var(--ink);
+    font-family:'Noto Sans TC','PingFang TC','Microsoft JhengHei',sans-serif;
+    font-size:17px; line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{ scroll-behavior:auto !important; transition:none !important; animation:none !important; }
+  }
+  h1,h2,h3{ font-family:'Noto Serif TC','Songti TC','PMingLiU',serif; font-weight:600; text-wrap:balance; color:var(--ink); margin:0; }
+  a{ color:var(--accent); }
+  .mono{ font-family:'JetBrains Mono','Cascadia Code',ui-monospace,monospace; }
+  .eyebrow{
+    display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.06em;
+    color:var(--accent); background:var(--accent-soft); border:1px solid var(--line);
+    padding:0.3rem 0.7rem; border-radius:4px; margin-bottom:1.1rem;
+  }
+
+  input, textarea, select, button{ font:inherit; color:inherit; }
+  textarea, .field input, .field select{
+    width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line); border-radius:6px;
+    padding:0.55rem 0.75rem; font-size:0.95rem; line-height:1.7;
+  }
+  textarea{ min-height:4.8em; resize:vertical; field-sizing:content; }
+  textarea:focus, input:focus, select:focus{ outline:2px solid var(--accent); outline-offset:1px; border-color:transparent; }
+  .save-wrap{ margin:0.6rem 0 0.2rem; }
+  .field-label{ display:flex; align-items:center; gap:0.5rem; font-size:0.82rem; color:var(--ink-muted); margin-bottom:0.3rem; }
+  .saved{ font-family:'JetBrains Mono',monospace; font-size:0.7rem; color:var(--ab); opacity:0; transition:opacity .2s; }
+  .saved.on{ opacity:1; }
+  .blank-in{
+    display:inline-block; width:3.2em; max-width:100%; min-width:3.2em; border:none; border-bottom:1.5px solid var(--accent);
+    background:transparent; color:var(--accent); padding:0 0.2em; margin:0 0.15em; font-size:0.95em; border-radius:0;
+  }
+  .blank-in:focus{ outline:none; background:var(--surface); border-bottom-width:2px; }
+  .btn{
+    display:inline-flex; align-items:center; gap:0.35rem; cursor:pointer; border-radius:6px; border:1px solid var(--accent);
+    background:var(--accent); color:var(--accent-ink); padding:0.45rem 0.9rem; font-size:0.88rem; font-weight:500;
+  }
+  .btn.ghost{ background:transparent; color:var(--accent); }
+  .btn.small{ padding:0.2rem 0.6rem; font-size:0.8rem; }
+  .btn:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .toolbar{ display:flex; flex-wrap:wrap; gap:0.5rem; align-items:center; margin:1rem 0; }
+  .tool-note{ font-size:0.82rem; color:var(--ink-muted); margin:0.4rem 0 0; }
+  #toast{ position:fixed; left:50%; bottom:1.4rem; transform:translateX(-50%) translateY(1rem); background:var(--ink); color:var(--bg);
+    padding:0.5rem 1rem; border-radius:6px; font-size:0.9rem; opacity:0; pointer-events:none; transition:all .2s; z-index:10; }
+  #toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+  .store-warn{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.6rem 0.9rem; margin:1rem 0 0; font-size:0.9rem; }
+  @media print{ .site-nav, .toolbar, .btn, footer, #toast{ display:none !important; } body{ background:#fff; } }
+
+  .app-row{ border-top:1px dashed var(--line); padding-top:0.8rem; margin-top:0.8rem; }
+  .app-head{ margin-bottom:0.3rem !important; }
+
+  .part-sub{ color:var(--ink-muted); font-size:1.02rem; margin:-0.9rem 0 1.6rem; }
+
+  .chip.kept{ border-color:var(--b2); color:var(--b2-ink); background:transparent; }
+  .chip.kept{ color:var(--ink); }
+  .chip.kept.on{ background:var(--b2); color:var(--b2-ink); border-color:var(--b2); }
+  .kept-empty{ font-size:0.9rem; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.8rem 1rem; }
+
+  .side{ display:inline-block; font-size:0.7rem; font-weight:700; padding:0 0.4rem; border-radius:3px; margin-right:0.35rem; }
+  .side.pro{ background:var(--ab); color:var(--ab-ink); }
+  .side.con{ background:var(--accent); color:var(--accent-ink); }
+  .exam{ font-size:0.8rem; color:var(--ink-muted); }
+  .chips{ display:flex; flex-wrap:wrap; gap:0.4rem; margin:1rem 0 1.2rem; position:sticky; top:0; z-index:2; background:var(--bg); padding:0.5rem 0; }
+  .chip{ cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:999px; padding:0.25rem 0.8rem; font-size:0.85rem; }
+  .chip.on{ background:var(--accent); color:var(--accent-ink); border-color:var(--accent); }
+  .chip:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .kept-count{ display:block; font-size:0.82rem; color:var(--ink-muted); margin-top:0.3rem; }
+  .kept-count b{ color:var(--accent); }
+  .mat-list{ display:flex; flex-direction:column; gap:1rem; }
+  .mat-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); scroll-margin-top:4.5rem; }
+  .mat-card[hidden]{ display:none; }
+  .mat-card:target{ border-color:var(--accent); }
+  .mat-card p{ margin:0 0 0.6rem; }
+  .mat-head{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.6rem; margin-bottom:0.6rem; }
+  .mat-head h3{ font-size:1.12rem; }
+  .mid{ font-family:'JetBrains Mono',monospace; font-size:0.8rem; color:var(--ink-muted); }
+  .msrc{ font-size:0.82rem; color:var(--ink-muted); }
+  .kind{ font-size:0.7rem; padding:0.05rem 0.5rem; border-radius:4px; }
+  .k-quote{ background:var(--accent-soft); color:var(--accent); border:1px solid var(--line); }
+  .k-hist{ background:var(--b2); color:var(--b2-ink); }
+  .k-now{ background:var(--ab); color:var(--ab-ink); }
+  .k-study{ background:var(--surface-2); color:var(--ink); border:1px solid var(--line); }
+  .uses-title{ font-size:0.8rem; color:var(--ink-muted); margin:0.6rem 0 0.3rem !important; }
+  ul.uses{ list-style:none; padding:0; margin:0 0 0.6rem; }
+  ul.uses li{ margin:0.35rem 0; font-size:0.95rem; }
+  .iss{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.45rem; margin-right:0.3rem; }
+  .dir{ font-size:0.72rem; font-weight:700; color:var(--accent); margin-right:0.4rem; }
+  .mat-card .sample{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.9; }
+  .keep{ display:flex; gap:0.5rem; align-items:center; font-size:0.88rem; color:var(--ink-muted); cursor:pointer; }
+  .keep .chk{ margin-top:0; }
+
+  .demo-more{ margin:0.5rem 0 0; }
+  .demo-list{ margin-top:1.4rem; }
+  .step ol.bones{ padding-left:1.3rem; }
+  .step .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.7rem 1rem; border-radius:4px; line-height:1.95; }
+
+  .refans{ margin-top:0.7rem; }
+  .ref-note{ font-size:0.8rem; color:var(--b2-ink); background:var(--b2); display:inline-block; padding:0.1rem 0.5rem; border-radius:4px; }
+  .ans ol.bones{ margin:0 0 0.6rem; padding-left:1.3rem; }
+  .ans ol.bones li{ margin:0.3rem 0; }
+  .sample{ font-family:'Noto Serif TC',serif; background:var(--surface); border-left:3px solid var(--accent); padding:0.6rem 0.9rem; border-radius:4px; line-height:1.95; }
+
+  .srctag{ font-size:0.7rem; padding:0.1rem 0.5rem; border-radius:4px; line-height:1.5; }
+  .srctag.official{ color:var(--ab); background:transparent; border:1px solid var(--ab); }
+  .srctag.selfmade{ color:var(--b2-ink); background:var(--b2); }
+  .qcard .qhead{ flex-wrap:wrap; }
+  .src-line{ font-size:0.85rem; color:var(--ink-muted); }
+  .extend{ margin-top:1.4rem; }
+  .extend > summary{ display:flex; flex-direction:column; align-items:flex-start; gap:0.15rem; width:100%;
+    background:var(--surface); border:1px solid var(--accent); border-radius:8px; padding:0.9rem 1.2rem 0.9rem 2rem; box-shadow:var(--shadow); position:relative; }
+  .extend > summary::before{ position:absolute; left:0.9rem; top:1.15rem; }
+  .ext-title{ font-family:'Noto Serif TC',serif; font-size:1.1rem; font-weight:600; color:var(--accent); }
+  .ext-sub{ font-size:0.85rem; color:var(--ink-muted); }
+  .ext-list{ margin-top:1rem; }
+
+  .opts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(130px,1fr)); gap:0.45rem; margin:0.8rem 0 0.2rem; }
+  .opt{ display:flex; flex-direction:column; align-items:flex-start; gap:0.05rem; text-align:left; cursor:pointer;
+    background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:0.45rem 0.7rem; font-size:0.85rem; line-height:1.4; }
+  .opt b{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.8rem; color:var(--accent); }
+  .opt span{ color:var(--ink); }
+  .opt:hover{ border-color:var(--accent); }
+  .opt:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+  .opt.right{ background:var(--ab); border-color:var(--ab); }
+  .opt.right b, .opt.right span{ color:var(--ab-ink); }
+  .opt.wrong{ background:var(--accent-soft); border-color:var(--accent); }
+  .opt.right::after{ content:"✓ 正解"; font-size:0.72rem; color:var(--ab-ink); }
+  .opt.wrong::after{ content:"你的選擇"; font-size:0.72rem; color:var(--accent); }
+  .quiz-fb{ margin-top:0.7rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; border-left:3px solid var(--accent); }
+  .quiz-fb.ok{ border-left-color:var(--ab); }
+  .quiz-fb .verdict{ font-weight:700; }
+  .quiz-fb p{ margin:0 0 0.5rem; }
+  .quiz-score{ display:block; font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.85rem; color:var(--accent); margin-top:0.3rem; }
+  .mform{ margin-top:0.4rem; background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:0.6rem 0.9rem; }
+  .mform[open]{ box-shadow:var(--shadow); }
+  .mform summary{ font-weight:500; }
+  .badge{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.7rem; margin-left:0.6rem; padding:0.05rem 0.5rem; border-radius:999px; background:var(--surface-2); color:var(--ink-muted); border:1px solid var(--line); }
+  .badge.done{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  .mgrid{ display:grid; gap:0.6rem; margin-top:0.7rem; }
+  .mfield{ margin:0; }
+  .mfield textarea{ min-height:3.2em; }
+  .progress-card{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin-top:1rem; }
+  .progress-top{ display:flex; justify-content:space-between; font-size:0.9rem; color:var(--ink-muted); }
+  .progress-top b{ color:var(--accent); font-size:1.1rem; }
+  .progress{ height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden; margin:0.5rem 0 0.2rem; }
+  .progress-bar{ height:100%; width:0; background:var(--accent); transition:width .3s; }
+  .checks{ list-style:none; padding:0; margin:0; }
+  .step ul.checks{ padding-left:0; }
+  .checks li{ margin:0.35rem 0; }
+  .checks label{ display:flex; gap:0.6rem; align-items:flex-start; cursor:pointer; }
+  .chk{ width:1.15rem; height:1.15rem; accent-color:var(--accent); flex:none; margin-top:0.35rem; }
+  .checks input:checked + span{ color:var(--ink-muted); text-decoration:line-through; }
+  textarea.cell-in{ min-height:2.4em; min-width:12em; font-size:0.9rem; padding:0.3rem 0.5rem; }
+  .log-form{ display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:0.7rem; margin:0.4rem 0 1rem; }
+  .log-form .wide{ grid-column:1 / -1; }
+  .field label{ display:block; font-size:0.8rem; color:var(--ink-muted); margin-bottom:0.25rem; }
+  td.empty{ color:var(--ink-muted); font-size:0.88rem; }
+  .mine h2{ display:flex; flex-wrap:wrap; align-items:baseline; gap:0.3rem 0.8rem; }
+  .sub-note{ font-family:'Noto Sans TC',sans-serif; font-size:0.78rem; font-weight:400; color:var(--ink-muted); }
+  .mine-grid{ display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:0.6rem; margin:0.6rem 0 0.4rem; }
+  .mine-grid a{ display:flex; flex-direction:column; text-decoration:none; color:var(--ink-muted); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:0.7rem 0.9rem; font-size:0.82rem; }
+  .mine-grid a:hover{ border-color:var(--accent); }
+  .mine-grid b{ font-family:'JetBrains Mono',monospace; font-size:1.5rem; color:var(--accent); line-height:1.2; }
+
+  .page{ max-width:880px; margin:0 auto; padding:0 1.25rem 5rem; }
+  .prose{ max-width:680px; margin-inline:auto; }
+  .site-nav{ max-width:880px; margin:0 auto; padding:1rem 1.25rem 0; }
+  .site-nav a{ font-family:'JetBrains Mono',monospace; font-size:0.85rem; text-decoration:none; color:var(--ink-muted); }
+  .site-nav a:hover{ color:var(--accent); }
+  .hero{ padding:4rem 0 2.5rem; }
+  .hero h1{ font-size:clamp(2rem,5vw,2.7rem); line-height:1.25; margin-bottom:0.9rem; }
+  .hero p.sub{ color:var(--ink-muted); font-size:1.08rem; max-width:640px; }
+  .hero-rule{ height:1px; background:linear-gradient(90deg, var(--accent) 0, var(--line) 30%, transparent 70%); margin-top:2.2rem; }
+  .lede{ padding:0.5rem 0 2.5rem; }
+  .lede p{ margin:0 0 1rem; }
+  .toc{ list-style:none; margin:1.2rem 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.5rem; }
+  .toc li{ font-size:0.92rem; }
+  .toc a{ text-decoration:none; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.55rem 0.8rem; display:block; }
+  .toc a b{ color:var(--accent); font-family:'JetBrains Mono',monospace; margin-right:0.4rem; }
+  .part{ padding:2.2rem 0 3rem; }
+  .part-kicker{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; letter-spacing:0.08em; color:var(--ink-muted); margin-bottom:0.5rem; }
+  .part-kicker b{ color:var(--accent); }
+  .part h2{ font-size:1.65rem; margin-bottom:1.6rem; }
+  .step{ position:relative; padding:0 0 0 1.4rem; margin-bottom:1.9rem; border-left:2px solid var(--line); }
+  .step::before{ content:""; position:absolute; left:-5px; top:0.35rem; width:8px; height:8px; border-radius:50%; background:var(--accent); }
+  .step-tag{ display:inline-block; font-family:'JetBrains Mono',monospace; font-size:0.72rem; letter-spacing:0.04em; color:var(--accent); background:var(--accent-soft); border:1px solid var(--line); padding:0.15rem 0.55rem; border-radius:999px; margin-bottom:0.6rem; }
+  .step p{ margin:0 0 0.85rem; }
+  .step p:last-child{ margin-bottom:0; }
+  .step ul, .step ol{ margin:0 0 0.85rem; padding-left:1.3rem; }
+  .step li{ margin:0.25rem 0; }
+  .quote{ font-family:'Noto Serif TC',serif; font-size:1.05rem; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:1rem 1.2rem; box-shadow:var(--shadow); margin:0 0 0.9rem; }
+  .tpl{ background:var(--accent-soft); border:1px solid var(--line); border-radius:6px; padding:0.9rem 1.1rem; margin:0.9rem 0; font-size:0.98rem; }
+  .tpl-title{ font-size:0.78rem; letter-spacing:0.02em; color:var(--ink-muted); margin-bottom:0.4rem; }
+  .tpl-hint{ margin-left:0.6rem; font-size:0.72rem; color:var(--accent); }
+  .tpl ol, .tpl ul{ margin:0; padding-left:1.3rem; }
+  .tpl li{ margin:0.45rem 0; }
+  .tpl .pct{ font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:var(--ink-muted); margin-left:0.3rem; }
+  .blank{ display:inline-block; min-width:2.6em; border-bottom:1.5px solid var(--accent); margin:0 0.15em; transform:translateY(-0.2em); }
+  .calc{ font-family:'JetBrains Mono','Noto Sans TC',monospace; color:var(--ink-muted); background:var(--surface); border:1px dashed var(--line); border-radius:6px; padding:0.85rem 1.1rem; margin:0.9rem 0; overflow-x:auto; white-space:pre-wrap; font-size:0.93rem; }
+  .note{ font-size:0.92rem; color:var(--ink-muted); border-left:3px solid var(--b2); padding:0.15rem 0 0.15rem 0.9rem; margin:0.9rem 0; }
+  .toolbox{ padding:1rem 0 3rem; }
+  .toolbox h2{ font-size:1.5rem; margin-bottom:0.5rem; }
+  .toolbox .lede-line{ color:var(--ink-muted); margin-bottom:1.4rem; }
+  .table-wrap{ overflow-x:auto; border:1px solid var(--line); border-radius:8px; background:var(--surface); box-shadow:var(--shadow); margin:1rem 0; }
+  table{ border-collapse:collapse; width:100%; min-width:520px; font-size:0.93rem; }
+  th,td{ text-align:left; vertical-align:top; padding:0.75rem 1rem; border-bottom:1px solid var(--line); }
+  thead th{ font-size:0.8rem; letter-spacing:0.03em; color:var(--ink-muted); background:var(--surface-2); white-space:nowrap; }
+  td.k{ color:var(--accent); font-weight:500; white-space:nowrap; }
+  tbody tr:last-child td{ border-bottom:none; }
+  .practice{ padding:1rem 0 3rem; }
+  .practice h2{ font-size:1.5rem; margin-bottom:0.6rem; }
+  .practice .lede-line{ color:var(--ink-muted); margin-bottom:1.2rem; }
+  .qlist{ display:flex; flex-direction:column; gap:1rem; }
+  .qcard{ background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:1.1rem 1.3rem; box-shadow:var(--shadow); }
+  .qcard p{ margin:0 0 0.4rem; }
+  .qcard .qhead{ display:flex; align-items:baseline; gap:0.6rem; margin-bottom:0.4rem; }
+  .qtag{ font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--ab-ink); background:var(--ab); padding:0.1rem 0.5rem; border-radius:4px; flex:none; }
+  .qtag.alt{ color:var(--b2-ink); background:var(--b2); }
+  .qnum{ font-family:'JetBrains Mono',monospace; color:var(--ink-muted); font-size:0.9rem; }
+  details{ margin-top:0.6rem; }
+  summary{ cursor:pointer; font-size:0.9rem; color:var(--accent); list-style:none; display:inline-flex; align-items:center; gap:0.35rem; }
+  summary::-webkit-details-marker{ display:none; }
+  summary::before{ content:"▸"; font-size:0.75rem; transition:transform .15s ease; }
+  details[open] summary::before{ transform:rotate(90deg); }
+  summary:focus-visible, a:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; border-radius:2px; }
+  .ans{ margin-top:0.6rem; padding:0.75rem 1rem; background:var(--surface-2); border-radius:6px; font-size:0.95rem; }
+  .ans p{ margin:0 0 0.5rem; } .ans p:last-child{ margin:0; }
+  .ans ul{ margin:0; padding-left:1.2rem; }
+  .closing{ padding:1rem 0 2rem; }
+  .closing .card{ background:var(--accent-soft); border:1px solid var(--line); border-radius:8px; padding:1.4rem; }
+  .closing h2{ font-size:1.3rem; margin-bottom:0.8rem; }
+  .closing p{ margin:0 0 0.8rem; } .closing p:last-child{ margin-bottom:0; }
+  .sources{ font-size:0.88rem; color:var(--ink-muted); }
+  .sources li{ margin:0.2rem 0; }
+  footer{ padding-top:2rem; margin-top:1rem; border-top:1px solid var(--line); color:var(--ink-muted); font-size:0.85rem; font-family:'JetBrains Mono',monospace; display:flex; justify-content:space-between; flex-wrap:wrap; gap:0.5rem; }
+</style>
+<style>
+  .btn[hidden]{ display:none; }
+  .opts.long{ grid-template-columns:1fr; }
+  .opts.long .opt{ flex-direction:row; align-items:baseline; gap:0.6rem; font-size:0.93rem; line-height:1.6; padding:0.5rem 0.8rem; }
+  .opts.long .opt b{ flex:none; }
+  .opts.long .opt span{ flex:1; }
+  .opts.long .opt::after{ flex:none; margin-left:0.5rem; }
+  .mopt.sel{ border-color:var(--accent); box-shadow:inset 3px 0 0 var(--accent); }
+  .mopt.right.got::after{ content:"✓ 正解，你選了"; }
+  .mopt.right.missed::after{ content:"✓ 正解，你沒選"; }
+  .qtag.multi{ color:var(--b2-ink); background:var(--b2); }
+  .qsub{ font-size:0.82rem; color:var(--ink-muted); margin:0.2rem 0 0 !important; }
+  .passage{ font-family:'Noto Serif TC',serif; background:var(--surface-2); border-left:3px solid var(--line); border-radius:4px; padding:0.7rem 1rem; margin:0.4rem 0 0.8rem; line-height:1.95; font-size:0.98rem; }
+  .passage p{ margin:0 0 0.6rem; } .passage p:last-child{ margin:0; }
+  .passage .plabel{ font-family:'JetBrains Mono','Noto Sans TC',monospace; font-size:0.75rem; color:var(--accent); display:block; margin-bottom:0.2rem; }
+  .gw-meta{ display:flex; flex-wrap:wrap; gap:0.35rem; margin:0 0 0.6rem; }
+  .gw-meta span{ font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0.05rem 0.5rem; }
+  .gw-meta span.hit{ background:var(--ab); color:var(--ab-ink); border-color:var(--ab); }
+  dl.words{ display:grid; grid-template-columns:max-content 1fr; gap:0.25rem 0.9rem; margin:0.3rem 0 0.7rem; font-size:0.93rem; }
+  dl.words dt{ font-family:'Noto Serif TC',serif; color:var(--accent); }
+  dl.words dd{ margin:0; }
+  @media (max-width:520px){ dl.words{ grid-template-columns:1fr; gap:0; } dl.words dd{ margin-bottom:0.4rem; } }
+  .flow-line{ font-size:0.93rem; background:var(--surface-2); border-radius:6px; padding:0.5rem 0.8rem; }
+  input.cell-num{ width:5.5em; background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:0.3rem 0.5rem; font-size:0.9rem; }
+  .zy{ font-family:'Noto Sans TC',sans-serif; color:var(--accent); white-space:nowrap; }
+</style>
+</head>
+<body data-page="核心古文十五篇">
+<nav class="site-nav"><a href="index.html">← 回到國文學習地圖</a></nav>
+<div class="page">
+  <header class="hero">
+    <span class="eyebrow">第六部・文言文・11</span>
+    <h1>核心古文十五篇</h1>
+    <p class="sub">108 課綱的 15 篇推薦選文，是國綜唯一確定的範圍。每篇一張卡：主旨、脈絡、必會字詞、常考重點。</p>
+    <div class="hero-rule"></div>
+  </header>
+  <section class="lede prose">
+    <p>115 學測的字音題、字義題、量詞題、文體題和混合題，材料都來自這 15 篇。考法不是默寫，而是把兩篇放在一起比較，所以每篇都要能用自己的話說出主旨和脈絡。</p>
+    <ul class="toc"><li><a href="#how"><b>1</b>怎麼讀</a></li><li><a href="#cards"><b>2</b>十五張卡</a></li><li><a href="#practice"><b>3</b>練習題</a></li></ul>
+  </section>
+  <section class="part prose" id="how">
+    <div class="part-kicker"><b>怎麼讀</b></div>
+    <h2>每篇只記四樣東西</h2>
+<div class="step"><span class="step-tag">讀法</span><ol><li><b>主旨</b>：用一句話說出這篇在講什麼。</li><li><b>脈絡</b>：看著箭頭，能不能把故事或論點順序講一遍。</li><li><b>必會字詞</b>：遮住右邊的解釋，自己說一次。這些字詞就是字音、字義題的來源。</li><li><b>常考重點</b>：這篇常和哪一篇放在一起比較。</li></ol><p>每張卡的重點是本站整理的摘要。完整的課文、注釋和翻譯，請回到課本。</p></div>
+<div class="step"><span class="step-tag">115 學測用了哪些篇</span><p>卡片上的綠色標籤是 115 學測用到這一篇的題號。15 篇中有 12 篇直接入題，〈師說〉、〈勞山道士〉、〈鹿港乘桴記〉沒有。沒入題的篇目，隔年出現的機會不會比較低。</p></div>
+
+  </section>
+  <section class="part prose" id="cards">
+    <div class="part-kicker"><b>十五張卡</b></div>
+    <h2>依時代排列，讀完一篇勾一篇</h2>
+    <div class="progress-card"><div class="progress-top"><span>已複習</span><span><b id="p-gw">0</b> / 15 篇</span></div><div class="progress"><div class="progress-bar" id="gw-bar"></div></div></div>
+    <div class="chips" role="group" aria-label="篩選"><button type="button" class="chip on" data-filter="all" aria-pressed="true">全部</button><button type="button" class="chip" data-filter="early" aria-pressed="false">先秦兩漢</button><button type="button" class="chip" data-filter="mid" aria-pressed="false">魏晉唐宋</button><button type="button" class="chip" data-filter="late" aria-pressed="false">明清</button><button type="button" class="chip" data-filter="tw" aria-pressed="false">臺灣</button><button type="button" class="chip" data-filter="hit" aria-pressed="false">115 有入題</button><button type="button" class="chip kept" data-filter="kept" aria-pressed="false">已複習</button></div>
+    <p class="kept-empty" id="kept-empty" hidden>還沒有勾選「已複習」的篇目。</p>
+    <div class="mat-list"><article class="mat-card" id="gw1" data-tags="early hit"><div class="mat-head"><span class="mid">#01</span><h3>燭之武退秦師</h3><span class="msrc">《左傳》</span></div><div class="gw-meta"><span>先秦</span><span>編年體史書・敘事文</span><span class="hit">115 學測：第 4、25 題</span></div><p><b>主旨：</b>秦、晉聯軍圍攻鄭國，燭之武只對秦穆公分析利害，就讓秦國退兵。</p><p class="uses-title">脈絡</p><p class="flow-line">秦晉圍鄭 → 佚之狐推薦燭之武，鄭伯認錯 → 夜裡縋城而出，說服秦伯（滅鄭只對晉有利、留鄭可當東道主、晉國不可信）→ 秦與鄭結盟 → 晉文公不追擊，退兵</p><p class="uses-title">必會字詞</p><dl class="words"><dt>貳於楚</dt><dd>貳：有二心，指同時親附楚國</dd><dt>敢以煩執事</dt><dd>執事：對對方的敬稱，不直接稱「您」</dd><dt>東道主</dt><dd>東方道路上招待過客的主人</dd><dt>行李之往來</dt><dd>行李：外交使者，不是行囊</dd><dt>共其乏困</dt><dd>共：通「供」，供給</dd><dt>闕秦</dt><dd>闕：損害</dd><dt>微夫人之力不及此</dt><dd>微：如果沒有。夫人：那個人，指秦穆公</dd><dt>失其所與，不知</dt><dd>與：結盟的對象。知：通「智」</dd></dl><p><b>常考重點：</b>說服的方法是站在對方的立場談利害。常和〈諫逐客書〉、〈鴻門宴〉比較說話策略；「行李、夫人」是古今異義詞。</p><div class="save-wrap"><label class="field-label" for="gwn1">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn1" data-save="note1" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:1" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw2" data-tags="early hit"><div class="mat-head"><span class="mid">#02</span><h3>大同與小康</h3><span class="msrc">《禮記・禮運》</span></div><div class="gw-meta"><span>先秦</span><span>儒家論說</span><span class="hit">115 學測：第 25 題</span></div><p><b>主旨：</b>借孔子的感嘆，說明「天下為公」的大同世界，以及「天下為家」、靠禮來維持秩序的小康社會。</p><p class="uses-title">脈絡</p><p class="flow-line">孔子參加蜡祭後嘆息 → 大同：選賢與能、講信修睦、人人得到照顧、外戶不閉 → 小康：天下為家、以禮義為綱紀，禹湯文武成王周公六位君子謹守禮制</p><p class="uses-title">必會字詞</p><dl class="words"><dt>與於蜡賓</dt><dd>與：音ㄩˋ，參加。蜡：音ㄓㄚˋ，年終祭祀</dd><dt>選賢與能</dt><dd>與：通「舉」，推舉</dd><dt>矜寡孤獨廢疾者</dt><dd>矜：通「鰥」，音ㄍㄨㄢ，年老無妻的人</dd><dt>男有分，女有歸</dt><dd>分：音ㄈㄣˋ，職分。歸：歸宿，指出嫁</dd><dt>貨惡其棄於地也</dt><dd>惡：音ㄨˋ，厭惡</dd><dt>大人世及以為禮</dt><dd>世及：父傳子、兄傳弟的世襲</dd><dt>刑仁講讓</dt><dd>刑：通「型」，當作典範</dd><dt>在埶者去</dt><dd>埶：通「勢」，有權位的人</dd></dl><p><b>常考重點：</b>大同與小康的對照表要自己畫得出來。常和〈桃花源記〉比較理想世界；通同字很多。</p><div class="save-wrap"><label class="field-label" for="gwn2">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn2" data-save="note2" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:2" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw3" data-tags="early hit"><div class="mat-head"><span class="mid">#03</span><h3>諫逐客書</h3><span class="msrc">李斯</span></div><div class="gw-meta"><span>秦</span><span>奏議（上書）</span><span class="hit">115 學測：第 4、25 題</span></div><p><b>主旨：</b>勸秦王收回驅逐客卿的命令：趕走人才等於幫助敵國，接納人才才能統一天下。</p><p class="uses-title">脈絡</p><p class="flow-line">開頭直說逐客是錯的 → 史證：穆公、孝公、惠王、昭王四位國君都靠客卿強國 → 物證：珍寶、美女、音樂都不產於秦，秦王卻愛用，重物輕人 → 說理：泰山不讓土壤、河海不擇細流 → 結論：逐客是資助敵人</p><p class="uses-title">必會字詞</p><dl class="words"><dt>竊以為過矣</dt><dd>竊：私下，表示謙虛。過：錯誤</dd><dt>向使四君卻客而不內</dt><dd>向使：假如。內：通「納」，接納</dd><dt>黔首</dt><dd>百姓</dd><dt>藉寇兵而齎盜糧</dt><dd>藉：借。齎：音ㄐㄧ，送。借兵器給敵人、送糧食給盜賊</dd><dt>裹足不入秦</dt><dd>停下腳步不敢進入秦國</dd></dl><p><b>常考重點：</b>正反對比、排比鋪陳、用比喻說理。這是臣子寫給君王的文章，語氣謙卑但立場明確。</p><div class="save-wrap"><label class="field-label" for="gwn3">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn3" data-save="note3" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:3" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw4" data-tags="early hit"><div class="mat-head"><span class="mid">#04</span><h3>鴻門宴</h3><span class="msrc">司馬遷</span></div><div class="gw-meta"><span>西漢</span><span>《史記・項羽本紀》・紀傳體</span><span class="hit">115 學測：第 4、25 題</span></div><p><b>主旨：</b>項羽在鴻門宴上沒有殺劉邦。從兩人的言行，可以看出性格差異和日後成敗的原因。</p><p class="uses-title">脈絡</p><p class="flow-line">曹無傷告密、范增勸項羽進攻 → 項伯夜訪張良，劉邦拉攏項伯 → 劉邦到鴻門謝罪 → 宴會上：范增舉玉玦示意、項莊舞劍、樊噲闖帳 → 劉邦藉口上廁所脫身，張良留下致歉 → 劉邦回營殺曹無傷</p><p class="uses-title">必會字詞</p><dl class="words"><dt>距關，毋內諸侯</dt><dd>距：通「拒」。內：通「納」</dd><dt>張良出，要項伯</dt><dd>要：音ㄧㄠ，通「邀」</dd><dt>不敢倍德</dt><dd>倍：通「背」，違背</dd><dt>旦日不可不蚤自來謝項王</dt><dd>蚤：通「早」。謝：道歉</dd><dt>范增數目項王</dt><dd>數：音ㄕㄨㄛˋ，屢次。目：使眼色，名詞當動詞用</dd><dt>常以身翼蔽沛公</dt><dd>翼：像翅膀一樣，名詞當狀語用</dd><dt>人為刀俎，我為魚肉</dt><dd>俎：音ㄗㄨˇ，砧板</dd><dt>豎子不足與謀</dt><dd>豎子：罵人的話，小子</dd></dl><p><b>常考重點：</b>人物對比：項羽自負又猶豫，劉邦能忍、反應快。《史記》的體例（本紀、世家、列傳、表、書）也常考。</p><div class="save-wrap"><label class="field-label" for="gwn4">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn4" data-save="note4" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:4" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw5" data-tags="mid hit"><div class="mat-head"><span class="mid">#05</span><h3>出師表</h3><span class="msrc">諸葛亮</span></div><div class="gw-meta"><span>三國蜀漢</span><span>表（奏議）</span><span class="hit">115 學測：第 30–31 題</span></div><p><b>主旨：</b>北伐前上表給後主劉禪，勸他廣納意見、賞罰公平、親近賢臣，並說明自己受先帝知遇、決心北伐。</p><p class="uses-title">脈絡</p><p class="flow-line">分析情勢：危急存亡之秋 → 三項建議：開張聖聽、賞罰一致、親賢臣遠小人，並推薦人才 → 自述：躬耕南陽、三顧茅廬、受命於危難 → 說明出師目標與君臣各自的責任 → 臨表涕零</p><p class="uses-title">必會字詞</p><dl class="words"><dt>崩殂</dt><dd>殂：音ㄘㄨˊ。帝王死亡</dd><dt>陟罰臧否</dt><dd>陟：音ㄓˋ，升遷。臧否：音ㄗㄤ ㄆㄧˇ，善與惡</dd><dt>妄自菲薄</dt><dd>過分看輕自己</dd><dt>裨補闕漏</dt><dd>裨：音ㄅㄧˋ，補益</dd><dt>先帝不以臣卑鄙</dt><dd>卑鄙：身分低微、見識淺陋，不是品行惡劣</dd><dt>由是感激</dt><dd>感激：感動而奮發</dd><dt>咨諏善道</dt><dd>諏：音ㄗㄡ，詢問</dd></dl><p><b>常考重點：</b>「表」是臣子向君王陳述心意的文體，情與理並重。「卑鄙、感激」是古今異義詞。</p><div class="save-wrap"><label class="field-label" for="gwn5">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn5" data-save="note5" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:5" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw6" data-tags="mid hit"><div class="mat-head"><span class="mid">#06</span><h3>桃花源記</h3><span class="msrc">陶淵明</span></div><div class="gw-meta"><span>東晉</span><span>記</span><span class="hit">115 學測：第 25 題</span></div><p><b>主旨：</b>借漁人誤入桃花源的故事，寄託對沒有戰亂、自給自足生活的嚮往。</p><p class="uses-title">脈絡</p><p class="flow-line">漁人沿溪發現桃花林 → 穿過山洞看見村落：土地平曠、雞犬相聞 → 村人款待，自稱祖先躲避秦時戰亂而來，不知道有漢朝 → 漁人離開時沿路做記號，報告太守 → 再去找卻迷路，從此沒有人再去尋訪</p><p class="uses-title">必會字詞</p><dl class="words"><dt>緣溪行</dt><dd>緣：沿著</dd><dt>阡陌交通</dt><dd>交通：交錯相通，不是運輸</dd><dt>黃髮垂髫</dt><dd>借代：老人和小孩。髫：音ㄊㄧㄠˊ</dd><dt>便要還家</dt><dd>要：音ㄧㄠ，通「邀」</dd><dt>率妻子邑人來此絕境</dt><dd>妻子：妻子和兒女。絕境：與外界隔絕的地方</dd><dt>乃不知有漢，無論魏晉</dt><dd>乃：竟然。無論：更不用說</dd><dt>便扶向路</dt><dd>扶：沿著。向：先前的</dd><dt>後遂無問津者</dt><dd>問津：問渡口，指探訪</dd></dl><p><b>常考重點：</b>古今異義詞是必考：交通、妻子、絕境、無論。常和〈大同與小康〉對讀。</p><div class="save-wrap"><label class="field-label" for="gwn6">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn6" data-save="note6" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:6" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw7" data-tags="mid"><div class="mat-head"><span class="mid">#07</span><h3>師說</h3><span class="msrc">韓愈</span></div><div class="gw-meta"><span>唐</span><span>論說</span><span class="">115 學測：未直接入題</span></div><p><b>主旨：</b>批評當時士大夫以從師為恥的風氣，主張道理在誰那裡，誰就是老師。</p><p class="uses-title">脈絡</p><p class="flow-line">立論：老師的任務是傳道、授業、解惑，從師不分貴賤長幼 → 三組對比：古代聖人與今人、為孩子擇師卻自己不學、巫醫樂師百工與士大夫 → 舉孔子向多人學習為例 → 說明寫作緣由：贈給學生李蟠</p><p class="uses-title">必會字詞</p><dl class="words"><dt>師者，所以傳道受業解惑也</dt><dd>受：通「授」。所以：用來……的</dd><dt>句讀之不知</dt><dd>讀：音ㄉㄡˋ。文章的斷句</dd><dt>小學而大遺</dt><dd>學了小的，卻丟了大的</dd><dt>位卑則足羞，官盛則近諛</dt><dd>向地位低的人學覺得羞恥，向官位高的人學又像在巴結</dd><dt>君子不齒</dt><dd>不屑與之同列</dd><dt>師不必賢於弟子</dt><dd>不必：不一定。於：比</dd><dt>不拘於時</dt><dd>於：被。不被當時的風氣限制</dd></dl><p><b>常考重點：</b>對比論證。韓愈是唐代古文運動的領導者，主張文以載道，列唐宋八大家之首。</p><div class="save-wrap"><label class="field-label" for="gwn7">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn7" data-save="note7" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:7" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw8" data-tags="mid hit"><div class="mat-head"><span class="mid">#08</span><h3>虯髯客傳</h3><span class="msrc">杜光庭</span></div><div class="gw-meta"><span>唐</span><span>傳奇小說</span><span class="hit">115 學測：第 1、14、25 題</span></div><p><b>主旨：</b>寫李靖、紅拂女、虯髯客三位豪傑相遇。虯髯客見到李世民後，放棄爭天下，把家產送給李靖。</p><p class="uses-title">脈絡</p><p class="flow-line">李靖拜見楊素，紅拂女夜奔 → 在靈石旅舍遇見虯髯客，結為兄妹 → 到太原兩次見李世民，道士觀棋認輸 → 虯髯客把家產贈給李靖，自己遠走海外 → 多年後在扶餘國稱王</p><p class="uses-title">必會字詞</p><dl class="words"><dt>踞床而見</dt><dd>踞：伸開腿坐著，態度傲慢</dd><dt>布衣</dt><dd>平民</dd><dt>絲蘿非獨生，願託喬木</dt><dd>絲蘿自比，喬木比喻李靖，表示願意託付終身</dd><dt>逆旅</dt><dd>旅店</dd><dt>攲臥</dt><dd>攲：音ㄑㄧ。斜靠著躺</dd><dt>真人</dt><dd>真命天子，指李世民</dd></dl><p><b>常考重點：</b>唐代傳奇是文人有意識創作的小說。人物形象鮮明，屬於豪俠類。文末有議論，認為帝王是天命所歸。</p><div class="save-wrap"><label class="field-label" for="gwn8">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn8" data-save="note8" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:8" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw9" data-tags="mid hit"><div class="mat-head"><span class="mid">#09</span><h3>赤壁賦</h3><span class="msrc">蘇軾</span></div><div class="gw-meta"><span>北宋</span><span>賦（散文賦）</span><span class="hit">115 學測：第 25 題</span></div><p><b>主旨：</b>貶官黃州時夜遊赤壁。透過主客問答，從「變」與「不變」兩個角度看人生，化解生命短暫的悲哀。</p><p class="uses-title">脈絡</p><p class="flow-line">樂：泛舟、清風、明月、飲酒唱歌 → 悲：客人吹洞簫，感嘆英雄如曹操今已不在，人生短暫渺小 → 說理：蘇子用水和月作比喻，又說清風明月是取用不盡的寶藏 → 喜：客人轉悲為喜，同睡舟中</p><p class="uses-title">必會字詞</p><dl class="words"><dt>七月既望</dt><dd>既望：農曆十六日</dd><dt>舉酒屬客</dt><dd>屬：音ㄓㄨˇ，勸酒</dd><dt>馮虛御風</dt><dd>馮：通「憑」，乘著</dd><dt>泣孤舟之嫠婦</dt><dd>嫠：音ㄌㄧˊ，寡婦</dd><dt>愀然</dt><dd>愀：音ㄑㄧㄠˇ，臉色改變</dd><dt>舳艫千里</dt><dd>音ㄓㄨˊ ㄌㄨˊ，船尾和船頭，指戰船相連</dd><dt>釃酒臨江，橫槊賦詩</dt><dd>釃：音ㄕ，斟酒。槊：音ㄕㄨㄛˋ，長矛</dd><dt>寄蜉蝣於天地，渺滄海之一粟</dt><dd>比喻人生短暫、個人渺小</dd><dt>造物者之無盡藏</dt><dd>藏：音ㄗㄤˋ，寶藏</dd><dt>相與枕藉乎舟中</dt><dd>藉：音ㄐㄧㄝˋ。互相枕著睡</dd></dl><p><b>常考重點：</b>情感變化是樂、悲、喜三段。賦體的演變（漢賦、駢賦、律賦、散文賦）是國學常識常考題。</p><div class="save-wrap"><label class="field-label" for="gwn9">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn9" data-save="note9" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:9" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw10" data-tags="late hit"><div class="mat-head"><span class="mid">#10</span><h3>晚遊六橋待月記</h3><span class="msrc">袁宏道</span></div><div class="gw-meta"><span>明</span><span>遊記小品</span><span class="hit">115 學測：第 25 題；第 27 題考同作者的另一篇遊記</span></div><p><b>主旨：</b>寫西湖春天的景色，認為西湖最美的是春天、月夜和早晚的霧氣，一般遊客只在中午前後來，錯過了最好的時刻。</p><p class="uses-title">脈絡</p><p class="flow-line">總說：西湖最美是春、是月，一天之中是朝煙和夕嵐 → 今年春雪多，梅、杏、桃相繼開花，作者留戀桃花 → 蘇堤一帶綠柳紅花，遊人眾多 → 杭州人只在午、未、申三個時辰遊湖 → 朝日初出、夕陽未落時最美，月景更妙，只有山僧和懂得欣賞的遊客能享受</p><p class="uses-title">必會字詞</p><dl class="words"><dt>夕嵐</dt><dd>傍晚山間的霧氣</dd><dt>為春雪所勒</dt><dd>勒：抑制。「為……所」是被動句</dd><dt>綠煙紅霧</dt><dd>綠柳如煙、紅花如霧</dd><dt>羅紈之盛</dt><dd>借代：穿著華麗的遊客。紈：音ㄨㄢˊ</dd><dt>午未申三時</dt><dd>上午 11 點到下午 5 點</dd><dt>夕舂</dt><dd>舂：音ㄔㄨㄥ。夕陽</dd></dl><p><b>常考重點：</b>公安派主張「獨抒性靈，不拘格套」，反對一味模仿古人。題目是「待月」，文中卻幾乎不寫月，留給讀者想像。</p><div class="save-wrap"><label class="field-label" for="gwn10">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn10" data-save="note10" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:10" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw11" data-tags="late hit"><div class="mat-head"><span class="mid">#11</span><h3>項脊軒志</h3><span class="msrc">歸有光</span></div><div class="gw-meta"><span>明</span><span>雜記</span><span class="hit">115 學測：第 1、32、35、36 題</span></div><p><b>主旨：</b>借一間小書房的變遷，追憶祖母、母親和妻子，寫出家族離散、人去物在的感傷。</p><p class="uses-title">脈絡</p><p class="flow-line">書房修整後的樣子：書滿架、月照牆，令人喜愛 → 轉折：也有許多可悲的事 → 叔伯分家，庭院被隔開 → 老婢女轉述母親隔著門問孩子冷不冷 → 祖母來看他讀書，送上祖先的象笏 →（補記）妻子來歸、妻子去世，庭中枇杷樹已亭亭如蓋</p><p class="uses-title">必會字詞</p><dl class="words"><dt>修葺</dt><dd>葺：音ㄑㄧˋ。修補</dd><dt>欄楯</dt><dd>楯：音ㄕㄨㄣˇ。欄杆</dd><dt>冥然兀坐</dt><dd>靜靜地獨自端坐</dd><dt>迨諸父異爨</dt><dd>迨：等到。爨：音ㄘㄨㄢˋ，灶。指分家</dd><dt>先妣</dt><dd>妣：音ㄅㄧˇ。已去世的母親</dd><dt>束髮</dt><dd>男子十五歲左右</dd><dt>象笏</dt><dd>笏：音ㄏㄨˋ。象牙做的手板，大臣上朝時拿</dd><dt>扃牖</dt><dd>音ㄐㄩㄥ ㄧㄡˇ。關上窗戶</dd><dt>亭亭如蓋</dt><dd>高高挺立，像一把傘</dd></dl><p><b>常考重點：</b>用生活小事和幾句話寫深情，結尾只寫枇杷樹而不直接說悲傷。115 學測的混合題就用這篇，搭配歸有光另外兩篇寫家中女性的文章。</p><div class="save-wrap"><label class="field-label" for="gwn11">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn11" data-save="note11" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:11" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw12" data-tags="late"><div class="mat-head"><span class="mid">#12</span><h3>勞山道士</h3><span class="msrc">蒲松齡</span></div><div class="gw-meta"><span>清</span><span>文言短篇小說・《聊齋誌異》</span><span class="">115 學測：未直接入題</span></div><p><b>主旨：</b>王生想學道術卻吃不了苦，只學到穿牆術；回家炫耀時法術失靈，一頭撞在牆上。</p><p class="uses-title">脈絡</p><p class="flow-line">王生上勞山拜師 → 砍柴一個多月，受不了辛苦 → 看到道士剪紙成月、壺酒不盡等法術，決定留下 → 又過一個月仍想回家，求得穿牆術，道士叮囑要心地純正 → 回家向妻子誇耀，撞牆跌倒 → 文末「異史氏曰」評論</p><p class="uses-title">必會字詞</p><dl class="words"><dt>負笈</dt><dd>笈：音ㄐㄧˊ，書箱。背著書箱，指外出求學</dd><dt>手足重繭</dt><dd>重繭：音ㄔㄨㄥˊ ㄐㄧㄢˇ。手腳磨出厚繭</dd><dt>陰有歸志</dt><dd>陰：暗中</dd><dt>俄頃</dt><dd>一會兒</dd><dt>俛首驟入</dt><dd>俛：通「俯」，低頭</dd><dt>踣</dt><dd>音ㄅㄛˊ。跌倒</dd><dt>揶揄</dt><dd>音ㄧㄝˊ ㄩˊ。嘲笑</dd></dl><p><b>常考重點：</b>諷刺不肯吃苦、只想走捷徑的人。「異史氏曰」模仿《史記》的「太史公曰」。小說源流：六朝志怪、唐傳奇、《聊齋》。</p><div class="save-wrap"><label class="field-label" for="gwn12">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn12" data-save="note12" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:12" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw13" data-tags="tw hit"><div class="mat-head"><span class="mid">#13</span><h3>勸和論</h3><span class="msrc">鄭用錫</span></div><div class="gw-meta"><span>清・臺灣</span><span>論說</span><span class="hit">115 學測：第 1、14 題；第 3 題用鄭用錫相關的賀詩</span></div><p><b>主旨：</b>清代臺灣常因祖籍不同而發生「分類械鬥」。作者勸大家消除地域成見，和睦相處。</p><p class="uses-title">脈絡</p><p class="flow-line">指出分類械鬥是臺灣的大禍害 → 說明臺灣居民都從內地遷來，本來就像親戚鄰居 → 描述械鬥造成的破壞 → 勸大家改過、不要再犯 → 期許地方恢復和平</p><p class="uses-title">必會字詞</p><dl class="words"><dt>分類</dt><dd>依祖籍分成不同群體互相械鬥，例如閩與粵、漳與泉</dd><dt>畛域</dt><dd>畛：音ㄓㄣˇ。界限、成見</dd><dt>塹</dt><dd>竹塹，今新竹</dd><dt>勿懷夙忿，勿蹈前愆</dt><dd>愆：音ㄑㄧㄢ，過失。不要記舊恨，不要重犯以前的錯</dd></dl><p><b>常考重點：</b>臺灣古典散文。鄭用錫是第一位以臺灣籍考中進士的人，有「開臺進士」之稱。可以連結到現代的族群議題。</p><div class="save-wrap"><label class="field-label" for="gwn13">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn13" data-save="note13" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:13" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw14" data-tags="tw"><div class="mat-head"><span class="mid">#14</span><h3>鹿港乘桴記</h3><span class="msrc">洪繻（洪棄生）</span></div><div class="gw-meta"><span>日治・臺灣</span><span>雜記</span><span class="">115 學測：未直接入題</span></div><p><b>主旨：</b>乘竹筏遊鹿港，對比從前商港的繁榮和眼前的蕭條，抒發家鄉衰落的感慨。</p><p class="uses-title">脈絡</p><p class="flow-line">回想鹿港從前的繁華：街市熱鬧、商船往來、文風興盛 → 衰落的原因：港口淤積、鐵路沒有經過、日本統治後的政策 → 乘竹筏所見的冷清 → 今昔對比的感嘆</p><p class="uses-title">必會字詞</p><dl class="words"><dt>桴</dt><dd>音ㄈㄨˊ。竹筏、木筏</dd><dt>乘桴</dt><dd>典故出自《論語》孔子說的「道不行，乘桴浮於海」，暗示理想無法實現</dd><dt>郊</dt><dd>清代臺灣的商業同業組織，例如泉郊、廈郊</dd></dl><p><b>常考重點：</b>今昔對比的寫法。題目用典，有言外之意。作者在日治時期堅持不剪辮、不出任官職。</p><div class="save-wrap"><label class="field-label" for="gwn14">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn14" data-save="note14" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:14" data-global><span>這篇已複習</span></label></article><article class="mat-card" id="gw15" data-tags="tw hit"><div class="mat-head"><span class="mid">#15</span><h3>畫菊自序</h3><span class="msrc">張李德和</span></div><div class="gw-meta"><span>日治・臺灣</span><span>序</span><span class="hit">115 學測：第 25、28 題</span></div><p><b>主旨：</b>自述在持家之餘學畫，以菊花作品入選美術展覽的經過，並借菊花的品格勉勵自己。</p><p class="uses-title">脈絡</p><p class="flow-line">說明女子在家務之外也應該有自己的學習 → 自述學畫的機緣和持續練習 → 畫菊參展獲得肯定 → 借菊花耐寒、晚開的特質表明志向</p><p class="uses-title">必會字詞</p><dl class="words"><dt>自序</dt><dd>作者為自己的作品寫的序</dd><dt>菊的象徵</dt><dd>耐寒、晚節、隱逸；陶淵明愛菊是最常用的典故</dd><dt>琳瑯山閣</dt><dd>張李德和在嘉義的住所，也是文人聚會的地方</dd></dl><p><b>常考重點：</b>序跋類文體：寫在作品前面介紹緣由的是序。這篇是 15 篇中唯一的女性作者，可以連結女性的自我追求。</p><div class="save-wrap"><label class="field-label" for="gwn15">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label><textarea id="gwn15" data-save="note15" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div><label class="keep"><input type="checkbox" class="chk" data-save="gw:15" data-global><span>這篇已複習</span></label></article></div>
+  </section>
+  <section class="practice prose" id="practice">
+    <h2>練習題：十五篇各一題</h2>
+    <p class="lede-line">每篇一題，做完對照卡片上的重點。作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>
+    <div class="qlist">
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">1</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>「行李之往來，共其乏困」的「行李」，意思是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>出門帶的行囊</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>外交使者</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>行走的道路</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>隨行的士兵</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>〈燭之武退秦師〉。「行李」指使者。燭之武的意思是：秦國使者經過鄭國時，鄭國可以供應他們缺少的東西。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="C">
+        <div class="qhead"><span class="qnum">2</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>關於〈大同與小康〉，下列說明何者正確？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>大同世界靠嚴格的禮制維持秩序</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>小康社會的特徵是「天下為公，選賢與能」</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>「矜寡孤獨廢疾者」的「矜」通「鰥」，指年老無妻的人</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>文中孔子認為小康比大同更理想</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>大同是「天下為公」，小康是「天下為家」、以禮為綱紀；孔子嚮往的是大同。「矜」通「鰥」。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="C">
+        <div class="qhead"><span class="qnum">3</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>李斯在〈諫逐客書〉中列舉秦王喜愛的珍寶、美女、音樂都不產於秦國，用意是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>稱讚秦國國力強盛，能取得各地物產</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>勸秦王不要沉迷享樂</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>指出秦王用物不問產地，用人卻要趕走外來者，是重物輕人</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>說明各國都願意向秦國進貢</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>這一段是「物證」：東西只要好用就不問來源，人才卻因為不是秦國人就趕走，李斯用這個矛盾來說服秦王。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="A">
+        <div class="qhead"><span class="qnum">4</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>「范增數目項王，舉所佩玉玦以示之者三」的「目」，用法與下列何者相同？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>沛公「軍」霸上</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>「目」眥盡裂</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>頭髮上「指」</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>勞苦而「功」高如此</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>「目」原是名詞，這裡當動詞「使眼色」。「軍霸上」的「軍」也是名詞當動詞用，意思是駐軍。其餘三項都維持原來的詞性。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">5</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>「先帝不以臣卑鄙，猥自枉屈，三顧臣於草廬之中」的「卑鄙」，意思是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>品行惡劣</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>身分低微、見識淺陋</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>態度謙虛</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>生活貧困</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>〈出師表〉。古今異義詞：古代「卑」指地位低，「鄙」指見識淺，沒有現代「品行惡劣」的意思。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="D">
+        <div class="qhead"><span class="qnum">6</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>下列〈桃花源記〉的詞語，古今意思相同的是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>阡陌「交通」</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>率「妻子」邑人</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>「無論」魏晉</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>「豁然開朗」</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>交通：交錯相通。妻子：妻與子女。無論：更不用說。這三個都是古今異義。「豁然開朗」古今都指一下子開闊明亮。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="D">
+        <div class="qhead"><span class="qnum">7</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈師說〉用了三組對比來批評當時的風氣，下列何者<b>不是</b>文中的對比？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>古代聖人從師而問，今人卻恥於學習</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>為孩子請老師，自己卻以從師為恥</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>巫醫樂師百工互相學習，士大夫卻嘲笑從師的人</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>讀書人重視科舉，百姓重視技藝</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>前三項就是文中的三組對比。(D) 文中沒有提到。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">8</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈虯髯客傳〉中，虯髯客最後把家產送給李靖、自己遠走海外，主要原因是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>被楊素追捕，無處可去</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>見到李世民後，認為天下已有真主，不再爭奪</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>與李靖、紅拂女反目</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>道士勸他出家修行</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>虯髯客原本有意爭天下，在太原見到李世民後，認定他是「真人」，於是放棄，轉而資助李靖輔佐李世民。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">9</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈赤壁賦〉全篇的情感變化，依序是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>悲 → 樂 → 喜</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>樂 → 悲 → 喜</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>喜 → 悲 → 怒</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>樂 → 喜 → 悲</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>先寫泛舟之樂，再由洞簫聲引出人生短暫之悲，最後蘇子以水月為喻開解，客人轉悲為喜。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="D">
+        <div class="qhead"><span class="qnum">10</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>關於袁宏道與〈晚遊六橋待月記〉，下列敘述何者正確？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>袁宏道屬於桐城派，講究義法</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>文章用大量篇幅描寫月下的西湖</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>作者認為西湖最美的時刻是午、未、申三個時辰</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>公安派主張「獨抒性靈，不拘格套」</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>袁宏道是公安派。文章題為「待月」卻幾乎不寫月；午未申三時是一般遊客出遊的時間，作者認為最美的是朝煙、夕嵐與月夜。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">11</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈項脊軒志〉結尾寫「庭有枇杷樹，吾妻死之年所手植也，今已亭亭如蓋矣」，這種寫法的效果是：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>說明枇杷樹的種植方法</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>只寫樹的生長而不直接說悲傷，讓思念含蓄而深長</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>表示作者已經忘記喪妻之痛</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>強調書房環境清幽</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>以景結情：樹越長越高，表示妻子離開的時間越來越久。作者不說想念，讀者卻感受得到。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">12</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈勞山道士〉文末有「異史氏曰」一段評論，這是模仿哪一部書的體例？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>《左傳》的「君子曰」</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>《史記》的「太史公曰」</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>《論語》的「子曰」</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>《世說新語》的分門別類</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>蒲松齡自稱「異史氏」，在故事後面發表評論，是模仿司馬遷《史記》各篇末尾的「太史公曰」。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">13</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈勸和論〉所勸的「和」，針對的是清代臺灣的哪一種現象？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>官員與百姓之間的衝突</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>不同祖籍的移民之間的分類械鬥</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>臺灣與外國商人的貿易糾紛</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>文人之間的文學論爭</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>清代臺灣的移民常依祖籍（閩、粵，或漳州、泉州）分成不同群體互相械鬥，稱為「分類」。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">14</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈鹿港乘桴記〉題目中的「乘桴」，典故出自《論語》「道不行，乘桴浮於海」。作者用這個典故，最可能想表達：</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>對航海的興趣</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>理想無法實現、對時局失望的心情</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>鹿港的造船技術發達</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>希望到海外經商</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>孔子說這句話是感嘆主張不被採用。洪繻在日治時期寫家鄉的衰落，借這個典故寄託遺民的失落。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+      <div class="qcard quiz" data-answer="B">
+        <div class="qhead"><span class="qnum">15</span><span class="qtag">單選</span><span class="srctag selfmade">自編練習題：非歷屆試題，也非大考中心練習題</span></div>
+        <p>〈畫菊自序〉屬於「序」。關於序這種文體，下列敘述何者正確？</p>
+        <div class="opts long" role="group" aria-label="選項"><button type="button" class="opt" data-opt="A" aria-pressed="false"><b>A</b><span>序只能由別人來寫，作者不能自己寫</span></button><button type="button" class="opt" data-opt="B" aria-pressed="false"><b>B</b><span>「自序」是作者為自己的作品說明創作緣由</span></button><button type="button" class="opt" data-opt="C" aria-pressed="false"><b>C</b><span>序一定放在書的最後面</span></button><button type="button" class="opt" data-opt="D" aria-pressed="false"><b>D</b><span>序和「表」一樣，都是臣子寫給君王的文書</span></button></div>
+        <div class="quiz-fb" hidden><p class="verdict"></p><p>作者自己寫的叫自序，別人寫的叫他序。古代的序有放在書後的，後來多放在前面；放在後面的常稱為「跋」。「表」才是臣子上呈君王的文書。</p><button type="button" class="btn ghost small quiz-reset">重新作答</button></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing prose"><div class="card"><h2>下一步</h2><p>讀完 15 篇後，到單元 12「文言文閱讀方法」學虛詞、句式和翻譯步驟，用同一套方法讀沒看過的古文。</p></div></section>
+  <section class="prose"><h2 style="font-size:1.1rem;margin-bottom:0.5rem;">資料來源</h2><ul class="sources"><li><a href="https://www.nownews.com/news/6320416">108 課綱高中國文 15 篇推薦選文篇目</a>（NOWnews）</li><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/d867f5c9691356b3554934768cd0a996.pdf">115 學測國綜試題分析</a>（國語文學科中心）</li><li><a href="https://cerclearning.tp.edu.tw/activefiles/news/76a223460e347c6a1e32e8f511d7f41d.pdf">115 學年度學測國語文綜合能力測驗試題</a>（大考中心；檔案由國語文學科中心提供）</li><li>各篇的主旨、脈絡與字詞解釋為本站依課文整理的摘要；課文以各版本課本為準。</li></ul></section>
+  <footer><span>筱葳學測國文</span><span>國文學習地圖・國綜</span></footer>
+</div>
+<script src="app.js" defer></script>
+</body>
+</html>
