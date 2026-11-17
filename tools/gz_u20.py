@@ -8,6 +8,9 @@
 """
 import random
 from gz_lib import *
+import json
+from gz_texts import TEXTS
+from gz_works_info import WORK_INTRO, AUTHOR_INTRO, BOOK_INTRO, WIKI_SRC, WIKI_FIX
 
 PART8 = "第八部・語文基礎與國學常識"
 
@@ -124,6 +127,12 @@ WORKS = [
     ("臺灣通史序", "連橫", "序", "《臺灣通史》", "臺灣固無史也", False),
 ]
 W = {w[0]: w for w in WORKS}
+WID = {w[0]: i for i, w in enumerate(WORKS, 1)}
+
+
+def work_btn(t):
+    return '<button type="button" class="wbtn" data-work="%d">原文・簡介・作者</button>' % WID[t]
+
 
 # 概念題：(週次, 題目, 選項, 正解索引, 解說)
 CONCEPTS = [
@@ -290,7 +299,7 @@ def render_item(c, rng, kind, x):
     expl = "〈%s〉：%s。" % (title, "，".join(bits))
     if typ == "作家特色":
         expl += "%s的特色是：%s。" % (au, AUTHORS[au][1])
-    return mc(c, "<span class=\"qtype\">%s</span>%s" % (typ, q), o, "ABCD"[o.index(a)], expl)
+    return mc(c, "<span class=\"qtype\">%s</span>%s" % (typ, q), o, "ABCD"[o.index(a)], expl, pre=work_btn(t))
 
 
 CSS = """<style>
@@ -304,8 +313,42 @@ CSS = """<style>
   .wk-h{ font-size:1.05rem; margin:1.4rem 0 0.6rem; }
   .qtype{ display:inline-block; font-size:0.72rem; background:var(--surface-2); border:1px solid var(--line); border-radius:4px; padding:0 0.4rem; margin-right:0.4rem; vertical-align:2px; }
   .facts{ margin:0 0 0.8rem; padding-left:1.1rem; font-size:0.9rem; line-height:1.7; }
+  .wbtn{ display:inline-block; font-size:0.75rem; border:1px solid var(--accent); color:var(--accent); background:transparent; border-radius:999px; padding:0.1rem 0.6rem; margin:0 0 0.4rem; cursor:pointer; }
+  .facts .wbtn{ margin:0 0 0 0.3rem; padding:0 0.5rem; }
+  #work-dlg{ width:min(680px,94vw); max-height:88vh; padding:0; border:1px solid var(--line); border-radius:10px; background:var(--surface); color:var(--ink); }
+  #work-dlg::backdrop{ background:rgba(0,0,0,0.45); }
+  .wd-bar{ position:sticky; top:0; display:flex; justify-content:flex-end; padding:0.5rem 0.8rem; background:var(--surface); border-bottom:1px solid var(--line); }
+  .wd-body{ padding:0.4rem 1.2rem 1.2rem; overflow:auto; max-height:calc(88vh - 3rem); }
+  .wd-body h3{ font-family:'Noto Serif TC',serif; font-size:1.3rem; margin:0.6rem 0 0.2rem; }
+  .wd-body h4{ font-size:0.95rem; color:var(--accent); margin:1rem 0 0.3rem; }
+  .wd-meta{ font-size:0.85rem; color:var(--ink-muted); margin:0; }
   .core{ display:inline-block; font-size:0.68rem; background:var(--ab); color:var(--ab-ink); border-radius:4px; padding:0 0.3rem; margin-left:0.3rem; }
 </style>"""
+
+
+
+def work_templates():
+    out = []
+    for t, i in WID.items():
+        title, au, genre, src, line, core = W[t]
+        if t in TEXTS:
+            text = '<div class="passage">%s</div>' % "".join("<p>%s</p>" % p for p in TEXTS[t])
+            note = "原文依維基文庫等來源整理，個別用字以課本為準。"
+        else:
+            pg, a, b = WIKI_SRC[t]
+            text = ('<div class="passage" data-wiki="%s" data-start="%s" data-end="%s" data-fix="%s"></div>'
+                    % (esc(pg), esc(a), esc(b), esc(json.dumps(WIKI_FIX, ensure_ascii=False))))
+            note = '原文即時載入自<a href="https://zh.wikisource.org/wiki/%s" target="_blank" rel="noopener">維基文庫「%s」</a>，個別用字以課本為準。' % (esc(pg), esc(pg))
+            if t in ("論語選", "世說新語選", "勸學", "庖丁解牛", "過秦論"):
+                note = "節選。" + note
+        meta = "・".join(x for x in [("%s（%s）" % (au, AUTHORS[au][0])) if au else "", GENRE_NAME[genre].split("（")[0], src or ""] if x)
+        who = ("<h4>作者：%s</h4><p>%s</p>" % (au, AUTHOR_INTRO[au])) if au else ("<h4>出處</h4><p>%s</p>" % BOOK_INTRO[t])
+        out.append(
+            '<template id="tw-%d"><h3 class="wd-title">〈%s〉</h3><p class="wd-meta">%s</p>'
+            '<h4>簡介與分析</h4><p>%s</p>%s<h4>原文</h4>%s<p class="note">%s</p></template>'
+            % (i, title, meta, WORK_INTRO[t], who, text, note))
+    out.append('<dialog id="work-dlg" aria-label="古文資料"><div class="wd-bar"><button type="button" class="btn ghost small wd-close">關閉</button></div><div class="wd-body"></div></dialog>')
+    return "".join(out)
 
 
 def build_u20():
@@ -321,7 +364,7 @@ def build_u20():
             ["2 分鐘", "打開當天的卡片，看「今日篇目」表：作者、時代、文體、出處、名句。"],
             ["6 分鐘", "做 5 題。不要翻資料，憑記憶作答，答完看解說。"],
             ["2 分鐘", "答錯的題目，把正確答案抄進下方的「錯題筆記」，寫一句提醒自己的話。做完勾選「今天完成」。"],
-        ]) + "<p>題目會重複出現：每週第 7 天複習本週，第 50–60 天綜合複習。答錯的題目隔幾天再遇到，是記住它的最好時機。</p>")
+        ]) + "<p>每題上方的「原文・簡介・作者」按鈕會打開那篇古文的原文、簡介分析與作者介紹。建議先作答再打開，以免看到答案。</p><p>題目會重複出現：每週第 7 天複習本週，第 50–60 天綜合複習。答錯的題目隔幾天再遇到，是記住它的最好時機。</p>")
         + step("八週進度", table(["週次", "天數", "主題", "篇目"], wk_rows)
                + '<p class="note">標「核心」的是 108 課綱核心古文十五篇，其餘是國中、高中課本常見、學測閱讀題也常引用的古文。共 %d 篇。</p>' % len(WORKS))
         + step("五種題型", table(["題型", "考什麼", "怎麼記"], [
@@ -339,7 +382,7 @@ def build_u20():
         facts = ""
         if works:
             facts = '<p class="uses-title">今日篇目</p><ul class="facts">%s</ul>' % "".join(
-                "<li><b>%s</b>　%s</li>" % (r[0], "・".join(x for x in r[1:] if x != "—")) for r in (facts_row(t) for t in works))
+                "<li><b>%s</b>　%s %s</li>" % (r[0], "・".join(x for x in r[1:] if x != "—"), work_btn(t)) for t, r in ((t, facts_row(t)) for t in works))
         cards.append(
             '<details class="day-card" id="d%d"%s><summary><span class="dno">第 %d 天</span><span class="dtheme">%s</span></summary>'
             '<div class="day-body">%s<div class="qlist">%s</div>'
@@ -359,7 +402,7 @@ def build_u20():
         '  <section class="practice prose" id="days">\n    <h2>六十天測驗</h2>\n'
         '    <p class="lede-line">每天 5 題，共 %d 題。點開當天的卡片作答，作答紀錄會保存在這台裝置。<span class="quiz-score" id="quiz-score"></span></p>\n'
         '    %s\n  </section>\n' % (c.mc, weeks_html)
-    )
+    ) + work_templates()
 
     page(
         "國學常識六十天", 20, PART8, "國學常識六十天",

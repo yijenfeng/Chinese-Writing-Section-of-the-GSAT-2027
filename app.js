@@ -493,6 +493,64 @@
     render();
   })();
 
+  /* 古文資料視窗：按 [data-work] 按鈕，顯示原文、簡介、作者（單元 20） */
+  (function () {
+    var dlg = document.getElementById("work-dlg");
+    if (!dlg) return;
+    var body = dlg.querySelector(".wd-body");
+    var cache = {};
+    function clean(s) {
+      return s.replace(/〈[^〉]*〉/g, "").replace(/一作「[^」]*」/g, "");
+    }
+    function loadWiki(box) {
+      var page = box.getAttribute("data-wiki"), a = box.getAttribute("data-start"), b = box.getAttribute("data-end");
+      var fixes = JSON.parse(box.getAttribute("data-fix") || "[]");
+      if (cache[page + a]) { box.innerHTML = cache[page + a]; return; }
+      box.textContent = "正在從維基文庫載入原文……";
+      fetch("https://zh.wikisource.org/w/api.php?action=parse&format=json&redirects=1&prop=text&origin=*&page=" + encodeURIComponent(page))
+        .then(function (r) { return r.json(); })
+        .then(function (j) {
+          var d = document.createElement("div");
+          d.innerHTML = j.parse.text["*"];
+          d.querySelectorAll("sup,.reference,.references,style,script,.mw-editsection,.ws-noexport,.noprint").forEach(function (e) { e.remove(); });
+          document.body.appendChild(d); d.style.cssText = "position:absolute;left:-9999px;top:0;width:600px";
+          var s = clean(d.innerText); d.remove();
+          fixes.forEach(function (f) { s = s.split(f[0]).join(f[1]); });
+          var i = s.indexOf(a); if (i < 0) throw new Error("start");
+          var k = b ? s.indexOf(b, i) : -1;
+          s = b && k >= 0 ? s.slice(i, k + b.length) : s.slice(i);
+          var html = s.split(/\n+/).map(function (x) { return x.trim(); }).filter(Boolean)
+            .map(function (x) { var p = document.createElement("p"); p.textContent = x; return p.outerHTML; }).join("");
+          cache[page + a] = html; box.innerHTML = html;
+        })
+        .catch(function () {
+          box.innerHTML = "";
+          var p = document.createElement("p");
+          p.textContent = "原文載入失敗，請確認網路連線，或直接到維基文庫查看。";
+          var l = document.createElement("a");
+          l.href = "https://zh.wikisource.org/wiki/" + encodeURIComponent(page); l.target = "_blank"; l.rel = "noopener";
+          l.textContent = "打開維基文庫「" + page + "」";
+          box.appendChild(p); box.appendChild(l);
+        });
+    }
+    document.addEventListener("click", function (e) {
+      var btn = e.target.closest("[data-work]");
+      if (btn) {
+        e.preventDefault();
+        var tpl = document.getElementById("tw-" + btn.getAttribute("data-work"));
+        if (!tpl) return;
+        body.innerHTML = "";
+        body.appendChild(tpl.content.cloneNode(true));
+        var box = body.querySelector("[data-wiki]");
+        if (box) loadWiki(box);
+        if (dlg.showModal) dlg.showModal(); else dlg.setAttribute("open", "");
+        body.scrollTop = 0;
+        return;
+      }
+      if (e.target === dlg || e.target.closest(".wd-close")) { if (dlg.close) dlg.close(); else dlg.removeAttribute("open"); }
+    });
+  })();
+
   /* 儲存不可用時提醒 */
   try { localStorage.setItem(P + "_t", "1"); localStorage.removeItem(P + "_t"); }
   catch (e) {
