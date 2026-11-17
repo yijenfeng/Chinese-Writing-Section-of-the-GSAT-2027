@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """單元 10 國綜考試規格與歷屆考點、單元 11 核心古文十五篇。"""
 from gz_lib import *
+import re
 from gz_links import GZ as PAPER_LINKS
 
 PART5 = "第五部・認識國綜"
@@ -354,6 +355,20 @@ GW = [
 ERA_CHIPS = [("all", "全部"), ("early", "先秦兩漢"), ("mid", "魏晉唐宋"), ("late", "明清"), ("tw", "臺灣"), ("hit", "115 有入題"), ("kept", "已複習")]
 
 
+def gw_extra(title):
+    """原文（可展開）與這一篇的教案。"""
+    from gz_texts import TEXTS, LESSONS
+    paras = "".join("<p>%s</p>" % p for p in TEXTS[title])
+    goal, qs, pair = LESSONS[title]
+    ql = "".join("<li><p>%s</p><details class=\"refans\"><summary>參考答案</summary><div class=\"ans\"><p>%s</p></div></details></li>" % qa for qa in qs)
+    return (
+        '<details class="refans gw-text"><summary>原文（%d 字）</summary><div class="passage">%s</div></details>'
+        '<details class="refans gw-plan"><summary>教案：目標・提問・對讀</summary><div class="ans">'
+        "<p><b>學習目標：</b>%s</p><p class=\"uses-title\">課堂提問（先自己回答，再打開答案）</p><ol class=\"gw-q\">%s</ol>"
+        "<p><b>延伸對讀：</b>%s</p></div></details>"
+    ) % (len(re.findall(r"[\u4e00-\u9fff]", "".join(TEXTS[title]))), paras, goal, ql, pair)
+
+
 def gw_card(n, g):
     title, author, era, tag, genre, gist, flow, ws, focus, hit = g
     hit_tag = "" if hit.startswith("未") else " hit"
@@ -366,11 +381,12 @@ def gw_card(n, g):
         '<p class="uses-title">脈絡</p><p class="flow-line">%s</p>'
         '<p class="uses-title">必會字詞</p>%s'
         "<p><b>常考重點：</b>%s</p>"
+        "%s"
         '<div class="save-wrap"><label class="field-label" for="gwn%d">我的筆記：最容易忘的地方<span class="saved">已儲存</span></label>'
         '<textarea id="gwn%d" data-save="note%d" rows="2" placeholder="例如：通同字、容易混淆的人物、想對讀的文章"></textarea></div>'
         '<label class="keep"><input type="checkbox" class="chk" data-save="gw:%d" data-global><span>這篇已複習</span></label>'
         "</article>"
-    ) % (n, tag, hit_tag, n, title, author, meta, gist, flow, words(ws), focus, n, n, n, n)
+    ) % (n, tag, hit_tag, n, title, author, meta, gist, flow, words(ws), focus, gw_extra(title), n, n, n, n)
 
 
 def build_u11():
@@ -385,7 +401,16 @@ def build_u11():
         step("讀法", "<ol><li><b>主旨</b>：用一句話說出這篇在講什麼。</li><li><b>脈絡</b>：看著箭頭，能不能把故事或論點順序講一遍。</li>"
              "<li><b>必會字詞</b>：遮住右邊的解釋，自己說一次。這些字詞就是字音、字義題的來源。</li>"
              "<li><b>常考重點</b>：這篇常和哪一篇放在一起比較。</li></ol>"
-             "<p>每張卡的重點是本站整理的摘要。完整的課文、注釋和翻譯，請回到課本。</p>")
+             "<p>每張卡的重點是本站整理的摘要，卡片下方可以展開原文。注釋和翻譯請看課本。</p>")
+        + step("每篇的教案怎麼用", "<p>每張卡片下方有兩個可以展開的區塊：「原文」和「教案」。建議每篇照下面五步，約 40 分鐘：</p>"
+             + table(["步驟", "時間", "做什麼"], [
+                 ["1 朗讀", "5 分鐘", "打開原文，出聲唸一遍。唸不順的地方，通常就是斷句或生字。"],
+                 ["2 圈字", "10 分鐘", "對照「必會字詞」，在原文裡找到每個詞，遮住解釋自己說一次。"],
+                 ["3 說脈絡", "5 分鐘", "看著「脈絡」的箭頭，用自己的話把故事或論點講一遍。"],
+                 ["4 回答提問", "15 分鐘", "打開教案，先口頭或寫下答案，再打開參考答案對照。答錯的寫進筆記欄。"],
+                 ["5 對讀", "5 分鐘", "看「延伸對讀」，想一想兩篇哪裡相同、哪裡不同。考題常把兩篇放在一起比較。"],
+             ])
+             + "<p>建議進度：一週 5 篇，三週讀完 15 篇；第四週只看筆記欄和答錯的提問。原文主要依維基文庫整理，個別用字可能和課本不同，考試以課本為準。</p>")
         + step("115 學測用了哪些篇", "<p>卡片上的綠色標籤是 115 學測用到這一篇的題號。15 篇中有 12 篇直接入題，〈師說〉、〈勞山道士〉、〈鹿港乘桴記〉沒有。沒入題的篇目，隔年出現的機會不會比較低。</p>"),
     )
     body += (
@@ -445,11 +470,11 @@ def build_u11():
 
     page(
         "核心古文十五篇", 11, PART6, "核心古文十五篇",
-        "108 課綱的 15 篇推薦選文，是國綜唯一確定的範圍。每篇一張卡：主旨、脈絡、必會字詞、常考重點。",
+        "108 課綱的 15 篇推薦選文，是國綜唯一確定的範圍。每篇一張卡：主旨、脈絡、必會字詞、常考重點，附原文與教案。",
         "<p>115 學測的字音題、字義題、量詞題、文體題和混合題，材料都來自這 15 篇。考法不是默寫，而是把兩篇放在一起比較，所以每篇都要能用自己的話說出主旨和脈絡。</p>",
         [("how", "怎麼讀"), ("cards", "十五張卡"), ("practice", "練習題")],
         body,
         "<p>讀完 15 篇後，到單元 12「文言文閱讀方法」學虛詞、句式和翻譯步驟，用同一套方法讀沒看過的古文。</p>",
-        [SRC_15, SRC_115_ANALYSIS, SRC_115_PAPER, "各篇的主旨、脈絡與字詞解釋為本站依課文整理的摘要；課文以各版本課本為準。"],
+        [SRC_15, SRC_115_ANALYSIS, SRC_115_PAPER, "各篇的主旨、脈絡與字詞解釋為本站依課文整理的摘要；課文以各版本課本為準。", '原文：<a href="https://zh.wikisource.org/">維基文庫</a>（十三篇）；〈晚遊六橋待月記〉依<a href="https://cerclearning.tp.edu.tw/download/classica/023/w23.docx">國語文學科中心講義</a>；〈畫菊自序〉依<a href="https://cerclearning.tp.edu.tw/files/3193ad078a6ca8a10f79a2987406cbef.pdf">國語文學科中心 112 年試題研發題組</a>。', "教案的提問與參考答案為本站自編。"],
     )
     return c
