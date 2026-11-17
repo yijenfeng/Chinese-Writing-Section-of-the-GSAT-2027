@@ -243,7 +243,7 @@
     });
     return { done: done, right: right };
   }
-  var GZ_RE = /^gsat2027:(核心古文十五篇|文言文閱讀|閱讀理解|混合題作答|字音字形成語|文法修辭應用文|國學常識):(quiz|mq)\d+$/;
+  var GZ_RE = /^gsat2027:(核心古文十五篇|文言文閱讀|閱讀理解|混合題作答|字音字形成語|文法修辭應用文|國學常識|比較型多選題):(quiz|mq)\d+$/;
   function countKeys(re) { return allKeys().filter(function (k) { return re.test(k); }).length; }
   function answered() {
     return allKeys().filter(function (k) { return /:qz?\d+$/.test(k); }).length;
